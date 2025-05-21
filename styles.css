@@ -1,18 +1,6 @@
 body {
   font-family: 'Courier New', Courier, monospace;
-  margin: 0;
-  padding: 0;
-  background-color: #f8f8f8;
-  color: #333;
 }
-
-header {
-  background-color: #111;
-  color: white;
-  padding: 1rem;
-  text-align: center;
-}
-
 
 /* The sidebar menu */
 .sidenav {
@@ -51,11 +39,4 @@ header {
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
-}
-
-footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: #eee;
-  margin-top: 2rem;
 }

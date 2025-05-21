@@ -2,6 +2,10 @@ body {
   font-family: 'Courier New', Courier, monospace;
 }
 
+p{
+  color: #818181;
+}
+
 /* The sidebar menu */
 .sidenav {
   height: 100%; /* Full-height: remove this if you want "auto" height */

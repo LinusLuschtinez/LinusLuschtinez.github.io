@@ -1,6 +1,5 @@
 body {
   font-family: 'Courier New', Courier, monospace; /* sets default font */
-  font-size: 16px;  /* sets default font size */
 }
 
 /* The sidebar menu */
@@ -11,7 +10,6 @@ body {
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
-  font-size: 8px;
   background-color: #111; /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
@@ -21,7 +19,8 @@ body {
 .sidenav a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 20px;
+  letter-spacing: 90%;
   color: #818181;
   display: block;
 }

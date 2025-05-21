@@ -36,12 +36,6 @@ body {
 }
 
 
-img {
-  max-width: 10%;
-  height: auto;
-}
-
-
 /* Photogarphy IMG Gallery */
 .row {
   display: flex;

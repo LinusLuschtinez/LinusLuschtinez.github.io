@@ -36,8 +36,8 @@ body {
 
 /* Style page content */
 .main {
+  height: 100%; /* Full-height */
   margin-left: 160px; /* Same as the width of the sidebar */
-  height: 100%; 
   padding: 0px 10px;
 }
 

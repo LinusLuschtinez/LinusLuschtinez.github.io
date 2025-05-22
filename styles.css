@@ -51,6 +51,20 @@ body {
 }
 
 
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 8px;
+  padding: 10px;
+}
+.gallery img {
+  width: 100%;
+  height: auto;
+  display: flex;
+}
+
+
+
 /*-------------------------- IMG GALLERY --------------------------*/
 /* if i am correct, this is the css for the image gallery */
 .row {

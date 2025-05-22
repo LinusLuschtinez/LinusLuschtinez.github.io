@@ -38,7 +38,15 @@
                 video.pause();
                 video.currentTime = 0; //Startet das Video beim nächsten Hover von vorne
             });
+            
+            video.addEventListener('click', () => {
+            video.muted = false;
+            video.play();
+            });
         });
+
+
+
     </script>
 
 </body>

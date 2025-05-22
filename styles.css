@@ -67,20 +67,18 @@ body {
   border-radius: 5px;
 }
 .videogallery {
-  /*display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));*/
   column-count: 4;
-  column-fill: balance;
+  /*column-fill: balance;*/
   gap: 8px;
   padding: 10px;
 }
 
 .videogallery video {
   width: 100%;
+  max-width: 100%;
   margin-bottom: 8px;
   display: block;
-
+  border-radius: 5px;
+  
 }
-
-
 /*-------------------------- IMG GALLERY --------------------------*/

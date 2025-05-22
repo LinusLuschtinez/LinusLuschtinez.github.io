@@ -5,7 +5,6 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
     <div class="videogallery">
         <video>
             <source src="videos/reel1.mp4" type="video/mp4">
@@ -23,5 +22,23 @@
         </video>
     </div>
     
+
+   <script>
+      // Alle Videos auswählen
+      const videos = document.querySelectorAll('.gallery video');
+
+      videos.forEach(video => {
+       video.addEventListener('mouseenter', () => {
+          video.play();
+        });
+
+        video.addEventListener('mouseleave', () => {
+          video.pause();
+          video.currentTime = 0; // Startet das Video beim nächsten Hover von vorne
+        });
+     });
+    </script>
+
+
 </body>
 </html>

@@ -31,20 +31,19 @@
         videos.forEach(video => {
             
             video.addEventListener('mouseenter', () => {
-                video.muted = false;
                 video.play();
             });
 
             video.addEventListener('mouseleave', () => {
                 video.pause();
-                video.muted = true;
                 video.currentTime = 0; //Startet das Video beim nächsten Hover von vorne
             });
             
             video.addEventListener('click', () => {
-            video.muted = false;
-            video.play();
+                video.muted = false;
             });
+
+
         });
 
 

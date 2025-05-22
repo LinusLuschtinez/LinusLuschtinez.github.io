@@ -2,6 +2,7 @@ body {
   font-family: 'Courier New', Courier, monospace;
 }
 
+/*-------------------------- THE SIDEBAR --------------------------*/
 /* The sidebar menu */
 .sidenav {
   height: 100%; /* Full-height: remove this if you want "auto" height */
@@ -14,7 +15,6 @@ body {
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
 }
-
 /* The navigation menu links */
 .sidenav a {
   font-size: 14px;
@@ -23,25 +23,26 @@ body {
   color: #818181;
   display: block;
 }
-
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
   color: #f1f1f1;
 }
-
 .sidenav p{
   color: #818181;
   font-size: 16px;
 }
+/*-------------------------- THE SIDEBAR --------------------------*/
+
 
 /* Style page content */
 .main {
   height: 100%; /* Same height as the sidebar */
   margin-left: 160px; /* Same as the width of the sidebar */
+  margin-right: 10px; 
   padding: 0px 10px;
 }
 
-
+/*-------------------------- IMG GALLERY --------------------------*/
 /* if i am correct, this is the css for the image gallery */
 .row {
   display: flex;
@@ -76,3 +77,5 @@ body {
     max-width: 100%;
   }
 }
+
+/*-------------------------- IMG GALLERY --------------------------*/

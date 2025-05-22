@@ -27,6 +27,7 @@ body {
 .sidenav a:hover {
   color: #f1f1f1;
 }
+
 .sidenav p{
   color: #818181;
   font-size: 16px;
@@ -62,19 +63,6 @@ body {
   width: 100%;
 }
 
-/* Responsive layout - makes the image gallery responsive */
-@media screen and (max-width: 800px) {
-  .column {
-    flex: 50%;
-    max-width: 50%;
-  }
-}
-/* Responsive layout - makes the image gallery responsive */
-@media screen and (max-width: 500px) {
-  .column {
-    flex: 100%;
-    max-width: 100%;
-  }
-}
+
 
 /*-------------------------- IMG GALLERY --------------------------*/

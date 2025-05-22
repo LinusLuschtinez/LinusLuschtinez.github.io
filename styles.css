@@ -35,17 +35,19 @@ body {
 /*-------------------------- THE SIDEBAR --------------------------*/
 
 
-.main-frame {
-  width: 100%;
-  height: 100vh;
-  border: none;
-}
+
 
 /* Style page content */
 .main {
   height: 100vh; /* Same height as the sidebar */
   margin-left: 160px; /* Same as the width of the sidebar */
   padding: 0px 10px;
+}
+
+.main iframe{
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 

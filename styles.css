@@ -28,6 +28,12 @@ body {
   color: #f1f1f1;
 }
 
+p{
+color: #111111;
+font-size: 16px;
+display: block;
+}
+
 p1{
   color: #FFFFFF;
   font-size: 16px;

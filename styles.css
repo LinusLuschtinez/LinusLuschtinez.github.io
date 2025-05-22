@@ -56,6 +56,7 @@ body {
   /*display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));*/
   column-count: 4;
+  column-fill: balance;
   gap: 8px;
   padding: 10px;
 }

@@ -42,6 +42,13 @@ p1{
   
 }
 
+p2{
+color: #111111;
+font-size: 16px;
+display: block;
+width: 500px;
+}
+
 /*-------------------------- THE SIDEBAR --------------------------*/
 
 /* Style page content */

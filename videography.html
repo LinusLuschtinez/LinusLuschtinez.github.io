@@ -25,34 +25,21 @@
     </div>
 
 
-   <script>
+    <script>
+    // Alle Videos auswählen
     const videos = document.querySelectorAll('.gallery video');
 
     videos.forEach(video => {
-    // Maus Hover: Abspielen
     video.addEventListener('mouseenter', () => {
       video.play();
     });
 
-    // Maus verlässt: Stoppen und zurückspulen
     video.addEventListener('mouseleave', () => {
       video.pause();
-      video.currentTime = 0;
+      video.currentTime = 0; // Startet das Video beim nächsten Hover von vorne
     });
-
-    // Touch: Toggle Play/Pause
-    video.addEventListener('touchstart', (e) => {
-      // Verhindert, dass der Touch auch als "Scroll" gewertet wird
-      e.preventDefault();
-      if (video.paused) {
-        video.play();
-      } else {
-        video.pause();
-        video.currentTime = 0;
-      }
-    }, { passive: false });
-  });
-</script>
+    });
+    </script>
    
 
 </body>

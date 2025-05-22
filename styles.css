@@ -29,9 +29,13 @@ body {
 }
 
 .sidenav p{
-  color: #818181;
+  color: #FFFFFF;
   font-size: 16px;
+  display: block;
+  padding: 0px 0px 6px 16px;
+  
 }
+
 /*-------------------------- THE SIDEBAR --------------------------*/
 
 /* Style page content */

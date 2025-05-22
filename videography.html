@@ -21,10 +21,10 @@
             <source src="videos/reel1.mp4" type="video/mp4">
         </video>
     </div>
-    
+ 
 
    <script>
-    // Alle Videos auswählen
+    //Alle Videos auswählen
     const videos = document.querySelectorAll('.videogallery video');
 
         videos.forEach(video => {
@@ -35,7 +35,7 @@
 
             video.addEventListener('mouseleave', () => {
                 video.pause();
-                video.currentTime = 0; // Startet das Video beim nächsten Hover von vorne
+                video.currentTime = 0; //Startet das Video beim nächsten Hover von vorne
             });
         });
     </script>

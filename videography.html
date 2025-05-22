@@ -9,10 +9,6 @@
         <video muted loop>
             <source src="videos/reel1.mp4" type="video/mp4">
         </video>
-
-        <video muted loop>
-            <source src="videos/reel5.mp4" type="video/mp4">
-        </video>
         
         <video muted loop>
             <source src="videos/reel2.mp4" type="video/mp4">
@@ -41,6 +37,7 @@
 
             video.addEventListener('mouseleave', () => {
                 video.pause();
+                video.muted = true;
                 video.currentTime = 0; //Startet das Video beim nächsten Hover von vorne
             });
             

@@ -82,6 +82,26 @@ margin: 0px 0px 0px 10px;
 }
 
 
+/*-------------------------- HOME --------------------------*/
+/* The home page */
+.home{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.home .text{
+  max-width: 500px;
+}
+.home video{
+  
+  width: 256px;
+  margin: 20px 10px 0px 0px;
+  height: auto;
+  display: block;
+  border-radius: 5px;
+}
+
+
 /*-------------------------- ABOUT --------------------------*/
 .about{
   display: flex;

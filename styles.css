@@ -89,9 +89,11 @@ margin: 0px 0px 0px 10px;
   justify-content: space-between;
   align-items: flex-start;
 }
+
 .home .text{
   max-width: 500px;
 }
+
 .home video{
   
   max-width: 480px;
@@ -116,7 +118,7 @@ margin: 0px 0px 0px 10px;
 }
 
 .about img{
-  width: 1080px;
+  max-width: 300px;
   margin: 20px 20px 0px 0px;
   height: auto;
   display: block;
@@ -124,6 +126,26 @@ margin: 0px 0px 0px 10px;
 }
 
 
+/*-------------------------- PHOTOGRAPHY --------------------------*/
+.photography{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+
+}
+
+.photography .text{
+  max-width: 500px;
+}
+
+.photography img{
+  width: 1080px;
+  margin: 20px 20px 0px 0px;
+  height: auto;
+  display: block;
+  border-radius: 5px;
+}
 
 
 /*-------------------------- IMG GALLERY --------------------------*/
@@ -147,6 +169,9 @@ margin: 0px 0px 0px 10px;
   display: block;
   border-radius: 5px;
 }
+
+
+
 
 .videogallery {
   column-count: 4;

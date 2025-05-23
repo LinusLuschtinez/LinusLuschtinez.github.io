@@ -94,7 +94,7 @@ margin: 0px 0px 0px 10px;
 }
 .home video{
   
-  width: 256px;
+  max-width: 480px;
   margin: 20px 10px 0px 0px;
   height: auto;
   display: block;
@@ -116,7 +116,7 @@ margin: 0px 0px 0px 10px;
 }
 
 .about img{
-  width: 300px;
+  width: 1080px;
   margin: 20px 20px 0px 0px;
   height: auto;
   display: block;
@@ -136,6 +136,12 @@ margin: 0px 0px 0px 10px;
 }
 
 .gallery img {
+  width: 100%;
+  margin-bottom: 8px;
+  display: block;
+  border-radius: 5px;
+}
+.gallery video {
   width: 100%;
   margin-bottom: 8px;
   display: block;

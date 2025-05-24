@@ -71,6 +71,15 @@ display: block;
 margin: 20px 0px -8px 10px;
 }
 
+p4{
+color: #111111;
+font-size: 16px;
+display: block;
+margin: 20px 0px 20px 10px;
+text-align: center;
+}
+
+
 /* Style page content */
 .main {
   position: fixed; /* Fixed position */

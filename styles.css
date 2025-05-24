@@ -142,8 +142,8 @@ text-align: center;
 }
 
 .about img{
-  column-count: 4;
   max-width: 300px;
+  
   margin: 20px 20px 0px 0px;
   height: auto;
   display: block;
@@ -261,6 +261,27 @@ text-align: center;
   border-radius: 5px;
 }
 .home_gallery video {
+  width: 100%;
+  margin-bottom: 8px;
+  display: block;
+  border-radius: 5px;
+}
+
+.about_gallery {
+  column-count: 3;
+  column-fill: balance;
+  gap: 8px;
+  padding: 8px 10px 10px 10px;
+  height: 100%;
+  overflow-y: hidden;
+}
+.about_gallery img {
+  width: 100%;
+  margin-bottom: 8px;
+  display: block;
+  border-radius: 5px;
+}
+.about_gallery video {
   width: 100%;
   margin-bottom: 8px;
   display: block;

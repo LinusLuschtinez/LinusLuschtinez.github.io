@@ -160,7 +160,7 @@ margin: 20px 0px -8px 10px;
   column-count: 4;
   column-fill: balance;
   gap: 8px;
-  padding: 10px;
+  padding: 10px 10px 0px 10px;
 }
 .preview_gallery img{
   width: 100%;
@@ -177,7 +177,7 @@ margin: 20px 0px -8px 10px;
   column-count: 4;
   column-fill: balance;
   gap: 8px;
-  padding: 10px;
+  padding: 8px 10px 10px 10px;
 }
 .gallery img {
   width: 100%;

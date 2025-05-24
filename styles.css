@@ -64,6 +64,13 @@ display: block;
 margin: 0px 0px 0px 10px;
 }
 
+p3{
+color: #111111;
+font-size: 16px;
+display: block;
+margin: 20px 0px -8px 10px;
+}
+
 /* Style page content */
 .main {
   position: fixed; /* Fixed position */
@@ -149,6 +156,27 @@ margin: 0px 0px 0px 10px;
 
 
 /*-------------------------- IMG GALLERY --------------------------*/
+.preview_gallery{
+  column-count: 4;
+  column-fill: balance;
+  gap: 8px;
+  padding: 10px;
+}
+
+.preview_gallery img{
+  width: 100%;
+  max-width: 100%;
+  display: block; 
+  border-radius: 5px;
+  /*transition: transform 1s ease;*/
+}
+
+.hidden{
+  display: none;
+}
+
+
+
 /* if i am correct, this is the css for the image gallery */
 .gallery {
   column-count: 4;

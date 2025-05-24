@@ -163,6 +163,28 @@ text-align: center;
   border-radius: 5px;
 }
 
+/*-------------------------- VIDEOGRAPHY --------------------------*/
+.videography{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+
+}
+.videography .text{
+  max-width: 500px;
+}
+.videography video{
+  width: 1080px;
+  margin: 20px 20px 0px 0px;
+  height: auto;
+  display: block;
+  border-radius: 5px;
+}
+
+
+
+
 
 /*-------------------------- IMG GALLERY --------------------------*/
 .preview_gallery{

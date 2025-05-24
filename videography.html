@@ -5,28 +5,120 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="videogallery">
-        <video muted preload="auto" playsinline loop>
-            <source src="videos/reel1.mp4" type="video/mp4">
-        </video>
-        
-        <video muted preload="auto" playsinline loop>
-            <source src="videos/reel2.mp4" type="video/mp4">
-        </video>
+    <div class ="videography">
+        <div class="text">
+            <h1>cinematography<br></h1>
+    
+            <p2>hier finden sie ausgewählte Kurzvideos,<br>
+                Animationen, Audiovisuals und andere bewegtbilder.<br><br>
+            </p2>
+        </div>
 
-        <video muted preload="auto" playsinline loop>
-            <source src="videos/reel3.mp4" type="video/mp4">
-        </video>
-        
-        <video muted preload="auto" playsinline loop>
-            <source src="videos/reel4.mp4" type="video/mp4">
-        </video>
     </div>
+
+    <div class="gallery_group">
+        <div class="text">    
+            <p3>"Kurzvideo & Reels"</p3>
+        </div>
+        
+        <div class="preview_gallery videogallery">
+            <video muted preload="auto" playsinline loop>
+                <source src="videos/reel1.mp4" type="video/mp4">
+            </video>
+        
+            <video muted preload="auto" playsinline loop>
+                <source src="videos/reel2.mp4" type="video/mp4">
+            </video>
+
+            <video muted preload="auto" playsinline loop>
+                <source src="videos/reel3.mp4" type="video/mp4">
+            </video>
+        
+            <video muted preload="auto" playsinline loop>
+                <source src="videos/reel4.mp4" type="video/mp4">
+            </video>            
+        </div>
+    </div>    
+
+    <div class="gallery_group">
+        <div class="text">    
+            <p3>"Animationen"</p3>
+        </div>
+        
+        <div class="preview_gallery videogallery">
+            <video muted preload="auto" playsinline loop>
+                <source src="videos/animation3.mp4" type="video/mp4">
+            </video>
+        
+            <video muted preload="auto" playsinline loop>
+                <source src="videos/animation2.mp4" type="video/mp4">
+            </video>
+
+            <video muted preload="auto" playsinline loop>
+                <source src="videos/animation1.mp4" type="video/mp4">
+            </video>
+        
+            <video muted preload="auto" playsinline loop>
+               
+            </video>            
+        </div>
+    </div>  
+
+    <div class="gallery_group">
+        <div class="text">    
+            <p3>"3D Render"</p3>
+        </div>
+        
+        <div class="preview_gallery videogallery">
+            <video muted preload="auto" playsinline loop>
+                <source src="videos/luca1.mp4" type="video/mp4">
+            </video>
+        
+            <video muted preload="auto" playsinline loop>
+                <source src="videos/luca2.mp4" type="video/mp4">
+            </video>
+
+            <video muted preload="auto" playsinline loop>
+                <source src="videos/luca3.mp4" type="video/mp4">
+            </video>
+        
+            <video muted preload="auto" playsinline loop>
+                <source src="videos/luca4.mp4" type="video/mp4">
+            </video>            
+        </div>
+    </div> 
+    
+    <div class="gallery_group">
+        <div class="text">    
+            <p3>"Audio Visuals"</p3>
+        </div>
+        
+        <div class="preview_gallery videogallery">
+            <video muted preload="auto" playsinline loop>
+                <source src="videos/audioVis2.mp4" type="video/mp4">
+            </video>
+        
+            <video muted preload="auto" playsinline loop>
+                <source src="videos/audioVis1.mp4" type="video/mp4">
+            </video>
+
+            <video muted preload="auto" playsinline loop>
+                <source src="videos/audioVis3.mp4" type="video/mp4">
+            </video>
+        
+            <video muted preload="auto" playsinline loop>
+                <source src="videos/audioVis4.mp4" type="video/mp4">
+            </video>            
+        </div>
+    </div> 
+
+
+
  
 
-   <script>
-    //Alle Videos auswählen
-    const videos = document.querySelectorAll('.videogallery video');
+    <!-- JavaScript für die Videogalerie -->
+    <script>
+        const videos = document.querySelectorAll('.videogallery video');
 
         videos.forEach(video => {
             
@@ -36,6 +128,7 @@
 
             video.addEventListener('mouseleave', () => {
                 video.pause();
+                video.muted = true; //Stellt sicher, dass das Video stummgeschaltet wird, wenn der Mauszeiger das Video verlässt
                 video.currentTime = 0; //Startet das Video beim nächsten Hover von vorne
             });
             
@@ -45,9 +138,6 @@
 
 
         });
-
-
-
     </script>
 
 </body>

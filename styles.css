@@ -221,11 +221,39 @@ img {
 
 .contact .text{
   max-width: 700px;
+  height: 90vh;
 }
 
+.contact_media{
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+
+.contact img{
+  max-width: 300px;
+  
+  margin: 10px 10px 0px 0px;
+  height: auto;
+  display: block;
+  border-radius: 5px;
+}
+
+.contact video{
+  max-width: 300px;
+  margin: 20px 10px 0px 0px;
+  height: auto;
+  display: block;
+  border-radius: 5px;
+}
+
+
+
+
+
+
 .footer{
-  position: relative
-  ;
+  position: relative;
   bottom: 0; /* Same as the width of the sidebar */
   width: 100%; /* Full height */
   padding: 10px;

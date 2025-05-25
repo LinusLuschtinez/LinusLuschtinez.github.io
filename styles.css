@@ -141,17 +141,30 @@ img {
   justify-content: space-between;
   align-items: flex-start;
   gap: 20px;
-
 }
 
 .about .text{
   max-width: 600px;
 }
 
+.about_media{
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+
 .about img{
   max-width: 300px;
   
-  margin: 20px 20px 0px 0px;
+  margin: 20px 10px 0px 0px;
+  height: auto;
+  display: block;
+  border-radius: 5px;
+}
+
+.about video{
+  max-width: 300px;
+  margin: 20px 10px 0px 0px;
   height: auto;
   display: block;
   border-radius: 5px;

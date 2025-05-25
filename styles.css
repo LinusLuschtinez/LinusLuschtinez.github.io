@@ -211,7 +211,26 @@ img {
   border-radius: 5px;
 }
 
+/*-------------------------- CONTACT --------------------------*/
+.contact{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
 
+.contact .text{
+  max-width: 700px;
+}
+
+.footer{
+  position: relative
+  ;
+  bottom: 0; /* Same as the width of the sidebar */
+  width: 100%; /* Full height */
+  padding: 10px;
+  text-align: center;
+}
 
 
 

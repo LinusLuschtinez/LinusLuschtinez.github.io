@@ -79,6 +79,13 @@ margin: 20px 0px 20px 10px;
 text-align: center;
 }
 
+img {
+  pointer-events: none; /* Disable pointer events for images */
+  -webkit-user-drag: none; /* Disable image dragging in WebKit browsers */
+  user-select: none; /* Disable text selection */
+}
+
+
 
 /* Style page content */
 .main {
@@ -245,7 +252,6 @@ text-align: center;
   border-radius: 5px;
   
 }
-
 .home_gallery {
   column-count: 4;
   column-fill: balance;
@@ -266,7 +272,6 @@ text-align: center;
   display: block;
   border-radius: 5px;
 }
-
 .about_gallery {
   column-count: 3;
   column-fill: balance;

@@ -1,7 +1,32 @@
-body {
+header {
   font-family: 'Courier New', Courier, monospace;
+  background-color: #ffffff; /* Default background color */
+  color: #111111; /* Default text color */
 }
 
+body {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #ffffff; /* Default background color */
+  color: #111111; /* Default text color */
+}
+a {
+  color: #111111; /* Default link color */
+}
+
+/*darkmode*/
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #202020;
+        color: #ffffff;    
+    }
+    a {
+        color: #ffffff; /* Default link color in dark mode */
+    }
+    header {
+        background-color: #202020;
+        color: #ffffff;
+    }
+}
 
 /*-------------------------- THE SIDEBAR --------------------------*/
 /* The sidebar menu */
@@ -12,7 +37,6 @@ body {
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
-  background-color: #FFFFFF; 
   overflow: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
 }
@@ -21,7 +45,6 @@ body {
   font-size: 14px;
   padding: 6px 8px 6px 16px;
   text-decoration: none;
-  color: #111111;
   display: block;
 }
 /* When you mouse over the navigation links, change their color */
@@ -33,7 +56,6 @@ body {
 
 /*-------------------------- Main Stuff --------------------------*/
 h1{
-  color: #111111;
   font-size: 24px;
   display: block;
   margin: 0px 0px 0px 10px;
@@ -44,35 +66,29 @@ h1{
 }
 
 p{
-color: #111111;
 font-size: 16px;
 display: block;
 }
 
 p1{
-  color: #111111;
-  font-size: 16px;
-  display: block;
-  padding: 0px 0px 6px 16px;
-  
+font-size: 16px;
+display: block;
+padding: 0px 0px 6px 16px;  
 }
 
 p2{
-color: #111111;
 font-size: 16px;
 display: block;
 margin: 0px 0px 0px 10px;
 }
 
 p3{
-color: #111111;
 font-size: 16px;
 display: block;
 margin: 20px 0px -8px 10px;
 }
 
 p4{
-color: #111111;
 font-size: 16px;
 display: block;
 margin: 20px 0px 20px 10px;
@@ -84,8 +100,6 @@ img {
   -webkit-user-drag: none; /* Disable image dragging in WebKit browsers */
   user-select: none; /* Disable text selection */
 }
-
-
 
 /* Style page content */
 .main {
@@ -192,6 +206,7 @@ img {
   border-radius: 5px;
 }
 
+
 /*-------------------------- VIDEOGRAPHY --------------------------*/
 .videography{
   display: flex;
@@ -210,6 +225,7 @@ img {
   display: block;
   border-radius: 5px;
 }
+
 
 /*-------------------------- CONTACT --------------------------*/
 .contact{
@@ -248,10 +264,7 @@ img {
 }
 
 
-
-
-
-
+/*-------------------------- FOOTER --------------------------*/
 .footer{
   position: relative;
   bottom: 0; /* Same as the width of the sidebar */

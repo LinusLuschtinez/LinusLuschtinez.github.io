@@ -23,7 +23,7 @@
     <iframe src="home.html" name="content-frame" frameborder="0"></iframe>
   </div>
   <!-- Dark mode toggle button -->
-  <button id="themeToggle" class="toggle-btn" title="Toggle Dark/Light Mode">-</button>
+  <button id="themeToggle" class="toggle-btn" title="Toggle Dark/Light Mode">Dark Mode</button>
 
   <script>
     document.addEventListener("contextmenu", event => event.preventDefault());
@@ -51,7 +51,7 @@
       document.documentElement.classList.toggle('dark-mode');
       const isDark = document.documentElement.classList.contains('dark-mode');
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      toggle.textContent = isDark ? 'Dark Mode' : 'Light Mode';
+      toggle.textContent = isDark ? 'Light Mode' : 'Dark Mode';
 
       // 👇 Hier postMessage einfügen:
       const iframe = document.querySelector('iframe');

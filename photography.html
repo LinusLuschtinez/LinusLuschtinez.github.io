@@ -251,14 +251,20 @@
 
     <script>
         window.addEventListener('message', (event) => {
-        if (event.data.theme === 'dark') {
-        document.documentElement.classList.add('dark-mode');
-        } else {
-        document.documentElement.classList.remove('dark-mode');
-        }
+            if (event.data && event.data.theme) {
+              const theme = event.data.theme;
+           document.documentElement.classList.toggle('dark-mode', theme === 'dark');
+            }
         });
+
+        // Optional: gleich beim Laden das Theme übernehmen, falls schon im Storage gespeichert
+          const storedTheme = localStorage.getItem('theme');
+          if (storedTheme === 'dark') {
+            document.documentElement.classList.add('dark-mode');
+          }
     </script>
 
+    
 </body>
 </html>
 

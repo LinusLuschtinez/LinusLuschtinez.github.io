@@ -12,35 +12,29 @@ body {
 a {
   color: #111111; /* Default link color */
 }
-/*light mode*/
-@media (prefers-color-scheme: light) {
-    body {
-        background-color: #ffffff;
-        color: #111111;    
-    }
-    a {
-        color: #111111; /* Default link color in dark mode */
-    }
-    header {
-        background-color: #ffffff;
-        color: #111111;
-    }
+
+/* DARK MODE, wenn .dark-mode gesetzt */
+.dark-mode body {
+  background-color: #202020;
+  color: #ffffff;
 }
 
-/*darkmode*/
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #202020;
-        color: #ffffff;    
-    }
-    a {
-        color: #ffffff; /* Default link color in dark mode */
-    }
-    header {
-        background-color: #202020;
-        color: #ffffff;
-    }
+.dark-mode a {
+  color: #ffffff;
 }
+
+.dark-mode header {
+  background-color: #202020;
+  color: #ffffff;
+}
+
+.dark-mode .sidenav {
+  background-color: #202020;
+  color: #ffffff;
+}
+
+
+
 
 /*-------------------------- THE SIDEBAR --------------------------*/
 /* The sidebar menu */
@@ -113,6 +107,15 @@ img {
   pointer-events: none; /* Disable pointer events for images */
   -webkit-user-drag: none; /* Disable image dragging in WebKit browsers */
   user-select: none; /* Disable text selection */
+}
+
+button{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 /* Style page content */
@@ -378,5 +381,17 @@ img {
   margin-bottom: 8px;
   display: block;
   border-radius: 5px;
+}
+
+.toggle-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: none;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  color: inherit;
+  padding: 4px;
 }
 

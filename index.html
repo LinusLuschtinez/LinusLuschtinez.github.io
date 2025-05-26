@@ -15,17 +15,54 @@
     <a href="photography.html" target="content-frame">photography</a>
     <a href="videography.html" target="content-frame">cinematography</a>
     <a href="clientwork.html" target="content-frame">clientwork</a>
-   <a href="contact.html" target="content-frame">contact</a>
+    <a href="contact.html" target="content-frame">contact</a>
+    
+
   </div>
   
-
   <!-- Page content -->
   <div class="main">
     <iframe src="home.html" name="content-frame" frameborder="0"></iframe>
   </div>
+  <!-- Dark mode toggle button -->
+  <button id="themeToggle" class="toggle-btn" title="Toggle Dark/Light Mode">dark mode</button>
 
   <script>
     document.addEventListener("contextmenu", event => event.preventDefault());
   </script>
+
+<!--Dark mode toggle script-->
+<script>
+  const toggle = document.getElementById('themeToggle');
+  const userTheme = localStorage.getItem('theme');
+
+  if (userTheme === 'dark') {
+    document.documentElement.classList.add('dark-mode');
+    toggle.textContent = 'light mode';
+  }
+  // Gleich nach dem Laden: initiale Theme-Einstellung an iframe senden
+  const iframe = document.querySelector('iframe');
+  if (iframe && iframe.contentWindow) {
+    iframe.addEventListener("load", () => {
+      iframe.contentWindow.postMessage({ theme: userTheme || 'light' }, '*');
+    });
+  }
+
+
+  toggle.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark-mode');
+    const isDark = document.documentElement.classList.contains('dark-mode');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    toggle.textContent = isDark ? 'dark mode' : 'light mode';
+
+    // 👇 Hier postMessage einfügen:
+    const iframe = document.querySelector('iframe');
+    if (iframe && iframe.contentWindow) {
+      iframe.contentWindow.postMessage({ theme: isDark ? 'dark' : 'light' }, '*');
+    }
+  });
+</script>
+
+
 </body>
 </html>

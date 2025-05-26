@@ -63,6 +63,23 @@
   });
 </script>
 
+<script>
+  const navLinks = document.querySelectorAll('.sidenav a');
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      const theme = document.documentElement.classList.contains('dark-mode') ? 'dark' : 'light';
+
+      // Warte, bis iframe geladen ist, dann sende das Theme
+      const iframe = document.querySelector('iframe');
+      iframe.addEventListener("load", () => {
+        iframe.contentWindow.postMessage({ theme: theme }, '*');
+      }, { once: true }); // wichtig: nur einmal ausführen
+    });
+  });
+</script>
+
+
 
 </body>
 </html>

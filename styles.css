@@ -3,7 +3,6 @@ header {
   background-color: #ffffff; /* Default background color */
   color: #111111; /* Default text color */
 }
-
 body {
   font-family: 'Courier New', Courier, monospace;
   background-color: #ffffff; /* Default background color */
@@ -18,23 +17,17 @@ a {
   background-color: #202020;
   color: #ffffff;
 }
-
 .dark-mode a {
   color: #ffffff;
 }
-
 .dark-mode header {
   background-color: #202020;
   color: #ffffff;
 }
-
 .dark-mode .sidenav {
   background-color: #202020;
   color: #ffffff;
 }
-
-
-
 
 /*-------------------------- THE SIDEBAR --------------------------*/
 /* The sidebar menu */
@@ -60,8 +53,6 @@ a {
   color: #818181;
 }
 
-
-
 /*-------------------------- Main Stuff --------------------------*/
 h1{
   font-size: 24px;
@@ -72,43 +63,36 @@ h1{
   font-weight: normal;
   text-decoration: underline;
 }
-
 p{
 font-size: 16px;
 display: block;
 }
-
 p1{
 font-size: 16px;
 display: block;
 padding: 0px 0px 6px 16px;  
 }
-
 p2{
 font-size: 16px;
 display: block;
 margin: 0px 0px 0px 10px;
 }
-
 p3{
 font-size: 16px;
 display: block;
 margin: 20px 0px -8px 10px;
 }
-
 p4{
 font-size: 16px;
 display: block;
 margin: 20px 0px 20px 10px;
 text-align: center;
 }
-
 img {
   pointer-events: none; /* Disable pointer events for images */
   -webkit-user-drag: none; /* Disable image dragging in WebKit browsers */
   user-select: none; /* Disable text selection */
 }
-
 button{
   font-family: 'Courier New', Courier, monospace;
   font-size: 14px;
@@ -117,7 +101,6 @@ button{
   border-radius: 4px;
   cursor: pointer;
 }
-
 .overview {
 text-decoration: none;
 font-size: 16px;
@@ -131,7 +114,6 @@ margin: 0px 0px 0px 10px;
   margin-left: 160px; /* Same as the width of the sidebar */
   padding: 0px 0px;
 }
-
 .main iframe{
   pointer-events: auto;
   overflow: scroll;
@@ -139,7 +121,6 @@ margin: 0px 0px 0px 10px;
   height: 100%;
   border: none;
 }
-
 
 /*-------------------------- HOME --------------------------*/
 /* The home page */
@@ -150,18 +131,15 @@ margin: 0px 0px 0px 10px;
   align-items: flex-start;
   padding: 0px 0px 0px 10px;
 }
-
 .home .text{
   max-width: 500px;
 }
-
 .home img{
   max-height: 400px;
   margin: 20px 10px 0px 0px;
   display: block;
   border-radius: 5px;
 }
-
 .home video{
   max-height: 400px;
   margin: 20px 10px 0px 0px;
@@ -170,7 +148,6 @@ margin: 0px 0px 0px 10px;
   border-radius: 5px;
 }
 
-
 /*-------------------------- ABOUT --------------------------*/
 .about{
   display: flex;
@@ -178,17 +155,14 @@ margin: 0px 0px 0px 10px;
   align-items: flex-start;
   gap: 20px;
 }
-
 .about .text{
   max-width: 750px;
 }
-
 .about_media{
   display: flex;
   flex-direction: column;
   gap: 0px;
 }
-
 .about img{
   max-width: 300px;
   
@@ -197,7 +171,6 @@ margin: 0px 0px 0px 10px;
   display: block;
   border-radius: 5px;
 }
-
 .about video{
   max-width: 300px;
   margin: 20px 10px 0px 0px;
@@ -205,7 +178,6 @@ margin: 0px 0px 0px 10px;
   display: block;
   border-radius: 5px;
 }
-
 
 /*-------------------------- PHOTOGRAPHY --------------------------*/
 .photography{
@@ -215,11 +187,9 @@ margin: 0px 0px 0px 10px;
   gap: 20px;
 
 }
-
 .photography .text{
   max-width: 500px;
 }
-
 .photography img{
   width: 1080px;
   margin: 20px 20px 0px 0px;
@@ -227,7 +197,6 @@ margin: 0px 0px 0px 10px;
   display: block;
   border-radius: 5px;
 }
-
 
 /*-------------------------- VIDEOGRAPHY --------------------------*/
 .videography{
@@ -248,7 +217,6 @@ margin: 0px 0px 0px 10px;
   border-radius: 5px;
 }
 
-
 /*-------------------------- CONTACT --------------------------*/
 .contact{
   display: flex;
@@ -256,18 +224,15 @@ margin: 0px 0px 0px 10px;
   align-items: flex-start;
   gap: 20px;
 }
-
 .contact .text{
   max-width: 750px;
   height: 90vh;
 }
-
 .contact_media{
   display: flex;
   flex-direction: column;
   gap: 0px;
 }
-
 .contact img{
   max-width: 300px;
   
@@ -276,7 +241,6 @@ margin: 0px 0px 0px 10px;
   display: block;
   border-radius: 5px;
 }
-
 .contact video{
   max-width: 300px;
   margin: 20px 10px 0px 0px;
@@ -284,7 +248,6 @@ margin: 0px 0px 0px 10px;
   display: block;
   border-radius: 5px;
 }
-
 
 /*-------------------------- FOOTER --------------------------*/
 .footer{
@@ -294,8 +257,6 @@ margin: 0px 0px 0px 10px;
   padding: 10px;
   text-align: center;
 }
-
-
 
 /*-------------------------- IMG GALLERY --------------------------*/
 .preview_gallery{
@@ -398,4 +359,3 @@ margin: 0px 0px 0px 10px;
   color: inherit;
   padding: 4px;
 }
-

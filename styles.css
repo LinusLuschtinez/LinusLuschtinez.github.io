@@ -12,6 +12,20 @@ body {
 a {
   color: #111111; /* Default link color */
 }
+/*light mode*/
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: #ffffff;
+        color: #111111;    
+    }
+    a {
+        color: #111111; /* Default link color in dark mode */
+    }
+    header {
+        background-color: #ffffff;
+        color: #111111;
+    }
+}
 
 /*darkmode*/
 @media (prefers-color-scheme: dark) {

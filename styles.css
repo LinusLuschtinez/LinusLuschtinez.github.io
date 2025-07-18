@@ -462,8 +462,13 @@ margin: 0px 0px 0px 10px;
     height: auto;
     position: relative;
     padding-top: 0;
-    border-bottom: 1px solid #ccc;
   }
+
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden;
+  }
+}  
 
   .mobile-toggle {
     display: block;

@@ -38,7 +38,7 @@ a {
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
-  overflow: hidden; /* Disable horizontal scroll */
+  overflow-y: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
 }
 /* The navigation menu links */
@@ -447,7 +447,6 @@ margin: 0px 0px 0px 10px;
     height: auto;
     position: relative;
     padding-top: 0;
-    overflow: hidden;
   }
 
 @media (max-width: 768px) {

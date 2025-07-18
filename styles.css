@@ -439,3 +439,53 @@ margin: 0px 0px 0px 10px;
   height: 100%;
   object-fit: cover;
 }
+
+
+
+/* ----- Mobilmenü Standard (sichtbar auf Desktop) ----- */
+.mobile-toggle {
+  display: block;
+  background: none;
+  border: none;
+  font-size: 16px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-family: 'Courier New', Courier, monospace;
+  color: inherit;
+  text-align: left;       /* linksbündig */
+}
+
+/* ----- Nur auf kleinen Bildschirmen: Menü verbergen und toggle sichtbar ----- */
+@media (max-width: 768px) {
+  .sidenav {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding-top: 0;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .mobile-toggle {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    padding: 0 10px 10px 10px;
+  }
+
+  .sidenav.open .mobile-menu {
+    display: flex;
+  }
+
+  /* Optional: verstecke Sidebar komplett auf Mobil und zeige sie nur als Dropdown */
+  .main {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .sidenav a {
+    padding: 8px 0;
+  }
+}

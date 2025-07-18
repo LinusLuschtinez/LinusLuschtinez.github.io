@@ -10,59 +10,67 @@
   
     <!-- Side navigation -->
   <div class="sidenav">
-    <p1>Linus Luschtinez</p1>
+    
+    <button class="mobile-toggle" onclick="toggleMobileNav()">Linus Luschtinez</button>
 
-    <div class="nav-group">
-      <a href="home.html" target="content-frame" class="nav-link has-sub">Home</a>
-    </div>
+    <div class="mobile-menu">
+      
+      <div class="nav-group">
+        <a href="home.html" target="content-frame" class="nav-link has-sub">Home</a>
+      </div>
 
-    <div class="nav-group">
-      <a href="about.html" target="content-frame" class="nav-link has-sub">about</a>
+      <div class="nav-group">
+        <a href="about.html" target="content-frame" class="nav-link has-sub">about</a>
+      </div>
+    
+      <div class="nav-group">
+        <a href="photography.html" target="content-frame" class="nav-link has-sub">Photography</a>
+        <div class="submenu">
+          <a href="photography.html#concert" class="nav-link" target="content-frame">Concert</a>
+          <a href="photography.html#atmosphere" class="nav-link" target="content-frame">Atmosphere</a>
+          <a href="photography.html#portraits" class="nav-link" target="content-frame">Portraits</a>
+          <a href="photography.html#bandfotos" class="nav-link" target="content-frame">Bandfotos</a>
+          <a href="photography.html#interior" class="nav-link" target="content-frame">Interior</a>
+        </div>
+      </div>
+
+      <div class="nav-group">
+        <a href="videography.html" target="content-frame" class="nav-link has-sub">Cinematography</a>
+        <div class="submenu">
+          <a href="videography.html" class="nav-link" target="content-frame">Reels</a>
+          <a href="videography.html" class="nav-link" target="content-frame">Musikvideos</a>
+        </div>
+      </div>
+
+      <div class="nav-group">
+        <a href="visuals.html" target="content-frame" class="nav-link has-sub">Visual Art</a>
+        <div class="submenu">
+          <a href="visuals.html#stills" class="nav-link" target="content-frame">Stills</a>
+          <a href="visuals.html#animation" class="nav-link" target="content-frame">Animation</a>
+          <a href="visuals.html#3d" class="nav-link" target="content-frame">3D Render</a>    
+          <a href="visuals.html#aVis" class="nav-link" target="content-frame">Audio Visuals</a>    
+        </div>
+      </div>
+
+      <div class="nav-group">
+        <a href="clientwork.html" target="content-frame" class="nav-link has-sub">Clientwork</a>
+        <div class="submenu">
+          <a href="clientwork.html#fightersWorld" class="nav-link" target="content-frame">Fighters World</a>
+          <a href="clientwork.html#frequentis" class="nav-link" target="content-frame">Frequentis</a>
+          <a href="clientwork.html#arrtist" class="nav-link" target="content-frame">Arrtist on Tour</a>
+          <a href="clientwork.html#szene" class="nav-link" target="content-frame">Szene Open Air</a>
+          <a href="clientwork.html#hDronen" class="nav-link" target="content-frame">Hartlauer Dronenseminar</a>
+        </div>
+      </div>
+
+      <div class="nav-group">
+        <a href="contact.html" target="content-frame" class="nav-link has-sub">Contact</a>
+      </div>
+
     </div>
     
-    <div class="nav-group">
-      <a href="photography.html" target="content-frame" class="nav-link has-sub">Photography</a>
-      <div class="submenu">
-        <a href="photography.html#concert" class="nav-link" target="content-frame">Concert</a>
-        <a href="photography.html#atmosphere" class="nav-link" target="content-frame">Atmosphere</a>
-        <a href="photography.html#portraits" class="nav-link" target="content-frame">Portraits</a>
-        <a href="photography.html#bandfotos" class="nav-link" target="content-frame">Bandfotos</a>
-        <a href="photography.html#interior" class="nav-link" target="content-frame">Interior</a>
-      </div>
-    </div>
 
-    <div class="nav-group">
-      <a href="videography.html" target="content-frame" class="nav-link has-sub">Cinematography</a>
-      <div class="submenu">
-        <a href="videography.html" class="nav-link" target="content-frame">Reels</a>
-        <a href="videography.html" class="nav-link" target="content-frame">Musikvideos</a>
-      </div>
-    </div>
 
-    <div class="nav-group">
-      <a href="visuals.html" target="content-frame" class="nav-link has-sub">Visual Art</a>
-      <div class="submenu">
-        <a href="visuals.html#stills" class="nav-link" target="content-frame">Stills</a>
-        <a href="visuals.html#animation" class="nav-link" target="content-frame">Animation</a>
-        <a href="visuals.html#3d" class="nav-link" target="content-frame">3D Render</a>    
-        <a href="visuals.html#aVis" class="nav-link" target="content-frame">Audio Visuals</a>    
-      </div>
-    </div>
-
-    <div class="nav-group">
-      <a href="clientwork.html" target="content-frame" class="nav-link has-sub">Clientwork</a>
-      <div class="submenu">
-        <a href="clientwork.html#fightersWorld" class="nav-link" target="content-frame">Fighters World</a>
-        <a href="clientwork.html#frequentis" class="nav-link" target="content-frame">Frequentis</a>
-        <a href="clientwork.html#arrtist" class="nav-link" target="content-frame">Arrtist on Tour</a>
-        <a href="clientwork.html#szene" class="nav-link" target="content-frame">Szene Open Air</a>
-        <a href="clientwork.html#hDronen" class="nav-link" target="content-frame">Hartlauer Dronenseminar</a>
-      </div>
-    </div>
-
-    <div class="nav-group">
-      <a href="contact.html" target="content-frame" class="nav-link has-sub">Contact</a>
-    </div>
 
   </div>
   
@@ -151,5 +159,12 @@
     });
   </script>
 
+  <script>
+    function toggleMobileNav() {
+      if (window.innerWidth <= 768) {
+        document.querySelector('.sidenav').classList.toggle('open');
+      }
+    }
+  </script>
 </body>
 </html>

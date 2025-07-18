@@ -10,13 +10,59 @@
     <!-- Side navigation -->
   <div class="sidenav">
     <p1>Linus Luschtinez</p1>
-    <a href="home.html" target="content-frame">Home</a>
-    <a href="about.html" target="content-frame">About</a>
-    <a href="photography.html" target="content-frame">Photography</a>
-    <a href="videography.html" target="content-frame">Cinematography</a>
-    <a href="visuals.html" target="content-frame">Visual Art & CGI</a>
-    <a href="clientwork.html" target="content-frame">Clientwork</a>
-    <a href="contact.html" target="content-frame">Contact</a>
+
+    <div class="nav-group">
+      <a href="home.html" target="content-frame" class="nav-link has-sub">Home</a>
+    </div>
+
+    <div class="nav-group">
+      <a href="about.html" target="content-frame" class="nav-link has-sub">about</a>
+    </div>
+    
+    <div class="nav-group">
+      <a href="photography.html" target="content-frame" class="nav-link has-sub">Photography</a>
+      <div class="submenu">
+        <a href="photography.html#concert" class="nav-link" target="content-frame">Concert</a>
+        <a href="photography.html#atmosphere" class="nav-link" target="content-frame">Atmosphere</a>
+        <a href="photography.html#portraits" class="nav-link" target="content-frame">Portraits</a>
+        <a href="photography.html#bandfotos" class="nav-link" target="content-frame">Bandfotos</a>
+        <a href="photography.html#interior" class="nav-link" target="content-frame">Interior</a>
+      </div>
+    </div>
+
+    <div class="nav-group">
+      <a href="videography.html" target="content-frame" class="nav-link has-sub">Cinematography</a>
+      <div class="submenu">
+        <a href="videography.html" class="nav-link" target="content-frame">Reels</a>
+        <a href="videography.html" class="nav-link" target="content-frame">Musikvideos</a>
+      </div>
+    </div>
+
+    <div class="nav-group">
+      <a href="visuals.html" target="content-frame" class="nav-link has-sub">Visual Art</a>
+      <div class="submenu">
+        <a href="visuals.html#stills" class="nav-link" target="content-frame">Stills</a>
+        <a href="visuals.html#animation" class="nav-link" target="content-frame">Animation</a>
+        <a href="visuals.html#3d" class="nav-link" target="content-frame">3D Render</a>    
+        <a href="visuals.html#aVis" class="nav-link" target="content-frame">Audio Visuals</a>    
+      </div>
+    </div>
+
+    <div class="nav-group">
+      <a href="clientwork.html" target="content-frame" class="nav-link has-sub">Clientwork</a>
+      <div class="submenu">
+        <a href="clientwork.html#fightersWorld" class="nav-link" target="content-frame">Fighters World</a>
+        <a href="clientwork.html#frequentis" class="nav-link" target="content-frame">Frequentis</a>
+        <a href="clientwork.html#arrtist" class="nav-link" target="content-frame">Arrtist on Tour</a>
+        <a href="clientwork.html#szene" class="nav-link" target="content-frame">Szene Open Air</a>
+        <a href="clientwork.html#hDronen" class="nav-link" target="content-frame">Hartlauer Dronenseminar</a>
+      </div>
+    </div>
+
+    <div class="nav-group">
+      <a href="contact.html" target="content-frame" class="nav-link has-sub">Contact</a>
+    </div>
+
   </div>
   
   <!-- Page content -->
@@ -26,58 +72,83 @@
   <!-- Dark mode toggle button -->
   <button id="themeToggle" class="toggle-btn" title="Toggle Dark/Light Mode">Dark Mode</button>
 
+
+
   <script>
+    // Rechtsklick deaktivieren
     document.addEventListener("contextmenu", event => event.preventDefault());
-  </script>
 
-
-
-  <!--Dark mode toggle script-->
-  <script>
+    // Darkmode
     const toggle = document.getElementById('themeToggle');
     const userTheme = localStorage.getItem('theme');
+    const iframe = document.querySelector('iframe');
 
     if (userTheme === 'dark') {
       document.documentElement.classList.add('dark-mode');
       toggle.textContent = 'Light Mode';
     }
-    // Gleich nach dem Laden: initiale Theme-Einstellung an iframe senden
-    const iframe = document.querySelector('iframe');
+
+    // Theme an iframe senden beim initialen Laden
     if (iframe && iframe.contentWindow) {
       iframe.addEventListener("load", () => {
         iframe.contentWindow.postMessage({ theme: userTheme || 'light' }, '*');
       });
     }
+
+    // Darkmode Toggle
     toggle.addEventListener('click', () => {
       document.documentElement.classList.toggle('dark-mode');
       const isDark = document.documentElement.classList.contains('dark-mode');
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
       toggle.textContent = isDark ? 'Light Mode' : 'Dark Mode';
 
-      // 👇 Hier postMessage einfügen:
-      const iframe = document.querySelector('iframe');
       if (iframe && iframe.contentWindow) {
         iframe.contentWindow.postMessage({ theme: isDark ? 'dark' : 'light' }, '*');
       }
     });
-  </script>
 
-  <script>
-    const navLinks = document.querySelectorAll('.sidenav a');
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        const theme = document.documentElement.classList.contains('dark-mode') ? 'dark' : 'light';
+    // Navigation und Submenü
+    const allNavLinks = document.querySelectorAll('.nav-link');
 
-        // Warte, bis iframe geladen ist, dann sende das Theme
-        const iframe = document.querySelector('iframe');
-        iframe.addEventListener("load", () => {
-          iframe.contentWindow.postMessage({ theme: theme }, '*');
-        }, { once: true }); // wichtig: nur einmal ausführen
+    allNavLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const parent = link.closest('.nav-group');
+        const allGroups = document.querySelectorAll('.nav-group');
+
+        if (link.classList.contains('has-sub')) {
+          // Submenü-Logik
+          e.preventDefault(); // Standardverhalten unterdrücken
+
+          const href = link.getAttribute('href');
+          if (iframe) iframe.setAttribute('src', href);
+
+          // Andere Submenüs schließen
+         allGroups.forEach(group => {
+           if (group !== parent) group.classList.remove('active');
+          });
+
+          // aktuelles Submenü toggeln
+          parent.classList.toggle('active');
+        } else {
+          // Schließe Submenüs nur, wenn außerhalb aktiver nav-group geklickt wurde
+          const activeGroup = document.querySelector('.nav-group.active');
+          const isSameGroup = parent && activeGroup && parent === activeGroup;
+
+          if (!isSameGroup) {
+            allGroups.forEach(group => group.classList.remove('active'));
+          }
+        }
+
+        // Theme erneut an iframe senden
+        if (iframe) {
+          iframe.addEventListener("load", () => {
+            const theme = document.documentElement.classList.contains('dark-mode') ? 'dark' : 'light';
+            iframe.contentWindow.postMessage({ theme: theme }, '*');
+          }, { once: true });
+        }
       });
     });
   </script>
-
-
 
 </body>
 </html>

@@ -462,6 +462,7 @@ margin: 0px 0px 0px 10px;
     height: auto;
     position: relative;
     padding-top: 0;
+    overflow: hidden;
   }
 
 @media (max-width: 768px) {

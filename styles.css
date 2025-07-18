@@ -83,7 +83,7 @@ display: block;
 margin: 20px 0px -8px 10px;
 }
 p4{
-font-size: 16px;
+font-size: 8px;
 display: block;
 margin: 20px 0px 20px 10px;
 text-align: center;
@@ -307,26 +307,25 @@ margin: 0px 0px 0px 10px;
   display: block;
   border-radius: 5px;
 }
+
 .home_gallery {
-  column-count: 4;
-  column-fill: fill;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 Spalten mit gleicher Breite */
   gap: 8px;
-  padding: 0px 10px 0px 10px;
+  padding: 8px 8px 0px 8px;
   height: 100%;
   overflow-y: hidden;
 }
-.home_gallery img {
+
+.home_gallery img,
+.home_gallery video,
+.home_gallery > div {
   width: 100%;
-  margin-bottom: 8px;
-  display: block;
   border-radius: 5px;
-}
-.home_gallery video {
-  width: 100%;
-  margin-bottom: 8px;
   display: block;
-  border-radius: 5px;
 }
+
+
 .about_gallery {
   column-count: 3;
   column-fill: balance;
@@ -358,10 +357,8 @@ margin: 0px 0px 0px 10px;
   color: inherit;
   padding: 4px;
 }
-
-
 .youtube_embed {
-    aspect-ratio: 16 / 9;
+    
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
@@ -371,24 +368,20 @@ margin: 0px 0px 0px 10px;
     height: 100%;
     border: none;
 }
-
 .submenu {
   display: none;
   padding-left: 20px;
   flex-direction: column;
 }
-
 .nav-group.active .submenu {
   display: flex;
 }
-
 .sidenav a {
   display: block;
   padding: 8px 16px;
   text-decoration: none;
   color: inherit;
 }
-
 .Hvideo-wrapper {
   aspect-ratio: 4 / 5;
   height: 100%;/* oder eine feste Breite z.B. 500px */
@@ -403,13 +396,11 @@ margin: 0px 0px 0px 10px;
   position: relative;
   border-radius: 5px;
 }
-
 .video-wrapper video {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
 .Qpic-wrapper {
   aspect-ratio: 4 / 3;
   height: 100%; /* oder eine feste Breite z.B. 500px */
@@ -422,7 +413,6 @@ margin: 0px 0px 0px 10px;
   overflow: hidden;
   position: relative;
 }
-
 .video-aspect-ratio {
   position: relative;
   width: 100%;
@@ -430,7 +420,6 @@ margin: 0px 0px 0px 10px;
   overflow: hidden;
   border-radius: 5px; /* optional für Style */
 }
-
 .video-aspect-ratio video {
   position: absolute;
   top: 0;
@@ -439,9 +428,6 @@ margin: 0px 0px 0px 10px;
   height: 100%;
   object-fit: cover;
 }
-
-
-
 /* ----- Mobilmenü Standard (sichtbar auf Desktop) ----- */
 .mobile-toggle {
   display: block;
@@ -454,7 +440,6 @@ margin: 0px 0px 0px 10px;
   color: inherit;
   text-align: left;       /* linksbündig */
 }
-
 /* ----- Nur auf kleinen Bildschirmen: Menü verbergen und toggle sichtbar ----- */
 @media (max-width: 768px) {
   .sidenav {

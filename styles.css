@@ -306,7 +306,6 @@ margin: 0px 0px 0px 10px;
   margin-bottom: 8px;
   display: block;
   border-radius: 5px;
-  
 }
 .home_gallery {
   column-count: 4;
@@ -392,7 +391,7 @@ margin: 0px 0px 0px 10px;
 
 .Hvideo-wrapper {
   aspect-ratio: 4 / 5;
-  width: 100%; /* oder eine feste Breite z.B. 500px */
+  height: 100%;/* oder eine feste Breite z.B. 500px */
   overflow: hidden;
   position: relative;
   border-radius: 5px;
@@ -422,4 +421,21 @@ margin: 0px 0px 0px 10px;
   width: 100%; /* oder eine feste Breite z.B. 500px */
   overflow: hidden;
   position: relative;
+}
+
+.video-aspect-ratio {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5; /* Seitenverhältnis 5:4 */
+  overflow: hidden;
+  border-radius: 5px; /* optional für Style */
+}
+
+.video-aspect-ratio video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

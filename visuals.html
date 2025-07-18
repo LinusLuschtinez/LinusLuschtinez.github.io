@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Visual Art & CGI</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class ="videography">
+        <div class="text">
+            <h1>Visual Art & CGI<br></h1>
+    
+            <a class="overview" href="#reels">- Kurzvideos & Reels</a> <br>
+            <a class="overview" href="#animation">- Animationen</a> <br>
+            <a class="overview" href="#3d">- 3D Render</a> <br>
+            <a class="overview" href="#aVis">- Audio Visuals</a> <br>
+
+        </div>
+
+    </div>
+
+    <div class="gallery_group" id="stills">
+        <div class="text">    
+            <p3>"Stills"</p3>
+        </div>
+
+        <div class="preview_gallery" onclick="toggleGallery(this)" >
+            <img src="render/still_render_8.jpg">
+            <img src="render/still_render_6.jpg">
+            <img src="render/still_render_7.jpg">
+            <img src="render/still_render_5.jpg">
+        </div>
+
+        <div class="full_gallery gallery hidden" onclick="toggleGallery(this)">
+            <img src="render/still_render_1.jpg">
+            <img src="render/still_render_2.jpg">
+            <img src="render/still_render_3.jpg">
+            <img src="render/still_render_4.jpg">
+            
+        </div>
+    </div>
+
+    <div class="gallery_group" id="animation">
+        <div class="text">    
+            <p3>"Animationen"</p3>
+        </div>
+        
+        <div class="preview_gallery videogallery">
+            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/animation3.jpg" loop>
+                <source src="videos/animation3.mp4" type="video/mp4">
+            </video>
+        
+            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/animation2.jpg" loop>
+                <source src="videos/animation2.mp4" type="video/mp4">
+            </video>
+
+            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/animation1.jpg" loop>
+                <source src="videos/animation1.mp4" type="video/mp4">
+            </video>
+        
+            <video muted preload="auto" playsinline loop>
+               
+            </video>            
+        </div>
+    </div>  
+
+    <div class="gallery_group" id="3d">
+        <div class="text">    
+            <p3>"3D Render"</p3>
+        </div>
+        
+        <div class="preview_gallery videogallery">
+            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/luca1.jpg" loop>
+                <source src="videos/luca1.mp4" type="video/mp4">
+            </video>
+        
+            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/luca2.jpg" loop>
+                <source src="videos/luca2.mp4" type="video/mp4">
+            </video>
+
+            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/luca3.jpg" loop>
+                <source src="videos/luca3.mp4" type="video/mp4">
+            </video>
+        
+            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/luca4.jpg" loop>
+                <source src="videos/luca4.mp4" type="video/mp4">
+            </video>            
+        </div>
+    </div> 
+    
+    <div class="gallery_group" id="aVis">
+        <div class="text">    
+            <p3>"Audio Visuals"</p3>
+        </div>
+        
+        <div class="preview_gallery videogallery">
+            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/audioVis2.jpg" loop>
+                <source src="videos/audioVis2.mp4" type="video/mp4">
+            </video>
+        
+            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/audioVis1.jpg" loop>
+                <source src="videos/audioVis1.mp4" type="video/mp4">
+            </video>
+
+            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/audioVis3.jpg" loop>
+                <source src="videos/audioVis3.mp4" type="video/mp4">
+            </video>
+        
+            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/audioVis4.jpg" loop>
+                <source src="videos/audioVis4.mp4" type="video/mp4">
+            </video>            
+        </div>
+    </div> 
+
+
+
+    <div class="footer">
+        <p4>© 2025 by Linus Luschtinez. All rights reserved.</p4>
+    </div> 
+
+    <script>
+        function toggleGallery(previewElement) {
+        const galleryGroup = previewElement.closest('.gallery_group');
+        const fullGallery = galleryGroup.querySelector('.full_gallery');
+        fullGallery.classList.toggle('hidden');
+        }
+    </script>
+
+    <!-- JavaScript für die Videogalerie -->
+    <script>
+        const videos = document.querySelectorAll('.videogallery video');
+
+        videos.forEach(video => {
+            
+            video.addEventListener('mouseenter', () => {
+                video.play();
+            });
+
+            video.addEventListener('mouseleave', () => {
+                video.pause();
+                video.muted = true; //Stellt sicher, dass das Video stummgeschaltet wird, wenn der Mauszeiger das Video verlässt
+                video.currentTime = 0; //Startet das Video beim nächsten Hover von vorne
+            });
+            
+            video.addEventListener('click', () => {
+                video.muted = false;
+            });
+
+
+        });
+    </script>
+
+    <script>
+        document.addEventListener("contextmenu", event => event.preventDefault());
+    </script>
+
+    <script>
+        window.addEventListener('message', (event) => {
+            if (event.data && event.data.theme) {
+              const theme = event.data.theme;
+           document.documentElement.classList.toggle('dark-mode', theme === 'dark');
+            }
+        });
+
+        // Optional: gleich beim Laden das Theme übernehmen, falls schon im Storage gespeichert
+          const storedTheme = localStorage.getItem('theme');
+          if (storedTheme === 'dark') {
+            document.documentElement.classList.add('dark-mode');
+          }
+    </script>
+
+    
+</body>
+</html>

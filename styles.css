@@ -32,7 +32,7 @@ a {
 /*-------------------------- THE SIDEBAR --------------------------*/
 /* The sidebar menu */
 .sidenav {
-  height: 90%; /* Full-height: remove this if you want "auto" height */
+  height: 99%; /* Full-height: remove this if you want "auto" height */
   width: 160px; /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
@@ -353,17 +353,7 @@ margin: 0px 0px 0px 10px;
   display: block;
   border-radius: 5px;
 }
-.toggle-btn {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  background: none;
-  border: none;
-  font-size: 14px;
-  cursor: pointer;
-  color: inherit;
-  padding: 4px;
-}
+
 
 .submenu {
   display: none;
@@ -496,4 +486,35 @@ margin: 0px 0px 0px 10px;
   aspect-ratio: 9/16;
   width: 100%;
 }
+}
+
+
+.toggle-btn {
+  position: absolute;
+  bottom: 25px;
+  left: 10px;
+  background: none;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  color: inherit;
+  padding: 0px;
+}
+
+/* Mobil: Button im Menü anzeigen */
+.mobile-theme-toggle {
+  margin-top: 10px;
+  padding: 0 0px;
+}
+
+/* Auf Mobil: Zeige Button im Menü, verstecke alten Button */
+@media (max-width: 768px) {
+  .toggle-btn {
+    position: static;
+    margin-top: 10px;
+  }
+
+  .mobile-theme-toggle {
+    display: block;
+  }
 }

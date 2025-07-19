@@ -20,7 +20,7 @@
       </div>
 
       <div class="nav-group">
-        <a href="about.html" target="content-frame" class="nav-link has-sub">about</a>
+        <a href="about.html" target="content-frame" class="nav-link has-sub">About</a>
       </div>
     
       <div class="nav-group">
@@ -155,6 +155,10 @@
             iframe.contentWindow.postMessage({ theme: theme }, '*');
           }, { once: true });
         }
+        // Menü auf Mobil schließen nach Klick
+        if (window.innerWidth <= 768) {
+          document.querySelector('.sidenav').classList.remove('open');
+        }        
       });
     });
   </script>

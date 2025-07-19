@@ -530,6 +530,7 @@ margin: 0px 0px 0px 10px;
   font-family: 'Courier New', Courier, monospace;
   color: inherit;
   text-align: left;       /* linksbündig */
+  overflow-y: hidden; /* Disable horizontal scroll */
 }
 /* ----- Nur auf kleinen Bildschirmen: Menü verbergen und toggle sichtbar ----- */
 @media (max-width: 768px) {

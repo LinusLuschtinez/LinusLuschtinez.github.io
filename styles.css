@@ -312,23 +312,18 @@ margin: 0px 0px 0px 10px;
   column-count: 3;
   column-fill: balance;
   gap: 8px;
-  padding: 10px 10px 0px 10px;
+  margin-top: 16px;
   height: 100%;
   overflow-y: hidden;
 }
-.contact_gallery img {
+.contact_gallery img,
+.contact_gallery video,
+.contact_gallery > div {
   width: 100%;
   margin-bottom: 8px;
-  display: block;
   border-radius: 5px;
-}
-.contact_gallery video {
-  width: 100%;
-  margin-bottom: 8px;
   display: block;
-  border-radius: 5px;
 }
-
 .contact_gallery_mobile {
   display: none; /* Standardmäßig versteckt */
 
@@ -371,6 +366,8 @@ margin: 0px 0px 0px 10px;
 }
 
 /*-------------------------- IMG GALLERY --------------------------*/
+
+
 .preview_gallery{
   column-count: 4;
   column-fill: balance;
@@ -384,9 +381,13 @@ margin: 0px 0px 0px 10px;
   border-radius: 5px;
   /*transition: transform 1s ease;*/
 }
+
 .hidden{
   display: none;
 }
+
+
+
 /* if i am correct, this is the css for the image gallery */
 .gallery {
   column-count: 4;
@@ -499,6 +500,7 @@ margin: 0px 0px 0px 10px;
   width: 100%; /* oder eine feste Breite z.B. 500px */
   overflow: hidden;
   position: relative;
+  border-radius: 5px;
 }
 .video-aspect-ratio {
   position: relative;
@@ -608,4 +610,14 @@ margin: 0px 0px 0px 10px;
   .mobile-theme-toggle {
     display: block;
   }
+}
+
+
+
+@media (max-width: 768px) {
+  .footer{
+    display:block;
+    height:250px;
+  }
+  
 }

@@ -648,3 +648,49 @@ margin: 0px 0px 0px 10px;
   }
   
 }
+
+
+
+
+/*-------------------------- LIGHTBOX OVERLAY --------------------------*/
+/* Overlay Vollbild */
+#lightbox {
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.9);
+}
+
+/* Start hidden */
+.hidden {
+  display: none !important;
+}
+
+/* Bild im Overlay */
+#lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.3);
+}
+
+/* Close-Button */
+#lightbox .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+}
+
+#lightbox .close:hover {
+  color: #ccc;
+}

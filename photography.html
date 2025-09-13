@@ -18,10 +18,10 @@
         </div>
 
         <div class="preview_gallery">
-            <img src="images/concert_photography/concert_45.jpg">
-            <img src="images/concert_photography/concert_41.jpg">
-            <img src="images/concert_photography/concert_66.jpg">
-            <img src="images/concert_photography/concert_28.jpg">
+            <img src="images/concert_photography/concert_45.jpg" onclick="openLightbox(this.src)">
+            <img src="images/concert_photography/concert_41.jpg" onclick="openLightbox(this.src)">
+            <img src="images/concert_photography/concert_66.jpg" onclick="openLightbox(this.src)">
+            <img src="images/concert_photography/concert_28.jpg" onclick="openLightbox(this.src)">
             
         </div>
 
@@ -311,47 +311,65 @@
     <div class="footer">
         <p4>© 2025 by Linus Luschtinez. All rights reserved.</p4>
     </div>
+    <!-- ------------------- LIGHTBOX ------------------- -->
+    <div id="lightbox" class="hidden">
+      <span class="close" onclick="closeLightbox()">&times;</span>
+      <img id="lightbox-img" src="">
+    </div>
 
     <script>
+    // ------------------- GALLERY TOGGLE -------------------
     function toggleGallery(button) {
         const galleryGroup = button.closest('.gallery_group');
         const fullGallery = galleryGroup.querySelector('.full_gallery');
 
-        // Galerie sichtbar/unsichtbar schalten
         fullGallery.classList.toggle('hidden');
 
-       // Button-Text anpassen
-       if (fullGallery.classList.contains('hidden')) {
+        if (fullGallery.classList.contains('hidden')) {
             button.textContent = "▼ Click to expand ▼";
         } else {
             button.textContent = "▲ Click to collapse ▲";
         }
     }
+
+    // ------------------- LIGHTBOX -------------------
+    function openLightbox(src) {
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+        lightboxImg.src = src;
+        lightbox.style.display = "flex";
+    }
+
+    function closeLightbox() {
+        const lightbox = document.getElementById("lightbox");
+        lightbox.style.display = "none";
+    }
+
+    // Klick auf Hintergrund schließt Lightbox
+    document.getElementById("lightbox").addEventListener("click", function(e) {
+        if (e.target.id === "lightbox") {
+            closeLightbox();
+        }
+    });
+
+    // ------------------- DARK MODE -------------------
+    window.addEventListener('message', (event) => {
+        if (event.data && event.data.theme) {
+            const theme = event.data.theme;
+            document.documentElement.classList.toggle('dark-mode', theme === 'dark');
+        }
+    });
+
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme === 'dark') {
+        document.documentElement.classList.add('dark-mode');
+    }
+
+    // ------------------- CONTEXT MENU DISABLE -------------------
+     document.addEventListener("contextmenu", event => event.preventDefault());
     </script>
-
-
-
-
-    <script>
-        document.addEventListener("contextmenu", event => event.preventDefault());
-    </script>
-
-    <script>
-        window.addEventListener('message', (event) => {
-            if (event.data && event.data.theme) {
-              const theme = event.data.theme;
-           document.documentElement.classList.toggle('dark-mode', theme === 'dark');
-            }
-        });
-
-        // Optional: gleich beim Laden das Theme übernehmen, falls schon im Storage gespeichert
-          const storedTheme = localStorage.getItem('theme');
-          if (storedTheme === 'dark') {
-            document.documentElement.classList.add('dark-mode');
-          }
-    </script>
-
     
+
 </body>
 </html>
 

@@ -386,7 +386,39 @@ margin: 0px 0px 0px 10px;
   display: none;
 }
 
+/* Divider CSS */
+/* Divider Styling */
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+  margin: 8px 10px;
+  cursor: pointer;
+  user-select: none;
+  gap: 10px;
+  padding: 6px 0;
+}
 
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #ccc;
+  transform-origin: center;
+}
+
+.divider.open {
+  color: #000;
+  font-weight: 600;
+}
+
+/* kleine optische Verbesserung für Fokus (Zugänglichkeit) */
+.divider:focus {
+  outline: 3px solid rgba(0,0,0,0.08);
+  outline-offset: 4px;
+}
 
 /* if i am correct, this is the css for the image gallery */
 .gallery {
@@ -519,8 +551,6 @@ margin: 0px 0px 0px 10px;
 }
 
 
-
-
 /* ----- Mobilmenü Standard (sichtbar auf Desktop) ----- */
 .mobile-toggle {
   display: block;
@@ -581,7 +611,6 @@ margin: 0px 0px 0px 10px;
 }
 }
 
-
 .toggle-btn {
   position: absolute;
   bottom: 25px;
@@ -611,8 +640,6 @@ margin: 0px 0px 0px 10px;
     display: block;
   }
 }
-
-
 
 @media (max-width: 768px) {
   .footer{

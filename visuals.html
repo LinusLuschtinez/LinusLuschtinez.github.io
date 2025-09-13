@@ -17,20 +17,24 @@
             <p3>"Stills"</p3>
         </div>
 
-        <div class="preview_gallery" onclick="toggleGallery(this)" >
+        <div class="preview_gallery">
             <img src="render/still_render_8.jpg">
             <img src="render/still_render_6.jpg">
             <img src="render/still_render_7.jpg">
             <img src="render/still_render_5.jpg">
         </div>
 
-        <div class="full_gallery gallery hidden" onclick="toggleGallery(this)">
+        <div class="full_gallery gallery hidden">
             <img src="render/still_render_1.jpg">
             <img src="render/still_render_2.jpg">
             <img src="render/still_render_3.jpg">
             <img src="render/still_render_4.jpg">
             
         </div>
+
+        <div class="divider" onclick="toggleGallery(this)">
+            ▼ Click to expand ▼
+        </div>        
     </div>
 
     <div class="gallery_group" id="animation">
@@ -114,12 +118,22 @@
     </div> 
 
     <script>
-        function toggleGallery(previewElement) {
-        const galleryGroup = previewElement.closest('.gallery_group');
+    function toggleGallery(button) {
+        const galleryGroup = button.closest('.gallery_group');
         const fullGallery = galleryGroup.querySelector('.full_gallery');
+
+        // Galerie sichtbar/unsichtbar schalten
         fullGallery.classList.toggle('hidden');
+
+       // Button-Text anpassen
+       if (fullGallery.classList.contains('hidden')) {
+            button.textContent = "▼ Click to expand ▼";
+        } else {
+            button.textContent = "▲ Click to collapse ▲";
         }
+    }
     </script>
+
 
     <!-- JavaScript für die Videogalerie -->
     <script>

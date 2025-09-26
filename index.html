@@ -3,15 +3,15 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio Luschtinez</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  
     <!-- Side navigation -->
   <div class="sidenav">
     
     <button class="mobile-toggle" onclick="toggleMobileNav()">Linus Luschtinez</button>
+
 
     <div class="mobile-menu">
       
@@ -83,11 +83,6 @@
   <div class="main">
     <iframe src="home.html" name="content-frame" frameborder="0"></iframe>
   </div>
-
-
-
-
-
 
   <script>
     // Rechtsklick deaktivieren
@@ -162,7 +157,7 @@
           }, { once: true });
         }
         // Menü auf Mobil schließen nach Klick
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 970) {
           document.querySelector('.sidenav').classList.remove('open');
         }        
       });
@@ -171,7 +166,7 @@
 
   <script>
     function toggleMobileNav() {
-      if (window.innerWidth <= 768) {
+      if (window.innerWidth <= 970) {
         document.querySelector('.sidenav').classList.toggle('open');
       }
     }

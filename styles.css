@@ -1,13 +1,9 @@
-header {
+header, body {
   font-family: 'Courier New', Courier, monospace;
   background-color: #ffffff; /* Default background color */
   color: #111111; /* Default text color */
 }
-body {
-  font-family: 'Courier New', Courier, monospace;
-  background-color: #ffffff; /* Default background color */
-  color: #111111; /* Default text color */
-}
+
 a {
   color: #111111; /* Default link color */
 }
@@ -139,6 +135,7 @@ margin: 0px 0px 0px 10px;
   margin: 20px 10px 0px 0px;
   display: block;
   border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 .home video{
   max-height: 400px;
@@ -156,16 +153,16 @@ margin: 0px 0px 0px 10px;
   gap: 20px;
 }
 .about .text{
-  max-width: 750px;
+  max-width: 800px;
+  text-align: block;
 }
-.about_media{
+.about_media{;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 0px;
 }
 .about img{
   max-width: 300px;
-  
   margin: 20px 10px 0px 0px;
   height: auto;
   display: block;
@@ -178,7 +175,7 @@ margin: 0px 0px 0px 10px;
   display: block;
   border-radius: 5px;
 }
-@media (max-width: 768px) {
+@media (max-width: 970px) {
   .about_media, .about_video {
   display: none;
   }
@@ -221,7 +218,7 @@ margin: 0px 0px 0px 10px;
   display: block;
   border-radius: 5px;
 }
-@media (max-width: 768px) {
+@media (max-width: 970px) {
   .about_gallery_mobile{
   display: block;
   column-count: 3;
@@ -302,7 +299,7 @@ margin: 0px 0px 0px 10px;
   border-radius: 5px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 970px) {
   .contact_media, .contact_video {
   display: none;
   }
@@ -340,7 +337,7 @@ margin: 0px 0px 0px 10px;
   display: block;
   border-radius: 5px;
 }
-@media (max-width: 768px) {
+@media (max-width: 970px) {
   .contact_gallery_mobile{
   display: block;
   column-count: 3;
@@ -367,7 +364,6 @@ margin: 0px 0px 0px 10px;
 
 /*-------------------------- IMG GALLERY --------------------------*/
 
-
 .preview_gallery{
   column-count: 4;
   column-fill: balance;
@@ -380,6 +376,7 @@ margin: 0px 0px 0px 10px;
   display: block; 
   border-radius: 5px;
   /*transition: transform 1s ease;*/
+
 }
 
 .hidden{
@@ -565,7 +562,7 @@ margin: 0px 0px 0px 10px;
   overflow-y: hidden; /* Disable horizontal scroll */
 }
 /* ----- Nur auf kleinen Bildschirmen: Menü verbergen und toggle sichtbar ----- */
-@media (max-width: 768px) {
+@media (max-width: 970px) {
   .sidenav {
     width: 100%;
     height: auto;
@@ -573,7 +570,7 @@ margin: 0px 0px 0px 10px;
     padding-top: 0;
   }
 
-@media (max-width: 768px) {
+@media (max-width: 970px) {
   html, body {
     overflow-x: hidden;
   }
@@ -604,13 +601,12 @@ margin: 0px 0px 0px 10px;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 970px) {
 .videogallery iframe {
   aspect-ratio: 9/16;
   width: 100%;
 }
 }
-
 .toggle-btn {
   position: absolute;
   bottom: 25px;
@@ -622,15 +618,13 @@ margin: 0px 0px 0px 10px;
   color: inherit;
   padding: 0px;
 }
-
 /* Mobil: Button im Menü anzeigen */
 .mobile-theme-toggle {
   margin-top: 10px;
   padding: 0 0px;
 }
-
 /* Auf Mobil: Zeige Button im Menü, verstecke alten Button */
-@media (max-width: 768px) {
+@media (max-width: 970px) {
   .toggle-btn {
     position: static;
     margin-top: 10px;
@@ -641,56 +635,10 @@ margin: 0px 0px 0px 10px;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 970px) {
   .footer{
     display:block;
     height:250px;
   }
   
-}
-
-
-
-
-/*-------------------------- LIGHTBOX OVERLAY --------------------------*/
-/* Overlay Vollbild */
-#lightbox {
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  z-index: 9999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.9);
-}
-
-/* Start hidden */
-.hidden {
-  display: none !important;
-}
-
-/* Bild im Overlay */
-#lightbox img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 8px;
-  box-shadow: 0 0 20px rgba(255,255,255,0.3);
-}
-
-/* Close-Button */
-#lightbox .close {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  color: white;
-  font-size: 40px;
-  font-weight: bold;
-  cursor: pointer;
-  user-select: none;
-}
-
-#lightbox .close:hover {
-  color: #ccc;
 }

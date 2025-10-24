@@ -662,6 +662,7 @@ margin: 0px 0px 0px 10px;
 .menu-icon {
     margin-right: -8px; /* Abstand zwischen Icon und Text */
     font-size: 1.2em; /* Größe des Icons anpassen */
+    display: none; /* Standardmäßig ausgeblendet */
   }
 
 /* Auf Mobil: Zeige Button im Menü, verstecke alten Button */
@@ -673,6 +674,9 @@ margin: 0px 0px 0px 10px;
 
   .mobile-theme-toggle {
     display: block;
+  }
+  .menu-icon {
+    display: inline; /* Icon anzeigen */
   }
 }
 

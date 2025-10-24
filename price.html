@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>price</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class ="price">
+
+        <div class="text">
+            <h1>Meine Pakete / Preise und Angebote<br><br></h1>
+        
+            <p class ="price-text">
+                Hier findest du meine standardisierten Pakete und Angebote. <br><br>
+                Für individuelle Anfragen oder maßgeschneiderte Lösungen kannst du mich jederzeit über die Kontaktseite erreichen.
+            </p>
+       </div>
+    </div>   
+
+        <div class="container">
+            <!-- Erste Box -->
+            <div class="price-box">
+                <h2>Content Paket</h2>
+                <p2>Vom Konzept über die Planung bis zum Endprodukt, Alles in einem Paket</p2>
+                <p class="price">779€</p>
+                <ul>
+                    <li>8 Reels</li>
+                    <li>4 Carousel Posts </li>
+                </ul>
+            </div>
+
+            <!-- Zweite Box -->
+            <div class="price-box">
+                <h2>Content Paket Pro</h2>
+                <p class="price">499€</p>
+                <ul>
+                    <li>12 Reels</li>
+                    <li>8 Carousel Posts</li>
+                    <li>SEO Optimized Captions</li>
+                    <li>Premium Support</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- Erste Box -->
+            <div class="price-box">
+                <h2>Kickstart</h2>
+                <p2>„Von der Einführung bis zur Praxis – dein Einstieg in Social Media Management.“</p2>
+                <p class="price">779€</p>
+                <ul>
+                    <li>Feature 1</li>
+                    <li>Feature 2</li>
+                    <li>Feature 3</li>
+                </ul>
+            </div>
+
+            <!-- Zweite Box -->
+            <div class="price-box">
+                <h2>Boost</h2>
+                <p2>„Von der Einführung über die Umsetzung bis zum fertigen Ergebnis – alles live und interaktiv im Online-Workshop.“</p2>
+                <p class="price">499€</p>
+                <ul>
+                    <li>Alle Standard Features</li>
+                    <li>Zusatz Feature A</li>
+                    <li>Zusatz Feature B</li>
+                    <li>Premium Support</li>
+                </ul>
+            </div>
+    
+            <!-- Dritte Box -->
+            <div class="price-box">
+                <h2>Boost</h2>
+                <p2>„Vom ersten Konzept über die Umsetzung bis zum fertigen Ergebnis – alles persönlich vor Ort, individuell und praxisnah.“</p2>
+                <p class="price">499€</p>
+                <ul>
+                    <li>Alle Standard Features</li>
+                    <li>Zusatz Feature A</li>
+                    <li>Zusatz Feature B</li>
+                    <li>Premium Support</li>
+                </ul>
+            </div>
+        </div>
+
+
+
+    <div class="footer">
+        <p4>© 2025 by Linus Luschtinez. All rights reserved.</p4>
+    </div>
+    
+    <script>
+        document.addEventListener("contextmenu", event => event.preventDefault());
+    </script>
+
+    <script>
+        window.addEventListener('message', (event) => {
+            if (event.data && event.data.theme) {
+              const theme = event.data.theme;
+           document.documentElement.classList.toggle('dark-mode', theme === 'dark');
+            }
+        });
+
+        // Optional: gleich beim Laden das Theme übernehmen, falls schon im Storage gespeichert
+          const storedTheme = localStorage.getItem('theme');
+          if (storedTheme === 'dark') {
+            document.documentElement.classList.add('dark-mode');
+          }
+    </script>
+
+    
+</body>
+</html>
+
+
+
+
+

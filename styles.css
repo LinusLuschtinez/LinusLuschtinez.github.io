@@ -44,6 +44,7 @@ a {
   text-decoration: none;
   display: block;
 }
+
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
   color: #818181;
@@ -547,6 +548,9 @@ margin: 0px 0px 0px 10px;
 }
 
 
+
+
+
 /* ----- Mobilmenü Standard (sichtbar auf Desktop) ----- */
 .mobile-toggle {
   display: block;
@@ -635,19 +639,16 @@ margin: 0px 0px 0px 10px;
 .icons_link{
   padding: 6px, 6px, 6px, 6px;
 }
-
 .social-icons a img {
   width: 26px;
   height: 26px;
   object-fit: contain;
   border-radius: 0px;
 }
-
 /* Dark Mode Anpassung */
 .dark-mode .social-icons a img {
   filter: invert(1);
 }
-
 /* Mobile Layout */
 @media (max-width: 970px) {
   .social-icons {
@@ -657,14 +658,11 @@ margin: 0px 0px 0px 10px;
     margin: 0 0 0 0;
   }
 }
-
-
 .menu-icon {
     margin-right: -8px; /* Abstand zwischen Icon und Text */
     font-size: 1.2em; /* Größe des Icons anpassen */
     display: none; /* Standardmäßig ausgeblendet */
   }
-
 /* Auf Mobil: Zeige Button im Menü, verstecke alten Button */
 @media (max-width: 970px) {
   .toggle-btn {
@@ -686,4 +684,77 @@ margin: 0px 0px 0px 10px;
     height:250px;
   }
   
+}
+
+
+
+/*-------------------------- PRICE BOXES --------------------------*/
+.container {
+    display: flex; /* Boxen nebeneinander */
+    gap: 30px; /* Abstand zwischen den Boxen */
+    flex-wrap: wrap; /* Boxen brechen in neue Zeile, wenn Platz eng wird */
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.price-box {
+    background-color: #d3d3d3; /* Weißer Hintergrund für die Boxen */
+    border-radius: 8px;
+    border: 1px solid #202020; /* Leichter Rahmen */
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .7); /* Leichter Schatten */
+    text-align: center;
+    width: 300px; /* Feste Breite der Box */
+    color: #333; /* Dunklerer Text */
+}
+
+.price-box h2 {
+    font-size: 1.8em;
+    font-weight: normal;
+    text-decoration: underline;
+    margin-bottom: 8px;
+
+}
+.price-box p2 {
+    font-size: 0.7em;;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.price-box .price {
+    font-size: 2.5em;
+    color: #2c3e50; /* Dunkler Preis */
+    margin-bottom: 30px;
+}
+
+.price-box ul {
+    list-style: none; /* Keine Standard-Listenpunkte */
+    padding: 0;
+    margin: 0;
+    text-align: left; /* Features linksbündig */
+}
+
+.price-box ul li {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    line-height: 1.5;
+    position: relative;
+    padding-left: 25px; /* Platz für den Haken */
+}
+
+.price-box ul li::before {
+    content: '✓'; /* Grüner Haken */
+    color: #27ae60;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* Optional: Responsivität für kleinere Bildschirme */
+@media (max-width: 970px) {
+    .container {
+        flex-direction: column; /* Boxen untereinander auf kleinen Bildschirmen */
+        align-items: center;
+    }
 }

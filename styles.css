@@ -457,6 +457,13 @@ margin: 0px 0px 0px 10px;
   display: block;
   border-radius: 5px;
 }
+.Rvideogallery iframe {
+  height: 50%;
+  aspect-ratio: 9 / 16; /* Seitenverhältnis 16:9 */
+  margin-bottom: 8px;
+  display: block;
+  border-radius: 5px;
+}
 
 .home_gallery {
   display: grid;
@@ -744,7 +751,7 @@ margin: 0px 0px 0px 10px;
 
 .price-box ul li::before {
     content: '✓'; /* Grüner Haken */
-    color: #27ae60;
+    color: #a66adc;
     font-weight: bold;
     position: absolute;
     left: 0;

@@ -12,6 +12,54 @@
 
     </div>
 
+    <!--  Davinci Quicktipps  -->
+    <div class="gallery_group" id="DavinciTips">
+        <div class="text">    
+            <p3>"Davinci Quicktips Video Serie"</p3>
+        </div>
+        
+        <div class="preview_gallery videogallery">
+            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/Quicktip_1.webp" loop>
+                <source src="videos/Quicktip_1.mp4" type="video/mp4">
+            </video>
+
+            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/Quicktip_2.webp" loop>
+                <source src="videos/Quicktip_2.mp4" type="video/mp4">
+            </video>
+
+            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/Quicktip_3.webp" loop>
+                <source src="videos/Quicktip_3.mp4" type="video/mp4">
+            </video>
+        
+            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/Quicktip_4.webp" loop>
+                <source src="videos/Quicktip_4.mp4" type="video/mp4">
+            </video>            
+        </div>
+
+        <div class="full_gallery videogallery hidden">
+            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/Quicktip_5.webp" loop>
+                <source src="videos/Quicktip_5.mp4" type="video/mp4">
+            </video>
+            
+            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/Quicktip_6.webp" loop>
+                <source src="videos/Quicktip_6.mp4" type="video/mp4">
+            </video>
+
+            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/Quicktip_7.webp" loop>
+                <source src="videos/Quicktip_7.mp4" type="video/mp4">
+            </video> 
+
+            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/Quicktip_8.webp" loop>
+                <source src="videos/Quicktip_8.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="divider" onclick="toggleGallery(this)">
+            ▼ Click to expand ▼
+        </div>            
+    </div>    
+
+
     <!--    Reels  -->
     <div class="gallery_group" id="Reels">
         <div class="text">    
@@ -36,7 +84,7 @@
             </video>            
         </div>
 
-        <div class="preview_gallery videogallery">
+        <div class="full_gallery videogallery hidden">
             <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/plant_cov.webp" loop>
                 <source src="videos/Planted_Fin.mp4" type="video/mp4">
             </video>
@@ -49,6 +97,10 @@
                 <source src="videos/reel3.mp4" type="video/mp4">
             </video> 
         </div>
+
+        <div class="divider" onclick="toggleGallery(this)">
+            ▼ Click to expand ▼
+        </div>     
     </div>
 
     <!--    Reels  -->
@@ -154,6 +206,210 @@
     <div class="footer">
         <p4>© 2025 by Linus Luschtinez. All rights reserved.</p4>
     </div> 
+
+<!-- ------------------- LIGHTBOX ------------------- -->
+    <div id="videoLightbox" class="hidden">
+      <span class="close" onclick="closeVideoLightbox()">&times;</span>
+      <div id="lightbox-content">
+          <!-- Hier wird entweder ein <video> oder ein <iframe> geladen -->
+      </div>
+      <a class="prev" onclick="navigateVideoLightbox(-1)">&#10094;</a> <!-- Linker Pfeil -->
+      <a class="next" onclick="navigateVideoLightbox(1)">&#10095;</a> <!-- Rechter Pfeil -->
+    </div>
+
+    <!-- JavaScript für die Videogalerie -->
+    <script>
+    // ------------------- GALLERY TOGGLE -------------------
+    function toggleGallery(button) {
+        const galleryGroup = button.closest('.gallery_group');
+        const fullGallery = galleryGroup.querySelector('.full_gallery');
+
+        fullGallery.classList.toggle('hidden');
+
+        if (fullGallery.classList.contains('hidden')) {
+            button.textContent = "▼ Click to expand ▼";
+        } else {
+            button.textContent = "▲ Click to collapse ▲";
+        }
+    }
+    </script>
+    <script>
+    // ------------------- VIDEO LIGHTBOX FUNCTIONALITY -------------------
+    let currentVideoGalleryItems = []; // Speichert alle Video- und Iframe-Elemente der aktuellen Galerie
+    let currentVideoIndex = 0;
+    let currentVideoGalleryId = '';
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // Event-Delegation für alle Videogalerien
+        document.addEventListener('click', function(event) {
+            const clickedElement = event.target;
+            let videoSrc = '';
+            let galleryId = '';
+            let originalElement = null; // Speichert das original geklickte video/iframe Element
+
+            // Prüfen, ob ein <video> Element geklickt wurde
+            if (clickedElement.tagName === 'VIDEO' && clickedElement.closest('.gallery_group')) {
+                videoSrc = clickedElement.querySelector('source').src;
+                galleryId = clickedElement.closest('.gallery_group').id;
+                originalElement = clickedElement;
+            } 
+            // Prüfen, ob ein <iframe> Element geklickt wurde
+            else if (clickedElement.tagName === 'IFRAME' && clickedElement.closest('.gallery_group')) {
+                videoSrc = clickedElement.src; // Die src des iframes ist die YouTube URL
+                galleryId = clickedElement.closest('.gallery_group').id;
+                originalElement = clickedElement;
+            }
+
+        if (videoSrc && galleryId) {
+                openVideoLightbox(originalElement, galleryId); // Übergeben des Originalelements
+            }
+        });
+
+        // Initialisiere Video-Hover-Effekte
+        const videos = document.querySelectorAll('.videogallery video');
+        videos.forEach(video => {
+            video.addEventListener('mouseenter', () => {
+                video.play();
+            });
+
+            video.addEventListener('mouseleave', () => {
+                video.pause();
+                video.muted = true;
+                video.currentTime = 0;
+            });
+        
+            // Optional: Beim Klick auf Video in der Vorschau Sound aktivieren (wird dann von Lightbox überschrieben)
+            video.addEventListener('click', (e) => {
+                // e.stopPropagation(); // Verhindert, dass das Bubbling an das document geht, wenn nur Sound aktiviert werden soll
+                // video.muted = false;
+            });
+        });
+    });
+
+
+    function openVideoLightbox(originalElement, galleryId) {
+        document.getElementById('videoLightbox').classList.remove('hidden');
+        document.body.style.overflow = 'hidden'; // Verhindert Scrollen im Hintergrund
+
+        const lightboxContent = document.getElementById('lightbox-content');
+        lightboxContent.innerHTML = ''; // Alten Inhalt leeren
+
+        currentVideoGalleryId = galleryId;
+        const galleryElement = document.getElementById(galleryId);
+
+        if (galleryElement) {
+            // Sammeln aller `<video>` und `<iframe>` Elemente in der aktuellen Galerie
+            // Wir müssen hier die originalen HTML-Elemente speichern, um ihren Typ und ihre src abrufen zu können
+            currentVideoGalleryItems = Array.from(galleryElement.querySelectorAll('.videogallery video, .videogallery iframe'));
+        
+            // Finden Sie den Index des geklickten Elements in dieser gesammelten Liste
+            currentVideoIndex = currentVideoGalleryItems.findIndex(item => item === originalElement);
+        } else {
+            currentVideoGalleryItems = [originalElement];
+            currentVideoIndex = 0;
+        }
+
+        loadVideoInLightbox(currentVideoGalleryItems[currentVideoIndex]);
+        updateVideoNavigationButtons();
+    }
+
+    function loadVideoInLightbox(item) {
+        const lightboxContent = document.getElementById('lightbox-content');
+        lightboxContent.innerHTML = ''; // Alten Inhalt leeren
+
+        if (item.tagName === 'VIDEO') {
+            const videoElement = document.createElement('video');
+            videoElement.src = item.querySelector('source') ? item.querySelector('source').src : item.src;
+            videoElement.controls = true;
+            videoElement.autoplay = true;
+            videoElement.muted = false; // Sound standardmäßig an
+            videoElement.playsinline = true; // Wichtig für iOS
+            videoElement.loop = false;
+            videoElement.setAttribute('preload', 'auto');
+            lightboxContent.appendChild(videoElement);
+            videoElement.play(); // Startet die Wiedergabe
+        } else if (item.tagName === 'IFRAME') {
+            const iframeWrapper = document.createElement('div');
+            iframeWrapper.classList.add('video-responsive-container'); // Für responsives YouTube
+            const iframeElement = document.createElement('iframe');
+            // Sicherstellen, dass autoplay aktiviert ist und rel=0 für YouTube
+            let youtubeSrc = item.src;
+            if (!youtubeSrc.includes('autoplay=1')) {
+                youtubeSrc += (youtubeSrc.includes('?') ? '&' : '?') + 'autoplay=1';
+            }
+            if (!youtubeSrc.includes('rel=0')) {
+                youtubeSrc += (youtubeSrc.includes('?') ? '&' : '?') + 'rel=0';
+            }
+            iframeElement.src = youtubeSrc;
+            iframeElement.allow = "autoplay; encrypted-media; fullscreen";
+            iframeElement.setAttribute('allowfullscreen', '');
+            iframeWrapper.appendChild(iframeElement);
+            lightboxContent.appendChild(iframeWrapper);
+        }
+    }
+
+
+    function closeVideoLightbox() {
+        document.getElementById('videoLightbox').classList.add('hidden');
+        document.body.style.overflow = 'auto'; // Ermöglicht wieder Scrollen
+
+        const lightboxContent = document.getElementById('lightbox-content');
+        lightboxContent.innerHTML = ''; // Video/Iframe leeren, um Wiedergabe zu stoppen
+
+        currentVideoGalleryItems = [];
+        currentVideoIndex = 0;
+        currentVideoGalleryId = '';
+    }
+
+    function navigateVideoLightbox(direction) {
+        currentVideoIndex += direction;
+        if (currentVideoIndex < 0) {
+            currentVideoIndex = currentVideoGalleryItems.length - 1;
+        } else if (currentVideoIndex >= currentVideoGalleryItems.length) {
+           currentVideoIndex = 0;
+        }
+        loadVideoInLightbox(currentVideoGalleryItems[currentVideoIndex]);
+        updateVideoNavigationButtons();
+    }
+
+    function updateVideoNavigationButtons() {
+        // Hier können Sie optional Logik hinzufügen, um Pfeile am Anfang/Ende zu deaktivieren
+        // Wenn Sie keinen Loop möchten. Aktuell ist ein Loop implementiert.
+    }
+
+    // Tastaturnavigation für Video Lightbox
+    document.addEventListener('keydown', function(e) {
+        if (!document.getElementById('videoLightbox').classList.contains('hidden')) {
+            if (e.key === 'ArrowLeft') {
+                navigateVideoLightbox(-1);
+            } else if (e.key === 'ArrowRight') {
+                navigateVideoLightbox(1);
+            } else if (e.key === 'Escape') {
+                closeVideoLightbox();
+            }
+       }
+    });
+
+    // Wischen für mobile Geräte (rudimentär)
+    let videoTouchStartX = 0;
+    const videoLightboxElement = document.getElementById('videoLightbox');
+
+    if (videoLightboxElement) {
+        videoLightboxElement.addEventListener('touchstart', function(e) {
+            videoTouchStartX = e.touches[0].clientX;
+        });
+
+        videoLightboxElement.addEventListener('touchend', function(e) {
+            let videoTouchEndX = e.changedTouches[0].clientX;
+            if (videoTouchEndX < videoTouchStartX - 50) { // Nach links wischen
+                navigateVideoLightbox(1);
+            } else if (videoTouchEndX > videoTouchStartX + 50) { // Nach rechts wischen
+                navigateVideoLightbox(-1);
+            }
+        });
+    }
+    </script>
+
 
     <!-- JavaScript für die Videogalerie -->
     <script>

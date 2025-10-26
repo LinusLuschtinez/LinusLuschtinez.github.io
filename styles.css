@@ -86,7 +86,8 @@ margin: 20px 0px 20px 10px;
 text-align: center;
 }
 img {
-  pointer-events: none; /* Disable pointer events for images */
+  pointer-events: auto !important;
+  /* pointer-events: none; Disable pointer events for images */
   -webkit-user-drag: none; /* Disable image dragging in WebKit browsers */
   user-select: none; /* Disable text selection */
 }
@@ -764,4 +765,206 @@ margin: 0px 0px 0px 10px;
         flex-direction: column; /* Boxen untereinander auf kleinen Bildschirmen */
         align-items: center;
     }
+}
+
+
+
+/* Lightbox Navigation */
+#lightbox .prev, #lightbox .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#lightbox .next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+#lightbox .prev {
+  left: 0;
+  border-radius: 0 3px 3px 0;
+}
+
+#lightbox .prev:hover, #lightbox .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Stil für die Lightbox selbst */
+#lightbox {
+  display: none; /* Wird per JS auf 'block' gesetzt, wenn geöffnet */
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#lightbox.hidden {
+    display: none;
+}
+
+#lightbox-img {
+  max-width: 90%;
+  max-height: 90vh;
+  display: block;
+  margin: auto;
+  object-fit: contain;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+/*-------------------------- VIDEO LIGHTBOX --------------------------*/
+
+#videoLightbox {
+  display: none; /* Wird per JS auf 'block' gesetzt, wenn geöffnet */
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#videoLightbox.hidden {
+    display: none;
+}
+
+#lightbox-content {
+    max-width: 90%;
+    max-height: 90vh;
+    width: 100%; /* Wichtig, damit iframes/videos die volle Breite nutzen können */
+    height: 100%;
+    display: flex; /* Für Zentrierung des Inhalts */
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Für absolute Positionierung des Inhalts, falls nötig */
+}
+
+#lightbox-content video,
+#lightbox-content iframe {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto; /* Standardmäßig auto, damit max-width/height greifen */
+    height: auto;
+    object-fit: contain; /* Stellt sicher, dass Videos nicht beschnitten werden */
+    margin: auto;
+    display: block; /* Entfernt zusätzlichen Platz */
+    /* YouTube iframes haben oft ein festes Seitenverhältnis, das sich nicht so einfach per height:100% ändert.
+       Wir nutzen hierfür ein Wrapper-Div und Padding-Bottom Hack im JS. */
+}
+
+/* Stil für Schließen-Button */
+#videoLightbox .close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+#videoLightbox .close:hover,
+#videoLightbox .close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Lightbox Navigation */
+#videoLightbox .prev, #videoLightbox .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10000; /* Sicherstellen, dass die Pfeile über dem Inhalt liegen */
+}
+
+#videoLightbox .next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+#videoLightbox .prev {
+  left: 0;
+  border-radius: 0 3px 3px 0;
+}
+
+#videoLightbox .prev:hover, #videoLightbox .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Responsive iframe container (für YouTube Videos in der Lightbox) */
+.video-responsive-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio (9 / 16 * 100) */
+    padding-top: 25px;
+    height: 0;
+    width: 100%; /* Nimmt die Breite des Parent ein */
+    max-width: 100%; /* Begrenzt die maximale Breite */
+    max-height: 90vh; /* Begrenzt die maximale Höhe */
+}
+
+.video-responsive-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
 }

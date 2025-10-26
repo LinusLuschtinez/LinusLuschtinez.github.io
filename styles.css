@@ -704,7 +704,6 @@ margin: 0px 0px 0px 10px;
     justify-content: center;
     margin-bottom: 30px;
 }
-
 .price-box {
     background-color: #d3d3d3; /* Weißer Hintergrund für die Boxen */
     border-radius: 8px;
@@ -715,7 +714,6 @@ margin: 0px 0px 0px 10px;
     width: 300px; /* Feste Breite der Box */
     color: #333; /* Dunklerer Text */
 }
-
 .price-box h2 {
     font-size: 1.8em;
     font-weight: normal;
@@ -728,20 +726,17 @@ margin: 0px 0px 0px 10px;
     font-weight: normal;
     margin-bottom: 20px;
 }
-
 .price-box .price {
     font-size: 2.5em;
     color: #2c3e50; /* Dunkler Preis */
     margin-bottom: 30px;
 }
-
 .price-box ul {
     list-style: none; /* Keine Standard-Listenpunkte */
     padding: 0;
     margin: 0;
     text-align: left; /* Features linksbündig */
 }
-
 .price-box ul li {
     margin-bottom: 10px;
     font-size: 1.1em;
@@ -749,7 +744,6 @@ margin: 0px 0px 0px 10px;
     position: relative;
     padding-left: 25px; /* Platz für den Haken */
 }
-
 .price-box ul li::before {
     content: '✓'; /* Grüner Haken */
     color: #a66adc;
@@ -758,7 +752,6 @@ margin: 0px 0px 0px 10px;
     left: 0;
     top: 0;
 }
-
 /* Optional: Responsivität für kleinere Bildschirme */
 @media (max-width: 970px) {
     .container {
@@ -787,21 +780,17 @@ margin: 0px 0px 0px 10px;
   text-decoration: none;
   background-color: rgba(0, 0, 0, 0.5);
 }
-
 #lightbox .next {
   right: 0;
   border-radius: 3px 0 0 3px;
 }
-
 #lightbox .prev {
   left: 0;
   border-radius: 0 3px 3px 0;
 }
-
 #lightbox .prev:hover, #lightbox .next:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
-
 /* Stil für die Lightbox selbst */
 #lightbox {
   display: none; /* Wird per JS auf 'block' gesetzt, wenn geöffnet */
@@ -817,11 +806,9 @@ margin: 0px 0px 0px 10px;
   align-items: center;
   justify-content: center;
 }
-
 #lightbox.hidden {
     display: none;
 }
-
 #lightbox-img {
   max-width: 90%;
   max-height: 90vh;
@@ -829,7 +816,6 @@ margin: 0px 0px 0px 10px;
   margin: auto;
   object-fit: contain;
 }
-
 .close {
   position: absolute;
   top: 15px;
@@ -841,15 +827,12 @@ margin: 0px 0px 0px 10px;
   cursor: pointer;
   z-index: 10000;
 }
-
 .close:hover,
 .close:focus {
   color: #bbb;
   text-decoration: none;
   cursor: pointer;
 }
-
-
 /*-------------------------- VIDEO LIGHTBOX --------------------------*/
 
 #videoLightbox {
@@ -866,11 +849,9 @@ margin: 0px 0px 0px 10px;
   align-items: center;
   justify-content: center;
 }
-
 #videoLightbox.hidden {
     display: none;
 }
-
 #lightbox-content {
     max-width: 90%;
     max-height: 90vh;
@@ -881,7 +862,6 @@ margin: 0px 0px 0px 10px;
     justify-content: center;
     position: relative; /* Für absolute Positionierung des Inhalts, falls nötig */
 }
-
 #lightbox-content video,
 #lightbox-content iframe {
     max-width: 100%;
@@ -894,7 +874,6 @@ margin: 0px 0px 0px 10px;
     /* YouTube iframes haben oft ein festes Seitenverhältnis, das sich nicht so einfach per height:100% ändert.
        Wir nutzen hierfür ein Wrapper-Div und Padding-Bottom Hack im JS. */
 }
-
 /* Stil für Schließen-Button */
 #videoLightbox .close {
   position: absolute;
@@ -907,14 +886,12 @@ margin: 0px 0px 0px 10px;
   cursor: pointer;
   z-index: 10000;
 }
-
 #videoLightbox .close:hover,
 #videoLightbox .close:focus {
   color: #bbb;
   text-decoration: none;
   cursor: pointer;
 }
-
 /* Lightbox Navigation */
 #videoLightbox .prev, #videoLightbox .next {
   cursor: pointer;
@@ -934,21 +911,17 @@ margin: 0px 0px 0px 10px;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 10000; /* Sicherstellen, dass die Pfeile über dem Inhalt liegen */
 }
-
 #videoLightbox .next {
   right: 0;
   border-radius: 3px 0 0 3px;
 }
-
 #videoLightbox .prev {
   left: 0;
   border-radius: 0 3px 3px 0;
 }
-
 #videoLightbox .prev:hover, #videoLightbox .next:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
-
 /* Responsive iframe container (für YouTube Videos in der Lightbox) */
 .video-responsive-container {
     position: relative;
@@ -959,7 +932,6 @@ margin: 0px 0px 0px 10px;
     max-width: 100%; /* Begrenzt die maximale Breite */
     max-height: 90vh; /* Begrenzt die maximale Höhe */
 }
-
 .video-responsive-container iframe {
     position: absolute;
     top: 0;
@@ -967,4 +939,73 @@ margin: 0px 0px 0px 10px;
     width: 100%;
     height: 100%;
     border: 0;
+}
+
+
+
+
+/* ----------------------------------
+ * 1. Modal-Container-Styling (Pop-up-Hülle)
+ * ---------------------------------- */
+.modal {
+    /* Standardmäßig versteckt */
+    display: none; 
+    /* Stellt sicher, dass es über allem anderen liegt */
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    /* Dunkler, leicht transparenter Hintergrund */
+    background-color: rgba(0,0,0,0.7); 
+}
+
+/* ----------------------------------
+ * 2. Modal-Inhalt (Der weiße Kasten)
+ * ---------------------------------- */
+.modal-content {
+    background-color: #fefefe;
+    /* Zentrieren und Abstand von oben */
+    margin: 10% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%; 
+    max-width: 500px; /* Maximale Breite für Desktop */
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Leichter Schatten */
+    position: relative;
+}
+
+/* 3. Schließen-Button (Das 'X') */
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 1; /* Verbessert die vertikale Ausrichtung */
+}
+.close-button:hover,
+.close-button:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#buchenButton {
+    /* Ein auffälliger Button, der das Pop-up öffnet */
+    background-color: #28a745; /* Beispiel: Grün */
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+}
+
+#buchenButton:hover {
+    background-color: #1e7e34;
 }

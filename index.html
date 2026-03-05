@@ -1189,8 +1189,6 @@
             </section>
         </div>
 
-        <div class="loader-backdrop">
-            <div class="loader"></div>
         </div>
     </main>
 
@@ -1241,10 +1239,17 @@
 
         window.addEventListener('pageLoaded', (e) => {
             const path = e.detail?.path || '';
-            if (path === 'home.html' || path === 'index.html' || path === '') {
+            const pageId = (path === 'index.html' || path === 'home.html' || path === '') ? 'page-home' : `page-${path.replace('.html', '')}`;
+            const targetPage = document.getElementById(pageId);
+
+            if (pageId === 'page-home') {
                 initHomeRandomization();
             }
-            initGalleryCollapse();
+
+            // Only initialize collapse for the visible page to ensure correct measurements
+            if (targetPage) {
+                initGalleryCollapse(targetPage);
+            }
         });
 
         // Right-click protection (as requested in original)

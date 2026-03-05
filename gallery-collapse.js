@@ -3,13 +3,21 @@
  * Works with both .masonry (CSS columns) and .video-grid (CSS grid) layouts.
  */
 
-export function initGalleryCollapse() {
-    const galleries = document.querySelectorAll('.masonry, .video-grid');
-    galleries.forEach(setupGallery);
+export function initGalleryCollapse(container = document) {
+    const galleries = container.querySelectorAll('.masonry, .video-grid');
+    galleries.forEach(gallery => {
+        // Only setup if it's actually visible OR inside the specifically requested container
+        // This prevents measuring 0px heights in hidden SPA sections
+        if (gallery.offsetParent !== null || container !== document) {
+            setupGallery(gallery);
+        }
+    });
 }
 
 function setupGallery(gallery) {
-    if (gallery.dataset.collapseInit === 'true') return;
+    // If it's already fully initialized AND measured, skip
+    if (gallery.dataset.collapseInit === 'true' && gallery.dataset.collapsedH) return;
+
     gallery.dataset.collapseInit = 'true';
     measureAndCollapse(gallery);
 }

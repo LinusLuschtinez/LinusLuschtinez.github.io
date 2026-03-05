@@ -3,13 +3,21 @@
  * Works with both .masonry (CSS columns) and .video-grid (CSS grid) layouts.
  */
 
-export function initGalleryCollapse() {
-    const galleries = document.querySelectorAll('.masonry, .video-grid');
-    galleries.forEach(setupGallery);
+export function initGalleryCollapse(container = document) {
+    const galleries = container.querySelectorAll('.masonry, .video-grid');
+    galleries.forEach(gallery => {
+        // Only setup if it's actually visible OR inside the specifically requested container
+        // This prevents measuring 0px heights in hidden SPA sections
+        if (gallery.offsetParent !== null || container !== document) {
+            setupGallery(gallery);
+        }
+    });
 }
 
 function setupGallery(gallery) {
-    if (gallery.dataset.collapseInit === 'true') return;
+    // If it's already fully initialized AND measured, skip
+    if (gallery.dataset.collapseInit === 'true' && gallery.dataset.collapsedH) return;
+
     gallery.dataset.collapseInit = 'true';
     measureAndCollapse(gallery);
 }
@@ -77,13 +85,6 @@ function computeCollapsedHeight(gallery) {
 
     // Der perfekte Schnittpunkt ist die Oberkante der zweiten Reihe
     const splitPoint = secondRowItem.getBoundingClientRect().top - galleryTop;
-
-    // Check if the total height of the gallery is actually larger than the split point.
-    // If the gallery isn't significantly taller than the first row + buffer, don't collapse.
-    const galleryHeight = gallery.getBoundingClientRect().height;
-    if (galleryHeight <= splitPoint + 50) {
-        return 0; // The gallery content naturally fits in one or slightly more rows, no need to collapse
-    }
 
     // Wir ziehen einen kleinen Puffer ab
     const result = Math.floor(splitPoint) - 10;

@@ -9,6 +9,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript">
+        // SPA Redirect Receiver
+        (function (l) {
+            if (l.search) {
+                var q = {};
+                l.search.slice(1).split('&').forEach(function (v) {
+                    var a = v.split('=');
+                    q[a[0]] = a.slice(1).join('=').replace(/~and~/g, '&');
+                });
+                if (q.page !== undefined) {
+                    window.history.replaceState(null, null,
+                        l.pathname.slice(0, -1) + (q.page || '') +
+                        (q.search ? ('?' + q.search) : '') +
+                        l.hash
+                    );
+                }
+            }
+        }(window.location))
+    </script>
 </head>
 
 <body class="site-shell">
@@ -68,1447 +87,1110 @@
     </header>
 
     <main id="content-area">
-
-<div id="page-home" class="spa-page" style="display:block;" data-title="Home">
-
-    <!-- Erste Reihe -->
-
-    <div class="home_gallery">
-
-        <div class="Hvideo-wrapper">
-          <div class="video-aspect-ratio">
-            <video muted autoplay loop playsinline preload="auto" poster="videos/video_preview/dub_cov.webp">
-              <source src="videos/Dublicate_Fin.mp4" type="video/mp4">
-           </video>
-          </div>
+        <div id="page-home" class="spa-page active">
+            <section class="home-page">
+                <div class="gallery-grid">
+                    <!-- Dynamic content will be loaded here by randomize.js -->
+                    <div class="loader-placeholder" style="grid-column: 1 / -1; text-align: center; padding: 4rem;">
+                        <p>Kuriere deine persönliche Galerie...</p>
+                    </div>
+                </div>
+            </section>
         </div>
-        
-        <img src="render/still_render_6.webp" class="Hpic-wrapper">
-        <img src="images/home_resized/home_image16.webp">
+        <div id="page-about" class="spa-page">
+            <section class="about-section page-header">
+                <div class="container-wide">
+                    <div class="about-wrapper">
+                        <div class="about-media">
+                            <div class="media-stack about-gallery">
+                                <img src="images/Linus_New/Linus_12.webp" alt="Linus Luschtinez" class="reveal">
+                                <video muted loop autoplay playsinline poster="videos/video_preview/linus_home.webp">
+                                    <source src="videos/linus_home.mp4" type="video/mp4">
+                                </video>
+                                <img src="images/aboutU_1.webp" alt="Atmosphere">
+                                <img src="images/aboutU_2.webp" alt="Atmosphere">
+                                <img src="images/aboutU_3.webp" alt="Atmosphere">
+                                <img src="images/about7.webp" alt="Atmosphere">
+                                <video muted autoplay loop playsinline preload="auto"
+                                    poster="videos/video_preview/bts4.webp">
+                                    <source src="videos/bts4_small.mov" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
 
-        <div class="Hpic-wrapper">
-            <img src="images/Linus_New/Linus_11.webp">
+                        <div class="about-header-text">
+                            <h1>About</h1>
+                            <p class="subtitle" style="margin-bottom: 3rem;">Linus Luschtinez — Visual Creator based
+                                near Vienna.
+                            </p>
+                        </div>
+
+                        <div class="about-content">
+                            <p>Mein Name ist Linus Luschtinez, ich bin ein 25-jähriger Kunstschaffender aus der Nähe von
+                                Wien. Seit
+                                rund 13 Jahren beschäftige ich mich mit analogen und digitalen Medien, vorwiegend in
+                                Form von Foto-
+                                und Videografie, aber auch in Form von Digital Design, Musikproduktion und 3D Art.</p>
+                            <p>Aus einer Leidenschaft, die bereits in der Kindheit entfacht wurde, hat sich im Laufe der
+                                Jahre ein
+                                vielseitiger beruflicher Weg entwickelt, der mich durch verschiedenste kreative Bereiche
+                                geführt
+                                hat. Nach dem ich 2020 meine Ausbildung zum Fotografen abgeschlossen hatte, habe ich in
+                                einer Zeit
+                                der Selbstständigkeit meine Skills weiter ausgebaut.</p>
+                            <p>Meine Arbeitsschwerpunkte liegen in der Konzert-, Porträt- und Künstlerfotografie sowie
+                                in der Video-
+                                und Content-Produktion. In den vergangenen Jahren durfte ich über 100 Künstler:innen und
+                                Bands
+                                fotografisch begleiten – darunter Kraftklub, OK Kid, Bilderbuch, Käptn Peng, Leoniden,
+                                Mothers Cake,
+                                Rin, Ufo361, Turbobier und viele mehr.</p>
+                            <p>Gemeinsam mit ausgewählten Künstlern habe ich außerdem über 30 Musikprojekte realisiert –
+                                inklusive
+                                Musik- und Videoproduktion, Artwork-Design und umfangreichen Social-Media-Inhalten.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-        
-    </div>
-
-    <!-- Zweite Reihe -->
-    <div class="home_gallery">
-        <img src="images/OKkid_quer_2.webp" class="Qpic-wrapper">
-        <img src="images/aboutU_2.webp" class="Qpic-wrapper">
-        
-        <div class="Qvideo-wrapper">
-        <iframe src="https://www.youtube.com/embed/QB49qdl15r8?autoplay=1&mute=1&playsinline=1&rel=0" 
-            allow="autoplay; encrypted-media"
-            allowfullscreen
-            style="width: 175%; height: 100%; transform: translateX(-22%); pointer-events: none;">
-            </iframe>
-        </div>    
-        <img src="images/fw_resized/fw_2.webp">
-        
-        
-    </div>
-
-    <!-- Dritte Reihe -->
-    <div class="home_gallery">
-        <img src="render/still_render_8.webp" class="Hpic-wrapper">
-        <img src="images/home2/home_2.webp">
-        <img src="images/home_resized/home_image7.webp">
-        
-        <div class="Hvideo-wrapper">
-            <div class="video-aspect-ratio">
-                <video muted autoplay loop playsinline preload="auto" poster="videos/video_preview/door_cov.webp">
-                    <source src="videos/Door_Fin.mp4" type="video/mp4">
-                </video>  
-            </div>
-        </div>
-    </div>
-
-    <!-- Vierte Reihe -->
-    <div class="home_gallery">
-        <img src="images/Arrtist_on_tour/Arrtist_11.webp" class="Qpic-wrapper">
-        <img src="images/fw_resized/fw_9.webp">
-        <img src="images/concert_photography/concert_3.webp" class="Qpic-wrapper">
-        <img src="images/home2/home_9.webp" class="Qpic-wrapper">
-        
-    </div>
-
-    <!-- Fünfte Reihe -->
-    <div class="home_gallery">
-
-        <div class="Hvideo-wrapper">
-          <div class="video-aspect-ratio">
-            <video muted autoplay loop playsinline preload="auto" poster="videos/video_preview/Image (1).webp">
-              <source src="videos/spinning_sphere.mov" type="video/mp4">
-           </video>
-          </div>
-        </div>
-        <img src="images/concert_photography/concert_45.webp" class="Hpic-wrapper">
-        <div class="Hpic-wrapper">
-            <img src="images/bts/bts1.webp">
-        </div>
-        <div class="Hpic-wrapper">
-            <img src="images/freq/freq_3.webp">
-        </div>
-        
-
-        
-    </div>
-
-    <!-- Sechste Reihe -->
-    <div class="home_gallery">
-        <div class="Qpic-wrapper">
-            <img src="images/private/holiday_resized_24.webp">
-        </div>
-
-        <div class="Qpic-wrapper">
-            <img src="images/private/T1E.webp">
-        </div>
-
-        <div class="Qpic-wrapper">
-            <img src="images/atmo/atmo_11.webp">
-        </div>
-        <div class="Qvideo-wrapper">
-        <iframe src="https://www.youtube.com/embed/y61A42Tvv4I?autoplay=1&mute=1&playsinline=1&rel=0" 
-            allow="autoplay; encrypted-media"
-            allowfullscreen
-            style="width: 175%; height: 100%; transform: translateX(-22%); pointer-events: none;">
-            </iframe>
-        </div>    
-        
-
-        
-    </div>
-
-    <!-- Siebte Reihe -->
-    <div class="home_gallery">
-
-        
-        <div class="Hvideo-wrapper">
-          <div class="video-aspect-ratio">
-            <video muted autoplay loop playsinline preload="auto" poster="videos/video_preview/bts4.webp">
-              <source src="videos/bts4_small.mov" type="video/mp4">
-           </video>
-          </div>
-        </div>
-        <img src="images/atmo/atmo_12.webp" class="Hpic-wrapper">
-        
-        <div class="Hpic-wrapper">
-            <img src="images/private/holiday_resized_97.webp">
-        </div>
-       
-        <div class="Hpic-wrapper">
-            <img src="images/niveahoch.webp">
-        </div>
-    </div>
-
-    
-    <div class="footer">
-        <p4>© 2025 by Linus Luschtinez. All rights reserved.</p4>
-    </div>
-
-    
-    
-
-    
-
-    
-
-</div>
-
-<div id="page-about" class="spa-page" style="display:none;" data-title="About">
-
-    <div class="about">
-        <div class="text">
-            <h1>About</h1>
-            
-
-    
-            <p2>Mein Name ist Linus Luschtinez,<br>
-                ich bin ein 25-jähriger Kunstschaffender aus der Nähe von Wien.
-                <br><br>
-                Seit rund 13 Jahren beschäftige ich mich mit analogen und digitalen Medien,
-                vorwiegend in Form von Foto- und Videografie, aber auch in Form von Digital Design, Musikproduktion und 3D Art.
-                <br><br>
-                Aus einer Leidenschaft, die bereits in der Kindheit entfacht wurde, 
-                hat sich im Laufe der Jahre ein vielseitiger beruflicher Weg entwickelt, 
-                der mich durch verschiedenste kreative Bereiche geführt hat.
-                <br><br>
-                Nach dem ich 2020 meine Ausbildung zum Fotografen abgeschlossen hatte und die Fundamente gestärkt waren,
-                habe ich in einer Zeit der Selbstständigkeit meine Skills in der kreativen Branche weiter ausgebaut.
-                <br><br>
-                Meine Arbeitsschwerpunkte liegen in der Konzert-, Porträt-
-                und Künstlerfotografie sowie in der Video- und Content-Produktion. 
-                <br>
-                In den vergangenen Jahren durfte ich über 100 Künstler:innen
-                und Bands fotografisch begleiten 
-                – darunter Kraftklub, OK Kid, Bilderbuch, Käptn Peng, Leoniden,
-                Mothers Cake, Rin, Ufo361, Turbobier und viele mehr.
-                <br><br>
-                Gemeinsam mit ausgewählten Künstler habe ich außerdem über 30 Musikprojekte realisiert
-                – inklusive Musik- und Videoproduktion, Artwork-Design und umfangreichen Social-Media-Inhalten.  
-                <br><br>
-            </p2>
- 
-        </div>
-
-        <div class="about_media">
-            <div class="about_image">
-                <div class="Hpic-wrapper">
-                <img src="images/Linus_New/Linus_12.webp" alt="Linus Luschtinez">
+        <div id="page-photography" class="spa-page">
+            <div class="page-header">
+                <div class="container-wide">
+                    <h1>Photography</h1>
+                    <p class="subtitle">Capturing moments, atmosphere, and identity.</p>
                 </div>
             </div>
 
-            <div class="about_video">
-                <div class="Hvideo-wrapper">
-                <video muted preload="auto" playsinline autoplay preload="auto" poster="videos/video_preview/linus_home.webp" loop>
-                    <source src="videos/linus_home.mp4" type="video/mp4">
-                </video> 
-                </div> 
-            </div>
-        </div>
-        
-
-    </div>
-
-    <div class="about_gallery">
-        <img src="images/aboutU_1.webp">
-        <img src="images/aboutU_2.webp">
-        <img src="images/aboutU_3.webp">
-    </div>
-    
-    <div class="about_gallery_mobile">
-        <div class="Hpic-wrapper">
-        <img src="images/Linus_New/Linus_12.webp">
-        </div>
-        <div class="Hvideo-wrapper">
-        <video muted preload="auto" playsinline autoplay preload="auto" poster="videos/video_preview/linus_home.webp" loop>
-            <source src="videos/linus_home.mp4" type="video/mp4">
-        </video>  
-        </div>
-        <img src="images/about7.webp">
-    </div>
-
-
-    <div class="footer">
-        <p4>© 2025 by Linus Luschtinez. All rights reserved.</p4>
-    </div>
-    
-    
-
-    
-
-    
-
-</div>
-
-<div id="page-photography" class="spa-page" style="display:none;" data-title="Photography">
-
-    <div class ="photography">
-        <div class="text">
-            <h1>Photography<br></h1>
-        </div>
-    </div>
-
-    <!--    Concert  -->
-    <div class="gallery_group" id="concert">
-        <div class="text">    
-            <p3>"Concert"</p3>
-        </div>
-
-        <div class="preview_gallery">
-            <img src="images/concert_photography/concert_45.webp">
-            <img src="images/concert_photography/concert_41.webp">
-            <img src="images/concert_photography/concert_66.webp">
-            <img src="images/concert_photography/concert_28.webp">
-            
-        </div>
-
-
-        <div class="full_gallery gallery hidden">
-            
-            <img src="images/concert_photography/concert_5.webp">
-            <img src="images/concert_photography/concert_6.webp">
-            <img src="images/concert_photography/concert_7.webp" onclick="openLightbox(this.src, 'concert', 6)">
-            <img src="images/concert_photography/concert_8.webp" onclick="openLightbox(this.src, 'concert', 7)">
-            <img src="images/concert_photography/concert_9.webp" onclick="openLightbox(this.src, 'concert', 8)">
-            <img src="images/concert_photography/concert_10.webp" onclick="openLightbox(this.src, 'concert', 9)">
-            <img src="images/concert_photography/concert_11.webp" onclick="openLightbox(this.src, 'concert', 10)">
-            <img src="images/concert_photography/concert_12.webp" onclick="openLightbox(this.src, 'concert', 11)">
-            <img src="images/concert_photography/concert_13.webp" onclick="openLightbox(this.src, 'concert', 12)">
-            <img src="images/concert_photography/concert_14.webp" onclick="openLightbox(this.src, 'concert', 13)">
-            <img src="images/concert_photography/concert_15.webp" onclick="openLightbox(this.src, 'concert', 14)">
-            <img src="images/concert_photography/concert_16.webp" onclick="openLightbox(this.src, 'concert', 15)">
-            <img src="images/concert_photography/concert_17.webp" onclick="openLightbox(this.src, 'concert', 16)">
-            <img src="images/concert_photography/concert_18.webp" onclick="openLightbox(this.src, 'concert', 17)">
-            <img src="images/concert_photography/concert_19.webp" onclick="openLightbox(this.src, 'concert', 18)">
-            <img src="images/concert_photography/concert_20.webp" onclick="openLightbox(this.src, 'concert', 19)">
-            <img src="images/home_resized/home_image1.webp" onclick="openLightbox(this.src, 'concert', 20)">
-            <img src="images/home_resized/home_image3.webp" onclick="openLightbox(this.src, 'concert', 21)">
-            <img src="images/concert_photography/concert_21.webp" onclick="openLightbox(this.src, 'concert', 22)">
-            <img src="images/concert_photography/concert_22.webp" onclick="openLightbox(this.src, 'concert', 23)">
-            <img src="images/concert_photography/concert_23.webp" onclick="openLightbox(this.src, 'concert', 24)">
-            <img src="images/concert_photography/concert_24.webp" onclick="openLightbox(this.src, 'concert', 25)">
-            <img src="images/concert_photography/concert_25.webp" onclick="openLightbox(this.src, 'concert', 26)">
-            <img src="images/concert_photography/concert_26.webp" onclick="openLightbox(this.src, 'concert', 27)">
-            <img src="images/concert_photography/concert_27.webp" onclick="openLightbox(this.src, 'concert', 28)">
-            <img src="images/concert_photography/concert_4.webp" onclick="openLightbox(this.src, 'concert', 29)">
-            <img src="images/concert_photography/concert_29.webp" onclick="openLightbox(this.src, 'concert', 30)">
-            <img src="images/concert_photography/concert_30.webp" onclick="openLightbox(this.src, 'concert', 31)">
-            <img src="images/concert_photography/concert_31.webp" onclick="openLightbox(this.src, 'concert', 32)">
-            <img src="images/concert_photography/concert_32.webp" onclick="openLightbox(this.src, 'concert', 33)">
-            <img src="images/concert_photography/concert_33.webp" onclick="openLightbox(this.src, 'concert', 34)">
-            <img src="images/concert_photography/concert_34.webp" onclick="openLightbox(this.src, 'concert', 35)">
-            <img src="images/concert_photography/concert_35.webp" onclick="openLightbox(this.src, 'concert', 36)">
-            <img src="images/concert_photography/concert_36.webp" onclick="openLightbox(this.src, 'concert', 37)">
-            <img src="images/concert_photography/concert_37.webp" onclick="openLightbox(this.src, 'concert', 38)">
-            <img src="images/concert_photography/concert_38.webp" onclick="openLightbox(this.src, 'concert', 39)">
-            <img src="images/concert_photography/concert_39.webp" onclick="openLightbox(this.src, 'concert', 40)">
-            <img src="images/concert_photography/concert_40.webp" onclick="openLightbox(this.src, 'concert', 41)">
-            <img src="images/home_resized/home_image14.webp" onclick="openLightbox(this.src, 'concert', 42)">
-            <img src="images/home_resized/home_image15.webp" onclick="openLightbox(this.src, 'concert', 43)">
-            <img src="images/concert_photography/concert_2.webp" onclick="openLightbox(this.src, 'concert', 44)">
-            <img src="images/concert_photography/concert_42.webp" onclick="openLightbox(this.src, 'concert', 45)">
-            <img src="images/concert_photography/concert_43.webp" onclick="openLightbox(this.src, 'concert', 46)">
-            <img src="images/concert_photography/concert_44.webp" onclick="openLightbox(this.src, 'concert', 47)">
-            <img src="images/concert_photography/concert_1.webp" onclick="openLightbox(this.src, 'concert', 48)">
-            <img src="images/concert_photography/concert_46.webp" onclick="openLightbox(this.src, 'concert', 49)">
-            <img src="images/concert_photography/concert_47.webp" onclick="openLightbox(this.src, 'concert', 50)">
-            <img src="images/concert_photography/concert_48.webp" onclick="openLightbox(this.src, 'concert', 51)">
-            <img src="images/concert_photography/concert_49.webp" onclick="openLightbox(this.src, 'concert', 52)">
-            <img src="images/concert_photography/concert_50.webp" onclick="openLightbox(this.src, 'concert', 53)">
-            <img src="images/concert_photography/concert_51.webp" onclick="openLightbox(this.src, 'concert', 54)">
-            <img src="images/concert_photography/concert_52.webp" onclick="openLightbox(this.src, 'concert', 55)">
-            <img src="images/concert_photography/concert_53.webp" onclick="openLightbox(this.src, 'concert', 56)">
-            <img src="images/concert_photography/concert_54.webp" onclick="openLightbox(this.src, 'concert', 57)">
-            <img src="images/concert_photography/concert_55.webp" onclick="openLightbox(this.src, 'concert', 58)">
-            <img src="images/concert_photography/concert_56.webp" onclick="openLightbox(this.src, 'concert', 59)">
-            <img src="images/concert_photography/concert_57.webp" onclick="openLightbox(this.src, 'concert', 60)">
-            <img src="images/concert_photography/concert_58.webp" onclick="openLightbox(this.src, 'concert', 61)">
-            <img src="images/concert_photography/concert_59.webp" onclick="openLightbox(this.src, 'concert', 62)">
-            <img src="images/concert_photography/concert_60.webp" onclick="openLightbox(this.src, 'concert', 63)">
-            <img src="images/concert_photography/concert_61.webp" onclick="openLightbox(this.src, 'concert', 64)">
-            <img src="images/concert_photography/concert_62.webp" onclick="openLightbox(this.src, 'concert', 65)">
-            <img src="images/concert_photography/concert_63.webp" onclick="openLightbox(this.src, 'concert', 66)">
-            <img src="images/concert_photography/concert_64.webp" onclick="openLightbox(this.src, 'concert', 67)">
-            <img src="images/concert_photography/concert_65.webp" onclick="openLightbox(this.src, 'concert', 68)">
-            <img src="images/concert_photography/concert_3.webp" onclick="openLightbox(this.src, 'concert', 69)">
-            <img src="images/concert_photography/concert_67.webp" onclick="openLightbox(this.src, 'concert', 70)">
-
-        </div>
-
-        <div class="divider" onclick="toggleGallery(this)">
-            ▼ Click to expand ▼
-        </div>        
-
-    </div>
-
-    <!--    Atmosphere -->
-    <div class="gallery_group" id="atmosphere">
-        <div class="text">    
-            <p3>"Atmosphere"</p3>
-        </div>
-
-        <div class="preview_gallery">
-            <img src="images/atmo/atmo_12.webp">
-            <div class="Hpic-wrapper">
-            <img src="images/atmo/atmo_14new.webp">
-            </div>
-            <img src="images/atmo/atmo_16.webp">
-            <img src="images/atmo/atmo_25.webp">
-        </div>
-
-        <div class="full_gallery gallery hidden">
-            <img src="images/atmo/atmo_5.webp">
-            <img src="images/atmo/atmo_6.webp">
-            <img src="images/atmo/atmo_7.webp">
-            <img src="images/atmo/atmo_9.webp">
-            <img src="images/atmo/atmo_10.webp">
-            <img src="images/atmo/atmo_11.webp">
-            <img src="images/atmo/atmo_1.webp">
-            <img src="images/atmo/atmo_13.webp">
-            <img src="images/atmo/atmo_8.webp">
-            <img src="images/atmo/atmo_15.webp">
-            <img src="images/atmo/atmo_3.webp">
-            <img src="images/atmo/atmo_17.webp">
-            <img src="images/atmo/atmo_18.webp">
-            <img src="images/atmo/atmo_19.webp">
-            <img src="images/atmo/atmo_20.webp">
-            <img src="images/atmo/atmo_21.webp">
-            <img src="images/atmo/atmo_22.webp">
-            <img src="images/atmo/atmo_23.webp">
-            <img src="images/atmo/atmo_24.webp">
-            <img src="images/atmo/atmo_4.webp">
-            <img src="images/atmo/atmo_26.webp">
-            <img src="images/atmo/atmo_27.webp">
-            <img src="images/atmo/atmo_28.webp">
-            <img src="images/atmo/atmo_29.webp">
-            <img src="images/atmo/atmo_30.webp">
-        </div>
-
-        <div class="divider" onclick="toggleGallery(this)">
-            ▼ Click to expand ▼
-        </div>                
-    </div>
-
-    <!--    HIGH KEY PORTRAITS  -->
-    <div class="gallery_group" id="portraits">
-        <div class="text">    
-            <p3>"Portraits - High Key"</p3>
-        </div>
-
-        <div class="preview_gallery">
-            <img src="images/sandio_highkey/highkey_1.webp">
-            <img src="images/sandio_highkey/highkey_6.webp">
-            <img src="images/sandio_highkey/highkey_3.webp">
-            <img src="images/sandio_highkey/highkey_5.webp">
-        </div>
-
-        <div class="full_gallery gallery hidden">
-            <img src="images/sandio_highkey/highkey_2.webp">
-            <img src="images/sandio_highkey/highkey_4.webp">
-            <img src="images/sandio_highkey/highkey_7.webp">
-            <img src="images/sandio_highkey/highkey_8.webp">
-        </div>
-
-        <div class="divider" onclick="toggleGallery(this)">
-            ▼ Click to expand ▼
-        </div>        
-    </div>
-
-    <!--    LOW KEY PORTRAITS   -->
-    <div class="gallery_group" id="lowkey-portraits">
-        <div class="text">    
-            <p3>"Portraits - Low Key"</p3>
-        </div>
-
-        <div class="preview_gallery">
-            <img src="images/sandio_lowkey/lowkey_1.webp">
-            <img src="images/sandio_lowkey/lowkey_5.webp">
-            <img src="images/sandio_lowkey/lowkey_6.webp">
-            <img src="images/sandio_lowkey/lowkey_8.webp">
-        </div>
-
-        <div class="full_gallery gallery hidden">
-            <img src="images/sandio_lowkey/lowkey_2.webp">
-            <img src="images/sandio_lowkey/lowkey_7.webp">
-            <img src="images/sandio_lowkey/lowkey_3.webp">
-            <img src="images/sandio_lowkey/lowkey_4.webp">
-        </div>
-
-        <div class="divider" onclick="toggleGallery(this)">
-            ▼ Click to expand ▼
-        </div>        
-    </div>
-
-    <!--    Bandfotos  -->
-    <div class="gallery_group" id="bandfotos">
-        <div class="text">    
-            <p3>"Bandfotos"</p3>
-        </div>
-
-        <div class="preview_gallery">
-            <img src="images/home2/home_1.webp">
-            <img src="images/home2/home_2.webp">
-            <img src="images/home2/home_5.webp">
-            <img src="images/home2/home_6.webp">
-        </div>
-
-        <div class="full_gallery gallery hidden">
-            <img src="images/home2/home_3.webp">
-            <img src="images/home2/home_7.webp">
-            <img src="images/home2/home_4.webp">
-  
-
-        </div>
-
-        <div class="divider" onclick="toggleGallery(this)">
-            ▼ Click to expand ▼
-        </div>        
-    </div>
-
-    <!--    Interior   -->
-    <div class="gallery_group" id="interior">
-        <div class="text">    
-            <p3>"Interior"</p3>
-        </div>
-
-        <div class="preview_gallery">
-            <img src="images/interior/int_1.webp">
-            <img src="images/interior/int_2.webp">
-            <img src="images/interior/int_3.webp">
-            <img src="images/interior/int_5.webp">
-        </div>
-
-        <div class="full_gallery gallery hidden">
-            <img src="images/interior/int_4.webp">
-            <img src="images/interior/int_6.webp">
-        </div>
-
-        <div class="divider" onclick="toggleGallery(this)">
-            ▼ Click to expand ▼
-        </div>        
-    </div>
-
-    <!--    Private  -->
-    <div class="gallery_group" id="private">
-        <div class="text">    
-            <p3>"Private Life"</p3>
-        </div>
-
-        <div class="preview_gallery">
-            <img src="images/private/holiday_resized_97.webp">
-            <img src="images/private/T3E.webp">
-            <img src="images/private/holiday_resized_116.webp">
-            <div class="Hpic-wrapper">
-            <img src="images/private/Jump13_Linus_edit.webp">
-            </div>
-        </div>
-
-        <div class="full_gallery gallery hidden">
-            <img src="images/ResizedFoto/update_1.webp">
-            <img src="images/ResizedFoto/update_4.webp">
-            <img src="images/private/holiday_resized_24.webp">
-            <img src="images/ResizedFoto/update_5.webp">
-            <img src="images/ResizedFoto/update_6.webp">
-            <img src="images/private/priv_1.webp">
-            <img src="images/private/priv_2.webp">
-            <img src="images/ResizedFoto/update_3.webp">
-            <img src="images/private/holiday_resized_46.webp">
-            <img src="images/private/holiday_resized_61.webp">
-            <img src="images/private/T1E.webp">
-            <img src="images/private/priv_3.webp">
-            <img src="images/private/priv_4.webp">
-            <img src="images/private/priv_5.webp">
-            <img src="images/ResizedFoto/update_2.webp">
-            <img src="images/private/holiday_resized_102.webp">
-            <img src="images/private/holiday_resized_127.webp">
-            <img src="images/private/holiday_resized_135.webp">
-            <img src="images/private/T2E.webp">
-            <img src="images/private/000026.webp">
-            <img src="images/private/priv_6.webp">
-            <img src="images/private/priv_7.webp">
-            <img src="images/private/priv_8.webp">
-            <img src="images/private/priv_9.webp">
-            <img src="images/private/priv_10.webp">
-            <img src="images/private/priv_11.webp">
-            <img src="images/private/priv_12.webp">
-            <img src="images/private/priv_13.webp">
-        </div>
-
-        <div class="divider" onclick="toggleGallery(this)">
-            ▼ Click to expand ▼
-        </div>        
-    </div>
-
-
-
-    <div class="footer">
-        <p4>© 2025 by Linus Luschtinez. All rights reserved.</p4>
-    </div>
-
-
-    <!-- ------------------- LIGHTBOX ------------------- -->
-    <div id="lightbox" class="hidden">
-      <span class="close" onclick="closeLightbox()">&times;</span>
-      <img id="lightbox-img" src="">
-      <a class="prev" onclick="navigateLightbox(-1)">&#10094;</a> <!-- Linker Pfeil -->
-      <a class="next" onclick="navigateLightbox(1)">&#10095;</a> <!-- Rechter Pfeil -->
-    </div>
-
-    
-
-   
-    
-
-
-</div>
-
-<div id="page-videography" class="spa-page" style="display:none;" data-title="Videography">
-
-    <div class="videography">
-        <div class="text">
-            <h1>Cinematography<br></h1>
-        </div>
-
-    </div>
-
-    <!--  Davinci Quicktipps  -->
-    <div class="gallery_group" id="DavinciTips">
-        <div class="text">
-            <p3>"Davinci Quicktips Video Serie"</p3>
-        </div>
-
-        <div class="preview_gallery videogallery">
-            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/Quicktip_1.webp" loop>
-                <source src="videos/Quicktip_1.mp4" type="video/mp4">
-            </video>
-
-            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/Quicktip_2.webp" loop>
-                <source src="videos/Quicktip_2.mp4" type="video/mp4">
-            </video>
-
-            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/Quicktip_3.webp" loop>
-                <source src="videos/Quicktip_3.mp4" type="video/mp4">
-            </video>
-
-            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/Quicktip_4.webp" loop>
-                <source src="videos/Quicktip_4.mp4" type="video/mp4">
-            </video>
-        </div>
-
-        <div class="full_gallery videogallery hidden">
-            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/Quicktip_5.webp" loop>
-                <source src="videos/Quicktip_5.mp4" type="video/mp4">
-            </video>
-
-            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/Quicktip_6.webp" loop>
-                <source src="videos/Quicktip_6.mp4" type="video/mp4">
-            </video>
-
-            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/Quicktip_7.webp" loop>
-                <source src="videos/Quicktip_7.mp4" type="video/mp4">
-            </video>
-
-            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/Quicktip_8.webp" loop>
-                <source src="videos/Quicktip_8.mp4" type="video/mp4">
-            </video>
-        </div>
-
-        <div class="divider" onclick="toggleGallery(this)">
-            ▼ Click to expand ▼
-        </div>
-    </div>
-
-
-    <!--    Reels  -->
-    <div class="gallery_group" id="Reels">
-        <div class="text">
-            <p3>"Kurzvideo & Reels"</p3>
-        </div>
-
-        <div class="preview_gallery videogallery">
-            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/reel1.webp" loop>
-                <source src="videos/reel1.mp4" type="video/mp4">
-            </video>
-
-            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/door_cov.webp" loop>
-                <source src="videos/Door_Fin.mp4" type="video/mp4">
-            </video>
-
-            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/dub_cov.webp" loop>
-                <source src="videos/Dublicate_Fin.mp4" type="video/mp4">
-            </video>
-
-            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/reel4.webp" loop>
-                <source src="videos/reel4.mp4" type="video/mp4">
-            </video>
-        </div>
-
-        <div class="full_gallery videogallery hidden">
-            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/plant_cov.webp" loop>
-                <source src="videos/Planted_Fin.mp4" type="video/mp4">
-            </video>
-
-            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/fw_reel1.webp" loop>
-                <source src="videos/fw_reel1.mp4" type="video/mp4">
-            </video>
-
-            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/reel3.webp" loop>
-                <source src="videos/reel3.mp4" type="video/mp4">
-            </video>
-        </div>
-
-        <div class="divider" onclick="toggleGallery(this)">
-            ▼ Click to expand ▼
-        </div>
-    </div>
-
-    <!--    Reels  -->
-    <div class="gallery_group" id="WReels">
-        <div class="text">
-            <p3>"Winstage Reels"</p3>
-        </div>
-
-        <div class="preview_gallery videogallery">
-            <video muted preload="auto" playsinline preload="auto" poster="videos/Winstage/pangea.png" loop>
-                <source src="videos/Winstage/Indian_Living_Pangea_Stil_1.mp4" type="video/mp4">
-            </video>
-
-            <video muted preload="auto" playsinline preload="auto" poster="videos/Winstage/Indian_Reel_1.png" loop>
-                <source src="videos/Winstage/Indian_Living_Umzug_Reel_1.mp4" type="video/mp4">
-            </video>
-
-            <video muted preload="auto" playsinline preload="auto" poster="videos/Winstage/Winstage_1.png" loop>
-                <source src="videos/Winstage/Reel_Winstage_1.mp4" type="video/mp4">
-            </video>
-
-            <video muted preload="auto" playsinline preload="auto" poster="videos/Winstage/Indian_Reel_2.png" loop>
-                <source src="videos/Winstage/Indian_Living_Umzug_Reel_2.mp4" type="video/mp4">
-            </video>
-        </div>
-    </div>
-
-    <!--    Music Videos -->
-    <div class="gallery_group" id="musicVideos">
-        <div class="text">
-            <p3>"Musik Videos"</p3>
-        </div>
-
-        <div class="preview_gallery videogallery">
-
-            <iframe src="https://www.youtube.com/embed/QB49qdl15r8?rel=0&playsinline=1"
-                allow="autoplay; encrypted-media" allowfullscreen></iframe>
-
-            <iframe src="https://www.youtube.com/embed/y61A42Tvv4I?rel=0&playsinline=1"
-                allow="autoplay; encrypted-media" allowfullscreen></iframe>
-
-            <iframe src="https://www.youtube.com/embed/3TU84WNsM_I?rel=0&playsinline=1"
-                allow="autoplay; encrypted-media" allowfullscreen></iframe>
-
-            <iframe src="https://www.youtube.com/embed/uVFuGyq6B5o?rel=0&playsinline=1"
-                allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-        <div class="preview_gallery videogallery">
-
-            <iframe src="https://www.youtube.com/embed/r2WQZE10le8?rel=0&playsinline=1"
-                allow="autoplay; encrypted-media" allowfullscreen></iframe>
-
-            <iframe src="https://www.youtube.com/embed/1r-v88JPxWw?rel=0&playsinline=1"
-                allow="autoplay; encrypted-media" allowfullscreen></iframe>
-
-            <iframe src="https://www.youtube.com/embed/y6du7DrcW-Q?rel=0&playsinline=1"
-                allow="autoplay; encrypted-media" allowfullscreen></iframe>
-
-            <iframe src="https://www.youtube.com/embed/lRRn5v-3IFE?rel=0&playsinline=1"
-                allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-
-    </div>
-
-    <!--    anderes -->
-    <div class="gallery_group" id="anderes">
-        <div class="text">
-            <p3>"Diverse Projekte"</p3>
-        </div>
-
-        <div class="preview_gallery videogallery">
-
-            <iframe src="https://www.youtube.com/embed/PvW84AI0QtU?rel=0&playsinline=1"
-                allow="autoplay; encrypted-media" allowfullscreen></iframe>
-
-            <iframe src="https://www.youtube.com/embed/lJZALQKt7kU?rel=0&playsinline=1"
-                allow="autoplay; encrypted-media" allowfullscreen></iframe>
-
-            <iframe src="https://www.youtube.com/embed/_wXC3RJ8JtY?rel=0&playsinline=1"
-                allow="autoplay; encrypted-media" allowfullscreen></iframe>
-
-
-
-
-        </div>
-    </div>
-
-
-
-
-
-    <div class="footer">
-        <p4>© 2025 by Linus Luschtinez. All rights reserved.</p4>
-    </div>
-
-    <!-- ------------------- LIGHTBOX ------------------- -->
-    <div id="videoLightbox" class="hidden">
-        <span class="close" onclick="closeVideoLightbox()">&times;</span>
-        <div id="lightbox-content">
-            <!-- Hier wird entweder ein <video> oder ein <iframe> geladen -->
-        </div>
-        <a class="prev" onclick="navigateVideoLightbox(-1)">&#10094;</a> <!-- Linker Pfeil -->
-        <a class="next" onclick="navigateVideoLightbox(1)">&#10095;</a> <!-- Rechter Pfeil -->
-    </div>
-
-    <!-- JavaScript für die Videogalerie -->
-    
-    
-
-
-    <!-- JavaScript für die Videogalerie -->
-    
-
-    
-
-    
-
-
-
-</div>
-
-<div id="page-visuals" class="spa-page" style="display:none;" data-title="Visuals">
-
-    <div class ="videography">
-        <div class="text">
-            <h1>Visual Art & CGI<br></h1>
-        </div>
-
-    </div>
-
-    <div class="gallery_group" id="stills">
-        <div class="text">    
-            <p3>"Stills"</p3>
-        </div>
-
-        <div class="preview_gallery">
-            <img src="render/still_render_8.webp">
-            <img src="render/still_render_6.webp">
-            <img src="render/still_render_7.webp">
-            <img src="render/still_render_5.webp">
-        </div>
-
-        <div class="full_gallery gallery hidden">
-            <img src="render/still_render_1.webp">
-            <img src="render/still_render_2.webp">
-            <img src="render/still_render_3.webp">
-            <img src="render/still_render_4.webp">
-            
-        </div>
-
-        <div class="divider" onclick="toggleGallery(this)">
-            ▼ Click to expand ▼
-        </div>        
-    </div>
-
-    <div class="gallery_group" id="animation">
-        <div class="text">    
-            <p3>"Animationen"</p3>
-        </div>
-        
-        <div class="preview_gallery videogallery">
-            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/animation3.webp" loop>
-                <source src="videos/animation3.mp4" type="video/mp4">
-            </video>
-        
-            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/animation2.webp" loop>
-                <source src="videos/animation2.mp4" type="video/mp4">
-            </video>
-
-            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/animation1.webp" loop>
-                <source src="videos/animation1.mp4" type="video/mp4">
-            </video>
-        
-            <video muted preload="auto" playsinline loop>
-               
-            </video>            
-        </div>
-    </div>  
-
-    <div class="gallery_group" id="3d">
-        <div class="text">    
-            <p3>"3D Render"</p3>
-        </div>
-
-
-        <div class="preview_gallery videogallery">
-            
-            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/Image.webp" loop>
-                <source src="videos/LubeV2.mov" type="video/mp4">
-            </video>
-            
-            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/luca4.webp" loop>
-                <source src="videos/luca4.mp4" type="video/mp4">
-            </video>
-
-            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/Image (1).webp" loop>
-                <source src="videos/spinning_sphere.mov" type="video/mp4">
-            </video>
-
-            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/luca3.webp" loop>
-                <source src="videos/luca3.mp4" type="video/mp4">
-            </video>
-        </div>
-    </div> 
-    
-    <div class="gallery_group" id="aVis">
-        <div class="text">    
-            <p3>"Audio Visuals"</p3>
-        </div>
-        
-        <div class="preview_gallery videogallery">
-            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/audioVis2.webp" loop>
-                <source src="videos/audioVis2.mp4" type="video/mp4">
-            </video>
-        
-            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/audioVis1.webp" loop>
-                <source src="videos/audioVis1.mp4" type="video/mp4">
-            </video>
-
-            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/audioVis3.webp" loop>
-                <source src="videos/audioVis3.mp4" type="video/mp4">
-            </video>
-        
-            <video muted preload="auto" playsinline preload="auto" poster="videos/video_preview/audioVis4.webp" loop>
-                <source src="videos/audioVis4.mp4" type="video/mp4">
-            </video>            
-        </div>
-    </div> 
-
-
-
-    <div class="footer">
-        <p4>© 2025 by Linus Luschtinez. All rights reserved.</p4>
-    </div> 
-
-    
-
-
-    <!-- JavaScript für die Videogalerie -->
-    
-
-    
-
-    
-
-    
-
-</div>
-
-<div id="page-clientwork" class="spa-page" style="display:none;" data-title="Clientwork">
-
-    <div class="clientwork">
-        <div class="text">
-            <h1>clientwork<br></h1>
-        </div>
-    </div>
-
-    <!--Wiesencross-->
-    <div class="gallery_group" id="WiesenCross">
-        <div class="text">
-            <p3>"WiesenCross"</p3>
-        </div>
-
-        <div class="preview_gallery">
-            <img src="images/cross_web/Image50.webp">
-            <img src="images/cross_web/Image41.webp">
-            <img src="images/cross_web/Image65.webp">
-            <img src="images/cross_web/Image44.webp">
-        </div>
-
-        <div class="full_gallery gallery hidden">
-            <img src="images/cross_web/Image01.webp">
-            <img src="images/cross_web/Image02.webp">
-            <img src="images/cross_web/Image03.webp">
-            <img src="images/cross_web/Image04.webp">
-            <img src="images/cross_web/Image05.webp">
-            <img src="images/cross_web/Image06.webp">
-            <img src="images/cross_web/Image07.webp">
-            <img src="images/cross_web/Image08.webp">
-            <img src="images/cross_web/Image09.webp">
-            <img src="images/cross_web/Image10.webp">
-            <img src="images/cross_web/Image11.webp">
-            <img src="images/cross_web/Image12.webp">
-            <img src="images/cross_web/Image13.webp">
-            <img src="images/cross_web/Image14.webp">
-            <img src="images/cross_web/Image15.webp">
-            <img src="images/cross_web/Image16.webp">
-            <img src="images/cross_web/Image17.webp">
-            <img src="images/cross_web/Image18.webp">
-            <img src="images/cross_web/Image19.webp">
-            <img src="images/cross_web/Image20.webp">
-            <img src="images/cross_web/Image21.webp">
-            <img src="images/cross_web/Image22.webp">
-            <img src="images/cross_web/Image23.webp">
-            <img src="images/cross_web/Image24.webp">
-            <img src="images/cross_web/Image25.webp">
-            <img src="images/cross_web/Image26.webp">
-            <img src="images/cross_web/Image27.webp">
-            <img src="images/cross_web/Image28.webp">
-            <img src="images/cross_web/Image29.webp">
-            <img src="images/cross_web/Image30.webp">
-            <img src="images/cross_web/Image31.webp">
-            <img src="images/cross_web/Image32.webp">
-            <img src="images/cross_web/Image33.webp">
-            <img src="images/cross_web/Image34.webp">
-            <img src="images/cross_web/Image35.webp">
-            <img src="images/cross_web/Image36.webp">
-            <img src="images/cross_web/Image37.webp">
-            <img src="images/cross_web/Image38.webp">
-            <img src="images/cross_web/Image39.webp">
-            <img src="images/cross_web/Image40.webp">
-
-            <img src="images/cross_web/Image42.webp">
-            <img src="images/cross_web/Image43.webp">
-
-            <img src="images/cross_web/Image45.webp">
-            <img src="images/cross_web/Image46.webp">
-            <img src="images/cross_web/Image47.webp">
-            <img src="images/cross_web/Image48.webp">
-            <img src="images/cross_web/Image49.webp">
-
-            <img src="images/cross_web/Image51.webp">
-            <img src="images/cross_web/Image52.webp">
-            <img src="images/cross_web/Image53.webp">
-            <img src="images/cross_web/Image54.webp">
-            <img src="images/cross_web/Image55.webp">
-            <img src="images/cross_web/Image56.webp">
-            <img src="images/cross_web/Image57.webp">
-            <img src="images/cross_web/Image58.webp">
-            <img src="images/cross_web/Image59.webp">
-            <img src="images/cross_web/Image60.webp">
-            <img src="images/cross_web/Image61.webp">
-            <img src="images/cross_web/Image62.webp">
-            <img src="images/cross_web/Image63.webp">
-            <img src="images/cross_web/Image64.webp">
-
-
-        </div>
-
-        <div class="divider" onclick="toggleGallery(this)">
-            ▼ Click to expand ▼
-        </div>
-    </div>
-
-    <!--Fighters World-->
-    <div class="gallery_group" id="fightersWorld">
-        <div class="text">
-            <p3>"Fighters World"</p3>
-        </div>
-
-        <div class="preview_gallery">
-            <img src="images/fw_resized/fw_22.webp">
-            <img src="images/fw_resized/fw_2.webp">
-            <img src="images/fw_resized/fw_24.webp">
-            <img src="images/fw_resized/fw_13.webp">
-        </div>
-
-        <div class="full_gallery gallery hidden">
-            <img src="images/fw_resized/fw_5.webp">
-            <img src="images/fw_resized/fw_6.webp">
-            <img src="images/fw_resized/fw_7.webp">
-            <img src="images/fw_resized/fw_8.webp">
-            <img src="images/fw_resized/fw_9.webp">
-            <img src="images/fw_resized/fw_10.webp">
-            <img src="images/fw_resized/fw_11.webp">
-            <img src="images/fw_resized/fw_12.webp">
-            <img src="images/fw_resized/fw_4.webp">
-            <img src="images/fw_resized/fw_14.webp">
-            <img src="images/fw_resized/fw_15.webp">
-            <img src="images/fw_resized/fw_16.webp">
-            <img src="images/fw_resized/fw_17.webp">
-            <img src="images/fw_resized/fw_18.webp">
-            <img src="images/fw_resized/fw_19.webp">
-            <img src="images/fw_resized/fw_20.webp">
-            <img src="images/fw_resized/fw_21.webp">
-            <img src="images/fw_resized/fw_1.webp">
-            <img src="images/fw_resized/fw_23.webp">
-            <img src="images/fw_resized/fw_3.webp">
-            <img src="images/fw_resized/fw_25.webp">
-            <img src="images/fw_resized/fw_26.webp">
-            <img src="images/fw_resized/fw_27.webp">
-            <img src="images/fw_resized/fw_28.webp">
-            <img src="images/fw_resized/fw_29.webp">
-            <img src="images/fw_resized/fw_30.webp">
-            <img src="images/fw_resized/fw_31.webp">
-            <img src="images/fw_resized/fw_32.webp">
-            <img src="images/fw_resized/fw_33.webp">
-            <img src="images/fw_resized/fw_34.webp">
-            <img src="images/fw_resized/fw_35.webp">
-            <img src="images/fw_resized/fw_36.webp">
-            <img src="images/fw_resized/fw_37.webp">
-            <img src="images/fw_resized/fw_38.webp">
-            <img src="images/fw_resized/fw_39.webp">
-            <img src="images/fw_resized/fw_40.webp">
-        </div>
-
-        <div class="divider" onclick="toggleGallery(this)">
-            ▼ Click to expand ▼
-        </div>
-    </div>
-
-    <!--#mitmachbarkeit Stadt Hohenems-->
-    <div class="gallery_group" id="mitmachbarkeit">
-        <div class="text">
-            <p3>"Mitmachbarkeit Stadt Hohenems"</p3>
-        </div>
-
-        <div class="preview_gallery">
-            <video muted preload="auto" playsinline preload="auto" loop>
-                <source src="videos/Ojah_Salomon.mp4" type="video/mp4">
-            </video>
-            <video muted preload="auto" playsinline preload="auto" loop>
-                <source src="videos/EFAC_Hallenrennen.mp4" type="video/mp4">
-            </video>
-            <video muted preload="auto" playsinline preload="auto" loop>
-                <source src="videos/Bücherei_Hohenems.mp4" type="video/mp4">
-            </video>
-
-        </div>
-
-    </div>
-
-    <!--Frequentis-->
-    <div class="gallery_group" id="frequentis">
-        <div class="text">
-            <p3>"75 Jahre Frequentis"</p3>
-        </div>
-
-        <div class="preview_gallery">
-            <img src="images/freq/freq_2.webp"> <!-- 1 -->
-            <img src="images/freq/freq_17.webp"> <!-- FIX -->
-            <img src="images/freq/freq_6.webp"> <!-- 3 -->
-            <img src="images/freq/freq_4.webp"> <!-- FIX -->
-        </div>
-
-        <div class="full_gallery gallery hidden">
-            <img src="images/freq/freq_5.webp">
-            <img src="images/freq/freq_6.webp">
-            <img src="images/freq/freq_7.webp">
-            <img src="images/freq/freq_8.webp">
-            <img src="images/freq/freq_9.webp">
-            <img src="images/freq/freq_10.webp">
-            <img src="images/freq/freq_11.webp">
-            <img src="images/freq/freq_12.webp">
-            <img src="images/freq/freq_13.webp">
-            <img src="images/freq/freq_14.webp">
-            <img src="images/freq/freq_15.webp">
-            <img src="images/freq/freq_17.webp">
-            <img src="images/freq/freq_18.webp">
-            <img src="images/freq/freq_19.webp">
-        </div>
-
-        <div class="divider" onclick="toggleGallery(this)">
-            ▼ Click to expand ▼
-        </div>
-    </div>
-
-    <!--Arrtist on Tour-->
-    <div class="gallery_group" id="arrtist">
-        <div class="text">
-            <p3>"Arrtist on Tour"</p3>
-        </div>
-
-        <div class="preview_gallery">
-            <img src="images/Arrtist_on_tour/Arrtist_11.webp">
-            <img src="images/Arrtist_on_tour/Arrtist_2.webp">
-            <img src="images/Arrtist_on_tour/Arrtist_67.webp">
-            <img src="images/Arrtist_on_tour/Arrtist_13.webp">
-        </div>
-
-        <div class="full_gallery gallery hidden">
-            <img src="images/Arrtist_on_tour/Arrtist_5.webp">
-            <img src="images/Arrtist_on_tour/Arrtist_6.webp">
-            <img src="images/Arrtist_on_tour/Arrtist_7.webp">
-            <img src="images/Arrtist_on_tour/Arrtist_8.webp">
-            <img src="images/Arrtist_on_tour/Arrtist_9.webp">
-            <img src="images/Arrtist_on_tour/Arrtist_10.webp">
-            <img src="images/Arrtist_on_tour/Arrtist_39.webp">
-            <img src="images/Arrtist_on_tour/Arrtist_12.webp">
-            <img src="images/Arrtist_on_tour/Arrtist_38.webp">
-            <img src="images/Arrtist_on_tour/Arrtist_14.webp">
-            <img src="images/Arrtist_on_tour/Arrtist_15.webp">
-            <img src="images/Arrtist_on_tour/Arrtist_16.webp">
-            <img src="images/Arrtist_on_tour/Arrtist_17.webp">
-            <img src="images/Arrtist_on_tour/Arrtist_18.webp">
-            <img src="images/Arrtist_on_tour/Arrtist_19.webp">
-            <img src="images/Arrtist_on_tour/Arrtist_20.webp">
-            <img src="images/Arrtist_on_tour/Arrtist_21.webp">
-            <img src="images/Arrtist_on_tour/Arrtist_22.webp">
-            <img src="images/Arrtist_on_tour/Arrtist_23.webp">
-            <img src="images/Arrtist_on_tour/Arrtist_24.webp">
-            <img src="images/Arrtist_on_tour/Arrtist_25.webp">
-            <img src="images/Arrtist_on_tour/Arrtist_26.webp">
-            <img src="images/Arrtist_on_tour/Arrtist_27.webp">
-            <img src="images/Arrtist_on_tour/Arrtist_28.webp">
-            <img src="images/Arrtist_on_tour/Arrtist_29.webp">
-            <img src="images/Arrtist_on_tour/Arrtist_30.webp">
-            <img src="images/Arrtist_on_tour/Arrtist_31.webp">
-            <img src="images/Arrtist_on_tour/Arrtist_32.webp">
-            <img src="images/Arrtist_on_tour/Arrtist_33.webp">
-            <img src="images/Arrtist_on_tour/Arrtist_34.webp">
-            <img src="images/Arrtist_on_tour/Arrtist_35.webp">
-            <img src="images/Arrtist_on_tour/Arrtist_36.webp">
-            <img src="images/Arrtist_on_tour/Arrtist_37.webp">
-            <img src="images/Arrtist_on_tour/Arrtist_40.webp">
-        </div>
-
-        <div class="divider" onclick="toggleGallery(this)">
-            ▼ Click to expand ▼
-        </div>
-    </div>
-
-    <!--Szene Open Air-->
-    <div class="gallery_group" id="szene">
-        <div class="text">
-            <p3>"Szene Open Air"</p3>
-        </div>
-
-        <div class="preview_gallery">
-            <img src="images/Szene_2018/Szene_10.webp">
-            <img src="images/Szene_2018/Szene_11.webp">
-            <img src="images/Szene_2018/Szene_9.webp">
-            <img src="images/Szene_2018/Szene_5.webp">
-        </div>
-
-        <div class="full_gallery gallery hidden">
-            <img src="images/Szene_2018/Szene_3.webp">
-            <img src="images/Szene_2018/Szene_4.webp">
-            <img src="images/Szene_2018/Szene_6.webp">
-            <img src="images/Szene_2018/Szene_7.webp">
-            <img src="images/Szene_2018/Szene_8.webp">
-            <img src="images/Szene_2018/Szene_1.webp">
-            <img src="images/Szene_2018/Szene_2.webp">
-            <img src="images/Szene_2018/Szene_12.webp">
-        </div>
-
-        <div class="divider" onclick="toggleGallery(this)">
-            ▼ Click to expand ▼
-        </div>
-    </div>
-
-    <!--Hartlauer Dronenseminar-->
-    <div class="gallery_group" id="hDronen">
-        <div class="text">
-            <p3>"Hartlauer Dronenseminar"</p3>
-        </div>
-
-        <div class="preview_gallery">
-            <img src="images/Hartlauer_Dronenseminar/Drone_1.webp">
-            <img src="images/Hartlauer_Dronenseminar/Drone_10.webp">
-            <img src="images/Hartlauer_Dronenseminar/Drone_3.webp">
-            <img src="images/Hartlauer_Dronenseminar/Drone_7.webp">
-        </div>
-
-        <div class="full_gallery gallery hidden">
-            <img src="images/Hartlauer_Dronenseminar/Drone_5.webp">
-            <img src="images/Hartlauer_Dronenseminar/Drone_6.webp">
-            <img src="images/Hartlauer_Dronenseminar/Drone_4.webp">
-            <img src="images/Hartlauer_Dronenseminar/Drone_9.webp">
-            <img src="images/Hartlauer_Dronenseminar/Drone_2.webp">
-        </div>
-
-        <div class="divider" onclick="toggleGallery(this)">
-            ▼ Click to expand ▼
-        </div>
-    </div>
-
-    <div class="footer">
-        <p4>© 2025 by Linus Luschtinez. All rights reserved.</p4>
-    </div>
-
-
-    
-
-    
-
-    
-
-
-
-</div>
-
-<div id="page-contact" class="spa-page" style="display:none;" data-title="Contact">
-
-    <div class ="contact">
-
-        <div class="text">
-            <h1>Lass uns dein Projekt professionell umsetzen.<br><br></h1>
-    
-        <p2>
-            Ich biete Event-Foto- und Videografie, Social Media Management sowie Videoediting mit Schwerpunkt auf Short Form Content und YouTube-Videos. <br><br>
-            Ob für dein Unternehmen, deine Marke oder dein persönliches Projekt.<br>
-            Ich entwickle und realisiere Content, der Aufmerksamkeit schafft und überzeugt.<br><br>
-            
-            Kontaktiere mich gerne, um eine individuelle Lösung für dich und dein Projekt zu finden.<br>
-        </p2>
-            <p2>        
-                <a href="mailto: office.linus99@gmail.com" class="contact_button">Schreib mir eine E-Mail</a>
-            </p2>
-            <p2>
-               Ich melde mich so schnell wie möglich bei dir zurück.
-            </p2>
-        </div>
-
-    </div>   
-
-    <div class="contact_gallery">
-        <div class="Hpic-wrapper">
-            <img src="images/bts/bts7new.webp">
-        </div>
-        <div class="Hpic-wrapper">
-            <img src="images/bts/bts1.webp">
-        </div>
-        <div class="Hpic-wrapper">
-            <img src="images/contact/contact1.webp">
-        </div>
-        <div class="Hpic-wrapper">
-            <img src="images/contact/contact2.webp">
-        </div>
-        <div class="Hpic-wrapper">
-            <img src="images/contact/contact3.webp">
-        </div>
-        <div class="Hpic-wrapper">
-            <img src="images/bts/bts3.webp">
-        </div>
-        
-        
-        
-        
-        
-        </div>
-    </div>
-
-
-
-
-
-    <div class="footer">
-        <p4>© 2025 by Linus Luschtinez. All rights reserved.</p4>
-    </div>
-    
-    
-
-    
-
-    
-
-</div>
-
-<div id="page-price" class="spa-page" style="display:none;" data-title="Price">
-
-    <div class ="price">
-
-        <div class="text">
-            <h1>Meine Pakete / Preise und Angebote<br><br></h1>
-        
-            <p class ="price-text">
-                Hier findest du meine standardisierten Pakete und Angebote. <br><br>
-                Für individuelle Anfragen oder maßgeschneiderte Lösungen kannst du mich jederzeit über die Kontaktseite erreichen.
-            </p>
-    </div>
-
-    </div>   
-
-        <!-- Einzel Preise -->
-        <div class="text">    
-            <p3>"Basics"</p3>
-        </div>
-        
-        <div class="container">
-            <!-- Erste Box -->
-            <div class="price-box">
-                <h2>Single Edit</h2>
-                <p2>Vom Rohmaterial zum fertigen Post</p2>
-                <p class="price">ab 120€</p>
-                <ul>
-                    <li>Edit</li>
-                    <li>Color Grade</li>
-                    <li>Audio Mix</li>
-                    <li>2 Previews </li>
-                </ul>
+            <section id="concert" class="gallery-section">
+                <div class="container-wide">
+                    <h2 class="section-title">Concert</h2>
+                    <div class="image-gallery masonry" data-gallery="concert">
+                        <img src="images/concert_photography/concert_45.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_41.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_66.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_28.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_5.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_6.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_7.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_8.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_9.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_10.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_11.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_12.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_13.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_14.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_15.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_16.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_17.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_18.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_19.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_20.webp" alt="Concert">
+                        <img src="images/home_resized/home_image1.webp" alt="Concert">
+                        <img src="images/home_resized/home_image3.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_21.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_22.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_23.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_24.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_25.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_26.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_27.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_4.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_29.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_30.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_31.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_32.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_33.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_34.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_35.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_36.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_37.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_38.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_39.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_40.webp" alt="Concert">
+                        <img src="images/home_resized/home_image14.webp" alt="Concert">
+                        <img src="images/home_resized/home_image15.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_2.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_42.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_43.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_44.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_1.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_46.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_47.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_48.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_49.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_50.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_51.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_52.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_53.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_54.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_55.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_56.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_57.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_58.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_59.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_60.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_61.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_62.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_63.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_64.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_65.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_3.webp" alt="Concert">
+                        <img src="images/concert_photography/concert_67.webp" alt="Concert">
+                    </div>
+                </div>
+            </section>
+
+            <section id="atmosphere" class="gallery-section">
+                <div class="container-wide">
+                    <h2 class="section-title">Atmosphere</h2>
+                    <div class="image-gallery masonry" data-gallery="atmosphere">
+                        <img src="images/atmo/atmo_12.webp" alt="Atmosphere">
+                        <img src="images/atmo/atmo_14new.webp" alt="Atmosphere">
+                        <img src="images/atmo/atmo_16.webp" alt="Atmosphere">
+                        <img src="images/atmo/atmo_25.webp" alt="Atmosphere">
+                        <img src="images/atmo/atmo_5.webp" alt="Atmosphere">
+                        <img src="images/atmo/atmo_6.webp" alt="Atmosphere">
+                        <img src="images/atmo/atmo_7.webp" alt="Atmosphere">
+                        <img src="images/atmo/atmo_9.webp" alt="Atmosphere">
+                        <img src="images/atmo/atmo_10.webp" alt="Atmosphere">
+                        <img src="images/atmo/atmo_11.webp" alt="Atmosphere">
+                        <img src="images/atmo/atmo_1.webp" alt="Atmosphere">
+                        <img src="images/atmo/atmo_13.webp" alt="Atmosphere">
+                        <img src="images/atmo/atmo_8.webp" alt="Atmosphere">
+                        <img src="images/atmo/atmo_15.webp" alt="Atmosphere">
+                        <img src="images/atmo/atmo_3.webp" alt="Atmosphere">
+                        <img src="images/atmo/atmo_17.webp" alt="Atmosphere">
+                        <img src="images/atmo/atmo_18.webp" alt="Atmosphere">
+                        <img src="images/atmo/atmo_19.webp" alt="Atmosphere">
+                        <img src="images/atmo/atmo_20.webp" alt="Atmosphere">
+                        <img src="images/atmo/atmo_21.webp" alt="Atmosphere">
+                        <img src="images/atmo/atmo_22.webp" alt="Atmosphere">
+                        <img src="images/atmo/atmo_23.webp" alt="Atmosphere">
+                        <img src="images/atmo/atmo_24.webp" alt="Atmosphere">
+                        <img src="images/atmo/atmo_4.webp" alt="Atmosphere">
+                        <img src="images/atmo/atmo_26.webp" alt="Atmosphere">
+                        <img src="images/atmo/atmo_27.webp" alt="Atmosphere">
+                        <img src="images/atmo/atmo_28.webp" alt="Atmosphere">
+                        <img src="images/atmo/atmo_29.webp" alt="Atmosphere">
+                        <img src="images/atmo/atmo_30.webp" alt="Atmosphere">
+                    </div>
+                </div>
+            </section>
+
+            <section id="portraits" class="gallery-section">
+                <div class="container-wide">
+                    <h2 class="section-title">Portraits - High Key</h2>
+                    <div class="image-gallery masonry" data-gallery="portraits">
+                        <img src="images/sandio_highkey/highkey_1.webp" alt="High Key Portrait">
+                        <img src="images/sandio_highkey/highkey_6.webp" alt="High Key Portrait">
+                        <img src="images/sandio_highkey/highkey_3.webp" alt="High Key Portrait">
+                        <img src="images/sandio_highkey/highkey_5.webp" alt="High Key Portrait">
+                        <img src="images/sandio_highkey/highkey_2.webp" alt="High Key Portrait">
+                        <img src="images/sandio_highkey/highkey_4.webp" alt="High Key Portrait">
+                        <img src="images/sandio_highkey/highkey_7.webp" alt="High Key Portrait">
+                        <img src="images/sandio_highkey/highkey_8.webp" alt="High Key Portrait">
+                    </div>
+                </div>
+            </section>
+
+            <section id="lowkey-portraits" class="gallery-section">
+                <div class="container-wide">
+                    <h2 class="section-title">Portraits - Low Key</h2>
+                    <div class="image-gallery masonry" data-gallery="lowkey-portraits">
+                        <img src="images/sandio_lowkey/lowkey_1.webp" alt="Low Key Portrait">
+                        <img src="images/sandio_lowkey/lowkey_5.webp" alt="Low Key Portrait">
+                        <img src="images/sandio_lowkey/lowkey_6.webp" alt="Low Key Portrait">
+                        <img src="images/sandio_lowkey/lowkey_8.webp" alt="Low Key Portrait">
+                        <img src="images/sandio_lowkey/lowkey_2.webp" alt="Low Key Portrait">
+                        <img src="images/sandio_lowkey/lowkey_7.webp" alt="Low Key Portrait">
+                        <img src="images/sandio_lowkey/lowkey_3.webp" alt="Low Key Portrait">
+                        <img src="images/sandio_lowkey/lowkey_4.webp" alt="Low Key Portrait">
+                    </div>
+                </div>
+            </section>
+
+            <section id="bandfotos" class="gallery-section">
+                <div class="container-wide">
+                    <h2 class="section-title">Bandfotos</h2>
+                    <div class="image-gallery masonry" data-gallery="bandfotos">
+                        <img src="images/home2/home_1.webp" alt="Band">
+                        <img src="images/home2/home_2.webp" alt="Band">
+                        <img src="images/home2/home_5.webp" alt="Band">
+                        <img src="images/home2/home_6.webp" alt="Band">
+                        <img src="images/home2/home_3.webp" alt="Band">
+                        <img src="images/home2/home_7.webp" alt="Band">
+                        <img src="images/home2/home_4.webp" alt="Band">
+                    </div>
+                </div>
+            </section>
+
+            <section id="interior" class="gallery-section">
+                <div class="container-wide">
+                    <h2 class="section-title">Interior</h2>
+                    <div class="image-gallery masonry" data-gallery="interior">
+                        <img src="images/interior/int_1.webp" alt="Interior">
+                        <img src="images/interior/int_2.webp" alt="Interior">
+                        <img src="images/interior/int_3.webp" alt="Interior">
+                        <img src="images/interior/int_5.webp" alt="Interior">
+                        <img src="images/interior/int_4.webp" alt="Interior">
+                        <img src="images/interior/int_6.webp" alt="Interior">
+                    </div>
+                </div>
+            </section>
+
+            <section id="private" class="gallery-section">
+                <div class="container-wide">
+                    <h2 class="section-title">Private Life</h2>
+                    <div class="image-gallery masonry" data-gallery="private">
+                        <img src="images/private/holiday_resized_97.webp" alt="Private">
+                        <img src="images/private/T3E.webp" alt="Private">
+                        <img src="images/private/holiday_resized_116.webp" alt="Private">
+                        <img src="images/private/Jump13_Linus_edit.webp" alt="Private">
+                        <img src="images/ResizedFoto/update_1.webp" alt="Private">
+                        <img src="images/ResizedFoto/update_4.webp" alt="Private">
+                        <img src="images/private/holiday_resized_24.webp" alt="Private">
+                        <img src="images/ResizedFoto/update_5.webp" alt="Private">
+                        <img src="images/ResizedFoto/update_6.webp" alt="Private">
+                        <img src="images/private/priv_1.webp" alt="Private">
+                        <img src="images/private/priv_2.webp" alt="Private">
+                        <img src="images/ResizedFoto/update_3.webp" alt="Private">
+                        <img src="images/private/holiday_resized_46.webp" alt="Private">
+                        <img src="images/private/holiday_resized_61.webp" alt="Private">
+                        <img src="images/private/T1E.webp" alt="Private">
+                        <img src="images/private/priv_3.webp" alt="Private">
+                        <img src="images/private/priv_4.webp" alt="Private">
+                        <img src="images/private/priv_5.webp" alt="Private">
+                        <img src="images/ResizedFoto/update_2.webp" alt="Private">
+                        <img src="images/private/holiday_resized_102.webp" alt="Private">
+                        <img src="images/private/holiday_resized_127.webp" alt="Private">
+                        <img src="images/private/holiday_resized_135.webp" alt="Private">
+                        <img src="images/private/T2E.webp" alt="Private">
+                        <img src="images/private/000026.webp" alt="Private">
+                        <img src="images/private/priv_6.webp" alt="Private">
+                        <img src="images/private/priv_7.webp" alt="Private">
+                        <img src="images/private/priv_8.webp" alt="Private">
+                        <img src="images/private/priv_9.webp" alt="Private">
+                        <img src="images/private/priv_10.webp" alt="Private">
+                        <img src="images/private/priv_11.webp" alt="Private">
+                        <img src="images/private/priv_12.webp" alt="Private">
+                        <img src="images/private/priv_13.webp" alt="Private">
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div id="page-videography" class="spa-page">
+            <div class="page-header">
+                <div class="container-wide">
+                    <h1>Cinematography</h1>
+                    <p class="subtitle">Storytelling through motion and light.</p>
+                </div>
             </div>
 
-            <!-- Zweite Box -->
-            <div class="price-box">
-                <h2>Event Shooting</h2>
-                <p2>Ob Konzert/Hochzeit/Dj_Set/Buisness Event/Info Abend oder sonstiges ich begleite und dokumentiere dein Event vom Anfang bis zum Schluss.</p2>
-                <p class="price">ab 1299€</p>
-                <ul>
-                    <li>Shooting Vor Ort</li>
-                    <li>Professionelle Nachbearbeitung</li>
-                    <li>Schnelle Lieferung</li>
-                </ul>
+            <section id="luma" class="gallery-section">
+                <div class="container-wide">
+                    <h2 class="section-title">Luma Media</h2>
+                    <div class="video-grid portrait-grid" data-gallery="luma">
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto" poster="videos/video_preview/luma1.webp">
+                                <source src="videos/luma1.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto" poster="videos/video_preview/luma2.webp">
+                                <source src="videos/luma2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto" poster="videos/video_preview/luma3.webp">
+                                <source src="videos/luma3.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto" poster="videos/video_preview/luma4.webp">
+                                <source src="videos/luma4.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto" poster="videos/video_preview/luma5.webp">
+                                <source src="videos/luma5.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto" poster="videos/video_preview/luma6.webp">
+                                <source src="videos/luma6.mp4" type="video/mp4">
+                            </video>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="DavinciTips" class="gallery-section">
+                <div class="container-wide">
+                    <h2 class="section-title">Davinci Quicktips</h2>
+                    <div class="video-grid portrait-grid" data-gallery="davinci">
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto" poster="videos/video_preview/Quicktip_1.webp">
+                                <source src="videos/Quicktip_1.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto" poster="videos/video_preview/Quicktip_2.webp">
+                                <source src="videos/Quicktip_2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto" poster="videos/video_preview/Quicktip_3.webp">
+                                <source src="videos/Quicktip_3.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto" poster="videos/video_preview/Quicktip_4.webp">
+                                <source src="videos/Quicktip_4.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto" poster="videos/video_preview/Quicktip_5.webp">
+                                <source src="videos/Quicktip_5.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto" poster="videos/video_preview/Quicktip_6.webp">
+                                <source src="videos/Quicktip_6.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto" poster="videos/video_preview/Quicktip_7.webp">
+                                <source src="videos/Quicktip_7.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto" poster="videos/video_preview/Quicktip_8.webp">
+                                <source src="videos/Quicktip_8.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto">
+                                <source src="videos/part9.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto">
+                                <source src="videos/part10.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto">
+                                <source src="videos/part11.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto">
+                                <source src="videos/part12.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto">
+                                <source src="videos/part13.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto">
+                                <source src="videos/part14.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto">
+                                <source src="videos/part15.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto">
+                                <source src="videos/part16.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto">
+                                <source src="videos/part17.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto">
+                                <source src="videos/part19.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto">
+                                <source src="videos/part20.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto">
+                                <source src="videos/part21.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto">
+                                <source src="videos/part22.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto">
+                                <source src="videos/part23.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="Reels" class="gallery-section">
+                <div class="container-wide">
+                    <h2 class="section-title">Reels & Kurzvideos</h2>
+                    <div class="video-grid portrait-grid" data-gallery="reels">
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto" poster="videos/video_preview/reel1.webp">
+                                <source src="videos/reel1.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto" poster="videos/video_preview/door_cov.webp">
+                                <source src="videos/Door_Fin.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto" poster="videos/video_preview/dub_cov.webp">
+                                <source src="videos/Dublicate_Fin.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto" poster="videos/video_preview/reel4.webp">
+                                <source src="videos/reel4.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto" poster="videos/video_preview/plant_cov.webp">
+                                <source src="videos/Planted_Fin.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto" poster="videos/video_preview/fw_reel1.webp">
+                                <source src="videos/fw_reel1.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto" poster="videos/video_preview/reel3.webp">
+                                <source src="videos/reel3.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="Winstage" class="gallery-section">
+                <div class="container-wide">
+                    <h2 class="section-title">Winstage Reels</h2>
+                    <div class="video-grid portrait-grid" data-gallery="winstage">
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto" poster="videos/Winstage/pangea.png">
+                                <source src="videos/Winstage/Indian_Living_Pangea_Stil_1.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto" poster="videos/Winstage/Indian_Reel_1.png">
+                                <source src="videos/Winstage/Indian_Living_Umzug_Reel_1.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto" poster="videos/Winstage/Winstage_1.png">
+                                <source src="videos/Winstage/Reel_Winstage_1.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item portrait" data-type="local">
+                            <video muted loop playsinline preload="auto" poster="videos/Winstage/Indian_Reel_2.png">
+                                <source src="videos/Winstage/Indian_Living_Umzug_Reel_2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="musicVideos" class="gallery-section">
+                <div class="container-wide">
+                    <h2 class="section-title">Musik Videos</h2>
+                    <div class="video-grid" data-gallery="music">
+                        <div class="video-item landscape" data-type="youtube">
+                            <iframe src="https://www.youtube.com/embed/QB49qdl15r8?rel=0&playsinline=1"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="video-item landscape" data-type="youtube">
+                            <iframe src="https://www.youtube.com/embed/y61A42Tvv4I?rel=0&playsinline=1"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="video-item landscape" data-type="youtube">
+                            <iframe src="https://www.youtube.com/embed/3TU84WNsM_I?rel=0&playsinline=1"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="video-item landscape" data-type="youtube">
+                            <iframe src="https://www.youtube.com/embed/uVFuGyq6B5o?rel=0&playsinline=1"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="video-item landscape" data-type="youtube">
+                            <iframe src="https://www.youtube.com/embed/r2WQZE10le8?rel=0&playsinline=1"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="video-item landscape" data-type="youtube">
+                            <iframe src="https://www.youtube.com/embed/1r-v88JPxWw?rel=0&playsinline=1"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="video-item landscape" data-type="youtube">
+                            <iframe src="https://www.youtube.com/embed/y6du7DrcW-Q?rel=0&playsinline=1"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="video-item landscape" data-type="youtube">
+                            <iframe src="https://www.youtube.com/embed/lRRn5v-3IFE?rel=0&playsinline=1"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="anderes" class="gallery-section">
+                <div class="container-wide">
+                    <h2 class="section-title">Diverse Projekte</h2>
+                    <div class="video-grid" data-gallery="anderes">
+                        <div class="video-item landscape" data-type="youtube">
+                            <iframe src="https://www.youtube.com/embed/PvW84AI0QtU?rel=0&playsinline=1"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="video-item landscape" data-type="youtube">
+                            <iframe src="https://www.youtube.com/embed/lJZALQKt7kU?rel=0&playsinline=1"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="video-item landscape" data-type="youtube">
+                            <iframe src="https://www.youtube.com/embed/_wXC3RJ8JtY?rel=0&playsinline=1"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div id="page-visuals" class="spa-page">
+            <div class="page-header">
+                <div class="container-wide">
+                    <h1>Visual Art & CGI</h1>
+                    <p class="subtitle">Exploring digital realms and abstract forms.</p>
+                </div>
             </div>
+
+            <section id="stills" class="gallery-section">
+                <div class="container-wide">
+                    <h2 class="section-title">Stills</h2>
+                    <div class="image-gallery masonry" data-gallery="stills">
+                        <div class="video-item landscape" data-type="image">
+                            <img src="render/still_render_8.webp" alt="3D Still">
+                        </div>
+                        <div class="video-item landscape" data-type="image">
+                            <img src="render/still_render_6.webp" alt="3D Still">
+                        </div>
+                        <div class="video-item landscape" data-type="image">
+                            <img src="render/still_render_7.webp" alt="3D Still">
+                        </div>
+                        <div class="video-item landscape" data-type="image">
+                            <img src="render/still_render_5.webp" alt="3D Still">
+                        </div>
+                        <div class="video-item landscape" data-type="image">
+                            <img src="render/still_render_1.webp" alt="3D Still">
+                        </div>
+                        <div class="video-item landscape" data-type="image">
+                            <img src="render/still_render_2.webp" alt="3D Still">
+                        </div>
+                        <div class="video-item landscape" data-type="image">
+                            <img src="render/still_render_3.webp" alt="3D Still">
+                        </div>
+                        <div class="video-item landscape" data-type="image">
+                            <img src="render/still_render_4.webp" alt="3D Still">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="animations" class="gallery-section">
+                <div class="container-wide">
+                    <h2 class="section-title">Animations</h2>
+                    <div class="video-gallery masonry" data-gallery="animations">
+                        <div class="video-item landscape" data-type="local">
+                            <video muted loop playsinline preload="auto" poster="videos/video_preview/animation3.webp">
+                                <source src="videos/animation3.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item landscape" data-type="local">
+                            <video muted loop playsinline preload="auto" poster="videos/video_preview/animation2.webp">
+                                <source src="videos/animation2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item landscape" data-type="local">
+                            <video muted loop playsinline preload="auto" poster="videos/video_preview/animation1.webp">
+                                <source src="videos/animation1.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="renders" class="gallery-section">
+                <div class="container-wide">
+                    <h2 class="section-title">3D Render</h2>
+                    <div class="video-gallery masonry" data-gallery="renders">
+                        <div class="video-item landscape" data-type="local">
+                            <video muted loop playsinline preload="auto" poster="videos/video_preview/Image.webp">
+                                <source src="videos/LubeV2.mov" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item landscape" data-type="local">
+                            <video muted loop playsinline preload="auto" poster="videos/video_preview/luca4.webp">
+                                <source src="videos/luca4.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item landscape" data-type="local">
+                            <video muted loop playsinline preload="auto" poster="videos/video_preview/Image (1).webp">
+                                <source src="videos/spinning_sphere.mov" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item landscape" data-type="local">
+                            <video muted loop playsinline preload="auto" poster="videos/video_preview/luca3.webp">
+                                <source src="videos/luca3.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="audio-visuals" class="gallery-section">
+                <div class="container-wide">
+                    <h2 class="section-title">Audio Visuals</h2>
+                    <div class="video-gallery masonry" data-gallery="audiovis">
+                        <div class="video-item landscape" data-type="local">
+                            <video muted loop playsinline preload="auto" poster="videos/video_preview/audioVis2.webp">
+                                <source src="videos/audioVis2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item landscape" data-type="local">
+                            <video muted loop playsinline preload="auto" poster="videos/video_preview/audioVis1.webp">
+                                <source src="videos/audioVis1.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item landscape" data-type="local">
+                            <video muted loop playsinline preload="auto" poster="videos/video_preview/audioVis3.webp">
+                                <source src="videos/audioVis3.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item landscape" data-type="local">
+                            <video muted loop playsinline preload="auto" poster="videos/video_preview/audioVis4.webp">
+                                <source src="videos/audioVis4.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div id="page-clientwork" class="spa-page">
+            <div class="page-header">
+                <div class="container-wide">
+                    <h1>Client Work</h1>
+                    <p class="subtitle">Commercial projects and collaborations.</p>
+                </div>
+            </div>
+
+            <section id="WiesenCross" class="gallery-section">
+                <div class="container-wide">
+                    <h2 class="section-title">WiesenCross</h2>
+                    <div class="image-gallery masonry" data-gallery="wiesencross">
+                        <img src="images/cross_web/Image50.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image41.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image65.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image44.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image01.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image02.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image03.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image04.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image05.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image06.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image07.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image08.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image09.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image10.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image11.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image12.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image13.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image14.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image15.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image16.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image17.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image18.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image19.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image20.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image21.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image22.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image23.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image24.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image25.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image26.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image27.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image28.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image29.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image30.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image31.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image32.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image33.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image34.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image35.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image36.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image37.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image38.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image39.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image40.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image42.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image43.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image45.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image46.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image47.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image48.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image49.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image51.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image52.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image53.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image54.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image55.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image56.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image57.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image58.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image59.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image60.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image61.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image62.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image63.webp" alt="WiesenCross">
+                        <img src="images/cross_web/Image64.webp" alt="WiesenCross">
+                    </div>
+                </div>
+            </section>
+
+            <section id="fightersWorld" class="gallery-section">
+                <div class="container-wide">
+                    <h2 class="section-title">Fighters World</h2>
+                    <div class="image-gallery masonry" data-gallery="fightersworld">
+                        <img src="images/fw_resized/fw_22.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_2.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_24.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_13.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_5.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_6.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_7.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_8.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_9.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_10.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_11.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_12.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_4.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_14.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_15.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_16.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_17.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_18.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_19.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_20.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_21.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_1.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_23.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_3.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_25.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_26.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_27.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_28.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_29.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_30.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_31.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_32.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_33.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_34.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_35.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_36.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_37.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_38.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_39.webp" alt="Fighters World">
+                        <img src="images/fw_resized/fw_40.webp" alt="Fighters World">
+                    </div>
+                </div>
+            </section>
+
+            <section id="frequentis" class="gallery-section">
+                <div class="container-wide">
+                    <h2 class="section-title">Frequentis</h2>
+                    <div class="image-gallery masonry" data-gallery="frequentis">
+                        <img src="images/freq/freq_2.webp" alt="Frequentis">
+                        <img src="images/freq/freq_17.webp" alt="Frequentis">
+                        <img src="images/freq/freq_6.webp" alt="Frequentis">
+                        <img src="images/freq/freq_4.webp" alt="Frequentis">
+                        <img src="images/freq/freq_5.webp" alt="Frequentis">
+                        <img src="images/freq/freq_7.webp" alt="Frequentis">
+                        <img src="images/freq/freq_8.webp" alt="Frequentis">
+                        <img src="images/freq/freq_9.webp" alt="Frequentis">
+                        <img src="images/freq/freq_10.webp" alt="Frequentis">
+                        <img src="images/freq/freq_11.webp" alt="Frequentis">
+                        <img src="images/freq/freq_12.webp" alt="Frequentis">
+                        <img src="images/freq/freq_13.webp" alt="Frequentis">
+                        <img src="images/freq/freq_14.webp" alt="Frequentis">
+                        <img src="images/freq/freq_15.webp" alt="Frequentis">
+                        <img src="images/freq/freq_18.webp" alt="Frequentis">
+                        <img src="images/freq/freq_19.webp" alt="Frequentis">
+                    </div>
+                </div>
+            </section>
+
+            <section id="arrtist" class="gallery-section">
+                <div class="container-wide">
+                    <h2 class="section-title">Arrtist on Tour</h2>
+                    <div class="image-gallery masonry" data-gallery="arrtist">
+                        <img src="images/Arrtist_on_tour/Arrtist_11.webp" alt="Arrtist on Tour">
+                        <img src="images/Arrtist_on_tour/Arrtist_2.webp" alt="Arrtist on Tour">
+                        <img src="images/Arrtist_on_tour/Arrtist_67.webp" alt="Arrtist on Tour">
+                        <img src="images/Arrtist_on_tour/Arrtist_13.webp" alt="Arrtist on Tour">
+                        <img src="images/Arrtist_on_tour/Arrtist_5.webp" alt="Arrtist on Tour">
+                        <img src="images/Arrtist_on_tour/Arrtist_6.webp" alt="Arrtist on Tour">
+                        <img src="images/Arrtist_on_tour/Arrtist_7.webp" alt="Arrtist on Tour">
+                        <img src="images/Arrtist_on_tour/Arrtist_8.webp" alt="Arrtist on Tour">
+                        <img src="images/Arrtist_on_tour/Arrtist_9.webp" alt="Arrtist on Tour">
+                        <img src="images/Arrtist_on_tour/Arrtist_10.webp" alt="Arrtist on Tour">
+                        <img src="images/Arrtist_on_tour/Arrtist_39.webp" alt="Arrtist on Tour">
+                        <img src="images/Arrtist_on_tour/Arrtist_12.webp" alt="Arrtist on Tour">
+                        <img src="images/Arrtist_on_tour/Arrtist_38.webp" alt="Arrtist on Tour">
+                        <img src="images/Arrtist_on_tour/Arrtist_14.webp" alt="Arrtist on Tour">
+                        <img src="images/Arrtist_on_tour/Arrtist_15.webp" alt="Arrtist on Tour">
+                        <img src="images/Arrtist_on_tour/Arrtist_16.webp" alt="Arrtist on Tour">
+                        <img src="images/Arrtist_on_tour/Arrtist_17.webp" alt="Arrtist on Tour">
+                        <img src="images/Arrtist_on_tour/Arrtist_18.webp" alt="Arrtist on Tour">
+                        <img src="images/Arrtist_on_tour/Arrtist_19.webp" alt="Arrtist on Tour">
+                        <img src="images/Arrtist_on_tour/Arrtist_20.webp" alt="Arrtist on Tour">
+                        <img src="images/Arrtist_on_tour/Arrtist_21.webp" alt="Arrtist on Tour">
+                        <img src="images/Arrtist_on_tour/Arrtist_22.webp" alt="Arrtist on Tour">
+                        <img src="images/Arrtist_on_tour/Arrtist_23.webp" alt="Arrtist on Tour">
+                        <img src="images/Arrtist_on_tour/Arrtist_24.webp" alt="Arrtist on Tour">
+                        <img src="images/Arrtist_on_tour/Arrtist_25.webp" alt="Arrtist on Tour">
+                        <img src="images/Arrtist_on_tour/Arrtist_26.webp" alt="Arrtist on Tour">
+                        <img src="images/Arrtist_on_tour/Arrtist_27.webp" alt="Arrtist on Tour">
+                        <img src="images/Arrtist_on_tour/Arrtist_28.webp" alt="Arrtist on Tour">
+                        <img src="images/Arrtist_on_tour/Arrtist_29.webp" alt="Arrtist on Tour">
+                        <img src="images/Arrtist_on_tour/Arrtist_30.webp" alt="Arrtist on Tour">
+                        <img src="images/Arrtist_on_tour/Arrtist_31.webp" alt="Arrtist on Tour">
+                        <img src="images/Arrtist_on_tour/Arrtist_32.webp" alt="Arrtist on Tour">
+                        <img src="images/Arrtist_on_tour/Arrtist_33.webp" alt="Arrtist on Tour">
+                        <img src="images/Arrtist_on_tour/Arrtist_34.webp" alt="Arrtist on Tour">
+                        <img src="images/Arrtist_on_tour/Arrtist_35.webp" alt="Arrtist on Tour">
+                        <img src="images/Arrtist_on_tour/Arrtist_36.webp" alt="Arrtist on Tour">
+                        <img src="images/Arrtist_on_tour/Arrtist_37.webp" alt="Arrtist on Tour">
+                        <img src="images/Arrtist_on_tour/Arrtist_40.webp" alt="Arrtist on Tour">
+                    </div>
+                </div>
+            </section>
+
+            <section id="szene" class="gallery-section">
+                <div class="container-wide">
+                    <h2 class="section-title">Szene Open Air</h2>
+                    <div class="image-gallery masonry" data-gallery="szene">
+                        <img src="images/Szene_2018/Szene_10.webp" alt="Szene Open Air">
+                        <img src="images/Szene_2018/Szene_11.webp" alt="Szene Open Air">
+                        <img src="images/Szene_2018/Szene_9.webp" alt="Szene Open Air">
+                        <img src="images/Szene_2018/Szene_5.webp" alt="Szene Open Air">
+                        <img src="images/Szene_2018/Szene_3.webp" alt="Szene Open Air">
+                        <img src="images/Szene_2018/Szene_4.webp" alt="Szene Open Air">
+                        <img src="images/Szene_2018/Szene_6.webp" alt="Szene Open Air">
+                        <img src="images/Szene_2018/Szene_7.webp" alt="Szene Open Air">
+                        <img src="images/Szene_2018/Szene_8.webp" alt="Szene Open Air">
+                        <img src="images/Szene_2018/Szene_1.webp" alt="Szene Open Air">
+                        <img src="images/Szene_2018/Szene_2.webp" alt="Szene Open Air">
+                        <img src="images/Szene_2018/Szene_12.webp" alt="Szene Open Air">
+                    </div>
+                </div>
+            </section>
+
+            <section id="hDronen" class="gallery-section">
+                <div class="container-wide">
+                    <h2 class="section-title">Hartlauer Dronenseminar</h2>
+                    <div class="image-gallery masonry" data-gallery="hdronen">
+                        <img src="images/Hartlauer_Dronenseminar/Drone_1.webp" alt="Hartlauer Drone">
+                        <img src="images/Hartlauer_Dronenseminar/Drone_10.webp" alt="Hartlauer Drone">
+                        <img src="images/Hartlauer_Dronenseminar/Drone_3.webp" alt="Hartlauer Drone">
+                        <img src="images/Hartlauer_Dronenseminar/Drone_7.webp" alt="Hartlauer Drone">
+                        <img src="images/Hartlauer_Dronenseminar/Drone_5.webp" alt="Hartlauer Drone">
+                        <img src="images/Hartlauer_Dronenseminar/Drone_6.webp" alt="Hartlauer Drone">
+                        <img src="images/Hartlauer_Dronenseminar/Drone_4.webp" alt="Hartlauer Drone">
+                        <img src="images/Hartlauer_Dronenseminar/Drone_9.webp" alt="Hartlauer Drone">
+                        <img src="images/Hartlauer_Dronenseminar/Drone_2.webp" alt="Hartlauer Drone">
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div id="page-contact" class="spa-page">
+            <section class="contact-section page-header">
+                <div class="container-wide">
+                    <div class="contact-wrapper">
+                        <div class="contact-media">
+                            <div class="media-stack about-gallery">
+                                <img src="images/bts/bts7new.webp" alt="BTS" class="reveal">
+                                <img src="images/bts/bts1.webp" alt="BTS">
+                                <img src="images/contact/contact1.webp" alt="Contact">
+                                <img src="images/contact/contact2.webp" alt="Contact">
+                                <img src="images/contact/contact3.webp" alt="Contact">
+                                <img src="images/bts/bts3.webp" alt="BTS">
+                            </div>
+                        </div>
+
+                        <div class="contact-header-text">
+                            <h1>Kontakt</h1>
+                            <p class="subtitle" style="margin-bottom: 3rem;">Lass uns dein Projekt professionell
+                                umsetzen.</p>
+                        </div>
+
+                        <div class="contact-content">
+                            <p>Ich biete Event-Foto- und Videografie, Social Media Management sowie Videoediting mit
+                                Schwerpunkt auf
+                                Short Form Content und YouTube-Videos.</p>
+                            <p>Ob für dein Unternehmen, deine Marke oder dein persönliches Projekt: Ich entwickle und
+                                realisiere
+                                Content, der Aufmerksamkeit schafft und überzeugt.</p>
+                            <p>Kontaktiere mich gerne, um eine individuelle Lösung für dich und dein Projekt zu finden.
+                                Ich melde
+                                mich so schnell wie möglich bei dir zurück.</p>
+
+                            <div class="contact-action" style="align-items: flex-start; margin-top: 3rem;">
+                                <a href="mailto:office.linus99@gmail.com" class="btn-primary">Schreib mir eine
+                                    E-Mail</a>
+                                <p class="small">office.linus99@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div id="page-price" class="spa-page">
+            <div class="page-header">
+                <div class="container-wide">
+                    <h1>Angebote & Pakete</h1>
+                    <p class="subtitle">Professionelle Lösungen für Ihre visuellen Inhalte.</p>
+                </div>
+            </div>
+
+            <section class="gallery-section">
+                <div class="container-wide">
+                    <h2 class="section-title">Basics</h2>
+                    <div class="pricing-grid">
+                        <div class="pricing-card">
+                            <h3>Single Edit</h3>
+                            <p>Vom Rohmaterial zum fertigen Post.</p>
+                            <div class="price-value">ab 120€</div>
+                            <ul class="pricing-features">
+                                <li>Edit & Schnitt</li>
+                                <li>Color Grading</li>
+                                <li>Audio Mix</li>
+                                <li>2 Previews / Revisionen</li>
+                            </ul>
+                            <a href="#contact" class="btn-pricing">Anfragen</a>
+                        </div>
+
+                        <div class="pricing-card">
+                            <h3>Event Shooting</h3>
+                            <p>Umfassende Dokumentation Ihres Events.</p>
+                            <div class="price-value">ab 1299€</div>
+                            <ul class="pricing-features">
+                                <li>Konzert, Hochzeit, DJ-Set, uvm.</li>
+                                <li>Shooting vor Ort</li>
+                                <li>Professionelle Nachbearbeitung</li>
+                                <li>Schnelle Lieferung</li>
+                            </ul>
+                            <a href="#contact" class="btn-pricing">Anfragen</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="gallery-section">
+                <div class="container-wide">
+                    <h2 class="section-title">Social Media Pakete</h2>
+                    <div class="pricing-grid">
+                        <div class="pricing-card">
+                            <h3>Content Paket</h3>
+                            <p>Alles in einem Paket.</p>
+                            <div class="price-value">779€</div>
+                            <ul class="pricing-features">
+                                <li>8 Reels</li>
+                                <li>4 Carousel Posts</li>
+                                <li>Konzept & Planung</li>
+                            </ul>
+                            <a href="#contact" class="btn-pricing">Anfragen</a>
+                        </div>
+
+                        <div class="pricing-card">
+                            <h3>Content Paket Pro</h3>
+                            <p>Maximale Reichweite und Qualität.</p>
+                            <div class="price-value">1549€</div>
+                            <ul class="pricing-features">
+                                <li>12 Reels</li>
+                                <li>8 Carousel Posts</li>
+                                <li>SEO Optimized Captions</li>
+                                <li>Premium Support</li>
+                            </ul>
+                            <a href="#contact" class="btn-pricing">Anfragen</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="gallery-section">
+                <div class="container-wide">
+                    <h2 class="section-title">Workshops & Coaching</h2>
+                    <div class="pricing-grid">
+                        <div class="pricing-card">
+                            <h3>Kickstart</h3>
+                            <p>Einstieg in Social Media Management.</p>
+                            <div class="price-value">149€</div>
+                            <ul class="pricing-features">
+                                <li>Videokurs</li>
+                                <li>Cheat Sheet (Hooks & Tipps)</li>
+                            </ul>
+                            <a href="#contact" class="btn-pricing">Anfragen</a>
+                        </div>
+
+                        <div class="pricing-card">
+                            <h3>Boost</h3>
+                            <p>Live Workshop & Interaktion.</p>
+                            <div class="price-value">749€</div>
+                            <ul class="pricing-features">
+                                <li>Online-Workshop</li>
+                                <li>Animations-Vorlagen</li>
+                                <li>Cheat Sheets & Zusammenfassung</li>
+                                <li>Support</li>
+                            </ul>
+                            <a href="#contact" class="btn-pricing">Anfragen</a>
+                        </div>
+
+                        <div class="pricing-card">
+                            <h3>Prime</h3>
+                            <p>Individuelles Vor-Ort Coaching.</p>
+                            <div class="price-value">3449€</div>
+                            <ul class="pricing-features">
+                                <li>Persönliches Coaching vor Ort</li>
+                                <li>Individuelle Strategie</li>
+                                <li>Praxisnahe Umsetzung</li>
+                                <li>Premium Support</li>
+                            </ul>
+                            <a href="#contact" class="btn-pricing">Anfragen</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
 
-        <!-- Content Pakete -->
-        <div class="text">    
-            <p3>"Social Media Content Pakete"</p3>
         </div>
-
-        <div class="container">
-            <!-- Erste Box -->
-            <div class="price-box">
-                <h2>Content Paket</h2>
-                <p2>Vom Konzept über die Planung bis zum Endprodukt, Alles in einem Paket</p2>
-                <p class="price">779€</p>
-                <ul>
-                    <li>8 Reels</li>
-                    <li>4 Carousel Posts </li>
-                </ul>
-            </div>
-
-            <!-- Zweite Box -->
-            <div class="price-box">
-                <h2>Content Paket Pro</h2>
-                <p2>Vom Konzept über die Planung bis zum Endprodukt, Alles in einem Paket</p2>
-                <p class="price">1549€</p>
-                <ul>
-                    <li>12 Reels</li>
-                    <li>8 Carousel Posts</li>
-                    <li>SEO Optimized Captions</li>
-                    <li>Premium Support</li>
-                </ul>
-            </div>
-        </div>
-        
-        <!-- Social Media Pakete -->
-        <div class="text">    
-            <p3>"Social Media Kurse und Ausbildungen"</p3>
-        </div>
-
-        <div class="container">
-            <!-- Erste Box -->
-            <div class="price-box">
-                <h2>Kickstart</h2>
-                <p2>„Von der Einführung bis zur Praxis – dein Einstieg in Social Media Management.“</p2>
-                <p class="price">149€</p>
-                <ul>
-                    <li>Videokurs</li>
-                    <li>Cheat Sheet <br> (Virale Hooks, Tipps & Leitfäden)</li>
-                </ul>
-            </div>
-
-            <!-- Zweite Box -->
-            <div class="price-box">
-                <h2>Boost</h2>
-                <p2>„Von der Einführung über die Umsetzung bis zum fertigen Ergebnis – alles live und interaktiv im Online-Workshop.“</p2>
-                <p class="price">749€</p>
-                <ul>
-                    <li>Online-Workshop</li>
-                    <li>Cheat Sheet <br> (Virale Hooks, Tipps & Leitfäden)</li>
-                    <li>Animations Vorlagen <br> (follow for more, Sub, like, etc.)</li>
-                    <li>Zusammenfassung</li>
-                    <li>Support</li>
-                </ul>
-            </div>
-    
-            <!-- Dritte Box -->
-            <div class="price-box">
-                <h2>Prime</h2>
-                <p2>„Vom ersten Konzept über die Umsetzung bis zum fertigen Ergebnis – alles persönlich vor Ort, individuell und praxisnah.“</p2>
-                <p class="price">3449€</p>
-                <ul>
-                    <li>Vor Ort Workshop</li>
-                    <li>Zusatz Feature A</li>
-                    <li>Zusatz Feature B</li>
-                    <li>Premium Support</li>
-                </ul>
-            </div>
-        </div>
-
-
-
-    <div class="footer">
-        <p4>© 2025 by Linus Luschtinez. All rights reserved.</p4>
-    </div>
-    
-    
-
-    
-
-    
-
-</div>
-
-</main>
+    </main>
 
     <footer class="main-footer">
         <p>© 2025 Linus Luschtinez. All rights reserved.</p>
@@ -1557,10 +1239,17 @@
 
         window.addEventListener('pageLoaded', (e) => {
             const path = e.detail?.path || '';
-            if (path === 'home.html' || path === 'index.html' || path === '') {
+            const pageId = (path === 'index.html' || path === 'home.html' || path === '') ? 'page-home' : `page-${path.replace('.html', '')}`;
+            const targetPage = document.getElementById(pageId);
+
+            if (pageId === 'page-home') {
                 initHomeRandomization();
             }
-            initGalleryCollapse();
+
+            // Only initialize collapse for the visible page to ensure correct measurements
+            if (targetPage) {
+                initGalleryCollapse(targetPage);
+            }
         });
 
         // Right-click protection (as requested in original)

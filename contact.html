@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>home</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class ="contact">
+
+        <div class="text">
+            <h1>Lass uns dein Projekt professionell umsetzen.<br><br></h1>
+    
+        <p2>
+            Ich biete Event-Foto- und Videografie, Social Media Management sowie Videoediting mit Schwerpunkt auf Short Form Content und YouTube-Videos. <br><br>
+            Ob für dein Unternehmen, deine Marke oder dein persönliches Projekt.<br>
+            Ich entwickle und realisiere Content, der Aufmerksamkeit schafft und überzeugt.<br><br>
+            
+            Kontaktiere mich gerne, um eine individuelle Lösung für dich und dein Projekt zu finden.<br>
+        </p2>
+            <p2>        
+                <a href="mailto: office.linus99@gmail.com" class="contact_button">Schreib mir eine E-Mail</a>
+            </p2>
+            <p2>
+               Ich melde mich so schnell wie möglich bei dir zurück.
+            </p2>
+        </div>
+
+    </div>   
+
+    <div class="contact_gallery">
+        <div class="Hpic-wrapper">
+            <img src="images/bts/bts7new.webp">
+        </div>
+        <div class="Hpic-wrapper">
+            <img src="images/bts/bts1.webp">
+        </div>
+        <div class="Hpic-wrapper">
+            <img src="images/contact/contact1.webp">
+        </div>
+        <div class="Hpic-wrapper">
+            <img src="images/contact/contact2.webp">
+        </div>
+        <div class="Hpic-wrapper">
+            <img src="images/contact/contact3.webp">
+        </div>
+        <div class="Hpic-wrapper">
+            <img src="images/bts/bts3.webp">
+        </div>
+        
+        
+        
+        
+        
+        </div>
+    </div>
+
+
+
+
+
+    <div class="footer">
+        <p4>© 2025 by Linus Luschtinez. All rights reserved.</p4>
+    </div>
+    
+    <script>
+        document.addEventListener("contextmenu", event => event.preventDefault());
+    </script>
+
+    <script>
+        window.addEventListener('message', (event) => {
+            if (event.data && event.data.theme) {
+              const theme = event.data.theme;
+           document.documentElement.classList.toggle('dark-mode', theme === 'dark');
+            }
+        });
+
+        // Optional: gleich beim Laden das Theme übernehmen, falls schon im Storage gespeichert
+          const storedTheme = localStorage.getItem('theme');
+          if (storedTheme === 'dark') {
+            document.documentElement.classList.add('dark-mode');
+          }
+    </script>
+
+    
+</body>
+</html>
+
+
+
+
+

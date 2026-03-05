@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>home</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Erste Reihe -->
+
+    <div class="home_gallery">
+
+        <div class="Hvideo-wrapper">
+          <div class="video-aspect-ratio">
+            <video muted autoplay loop playsinline preload="auto" poster="videos/video_preview/dub_cov.webp">
+              <source src="videos/Dublicate_Fin.mp4" type="video/mp4">
+           </video>
+          </div>
+        </div>
+        
+        <img src="render/still_render_6.webp" class="Hpic-wrapper">
+        <img src="images/home_resized/home_image16.webp">
+
+        <div class="Hpic-wrapper">
+            <img src="images/Linus_New/Linus_11.webp">
+        </div>
+        
+    </div>
+
+    <!-- Zweite Reihe -->
+    <div class="home_gallery">
+        <img src="images/OKkid_quer_2.webp" class="Qpic-wrapper">
+        <img src="images/aboutU_2.webp" class="Qpic-wrapper">
+        
+        <div class="Qvideo-wrapper">
+        <iframe src="https://www.youtube.com/embed/QB49qdl15r8?autoplay=1&mute=1&playsinline=1&rel=0" 
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+            style="width: 175%; height: 100%; transform: translateX(-22%); pointer-events: none;">
+            </iframe>
+        </div>    
+        <img src="images/fw_resized/fw_2.webp">
+        
+        
+    </div>
+
+    <!-- Dritte Reihe -->
+    <div class="home_gallery">
+        <img src="render/still_render_8.webp" class="Hpic-wrapper">
+        <img src="images/home2/home_2.webp">
+        <img src="images/home_resized/home_image7.webp">
+        
+        <div class="Hvideo-wrapper">
+            <div class="video-aspect-ratio">
+                <video muted autoplay loop playsinline preload="auto" poster="videos/video_preview/door_cov.webp">
+                    <source src="videos/Door_Fin.mp4" type="video/mp4">
+                </video>  
+            </div>
+        </div>
+    </div>
+
+    <!-- Vierte Reihe -->
+    <div class="home_gallery">
+        <img src="images/Arrtist_on_tour/Arrtist_11.webp" class="Qpic-wrapper">
+        <img src="images/fw_resized/fw_9.webp">
+        <img src="images/concert_photography/concert_3.webp" class="Qpic-wrapper">
+        <img src="images/home2/home_9.webp" class="Qpic-wrapper">
+        
+    </div>
+
+    <!-- Fünfte Reihe -->
+    <div class="home_gallery">
+
+        <div class="Hvideo-wrapper">
+          <div class="video-aspect-ratio">
+            <video muted autoplay loop playsinline preload="auto" poster="videos/video_preview/Image (1).webp">
+              <source src="videos/spinning_sphere.mov" type="video/mp4">
+           </video>
+          </div>
+        </div>
+        <img src="images/concert_photography/concert_45.webp" class="Hpic-wrapper">
+        <div class="Hpic-wrapper">
+            <img src="images/bts/bts1.webp">
+        </div>
+        <div class="Hpic-wrapper">
+            <img src="images/freq/freq_3.webp">
+        </div>
+        
+
+        
+    </div>
+
+    <!-- Sechste Reihe -->
+    <div class="home_gallery">
+        <div class="Qpic-wrapper">
+            <img src="images/private/holiday_resized_24.webp">
+        </div>
+
+        <div class="Qpic-wrapper">
+            <img src="images/private/T1E.webp">
+        </div>
+
+        <div class="Qpic-wrapper">
+            <img src="images/atmo/atmo_11.webp">
+        </div>
+        <div class="Qvideo-wrapper">
+        <iframe src="https://www.youtube.com/embed/y61A42Tvv4I?autoplay=1&mute=1&playsinline=1&rel=0" 
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+            style="width: 175%; height: 100%; transform: translateX(-22%); pointer-events: none;">
+            </iframe>
+        </div>    
+        
+
+        
+    </div>
+
+    <!-- Siebte Reihe -->
+    <div class="home_gallery">
+
+        
+        <div class="Hvideo-wrapper">
+          <div class="video-aspect-ratio">
+            <video muted autoplay loop playsinline preload="auto" poster="videos/video_preview/bts4.webp">
+              <source src="videos/bts4_small.mov" type="video/mp4">
+           </video>
+          </div>
+        </div>
+        <img src="images/atmo/atmo_12.webp" class="Hpic-wrapper">
+        
+        <div class="Hpic-wrapper">
+            <img src="images/private/holiday_resized_97.webp">
+        </div>
+       
+        <div class="Hpic-wrapper">
+            <img src="images/niveahoch.webp">
+        </div>
+    </div>
+
+    
+    <div class="footer">
+        <p4>© 2025 by Linus Luschtinez. All rights reserved.</p4>
+    </div>
+
+    
+    <script>
+        document.addEventListener("contextmenu", event => event.preventDefault());
+    </script>
+
+    <script>
+        window.addEventListener('message', (event) => {
+            if (event.data && event.data.theme) {
+              const theme = event.data.theme;
+           document.documentElement.classList.toggle('dark-mode', theme === 'dark');
+            }
+        });
+
+        // Optional: gleich beim Laden das Theme übernehmen, falls schon im Storage gespeichert
+          const storedTheme = localStorage.getItem('theme');
+          if (storedTheme === 'dark') {
+            document.documentElement.classList.add('dark-mode');
+          }
+    </script>
+
+    
+</body>
+</html>
+
+
+
+
+

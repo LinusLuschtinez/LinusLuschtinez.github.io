@@ -1,27 +1,24 @@
 /**
  * randomize.js - Aggregates media from across the site and randomizes home content.
- * Updated for Single Page Application (One-Pager) structure.
  */
 
-function crawlLocalMedia() {
-    console.log("Crawling local media for randomization...");
-    const mediaItems = [];
+async function fetchPageMedia(url) {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) return [];
+        const html = await response.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
 
-    // We crawl all .spa-page containers EXCEPT page-home itself
-    const pages = document.querySelectorAll('.spa-page:not(#page-home)');
-
-    pages.forEach(page => {
-        const pageId = page.id;
-        const pageUrl = pageId.replace('page-', '') + '.html';
-        const pageTitle = page.querySelector('h1')?.textContent || pageId;
+        const mediaItems = [];
 
         // Catch images
-        const images = page.querySelectorAll('img:not(.icon-social):not(.logo img)');
+        const images = doc.querySelectorAll('img:not(.icon-social):not(.logo img)');
         images.forEach(img => {
             const src = img.getAttribute('src');
             if (src) {
-                const section = img.closest('.gallery-section');
-                const category = section ? (section.querySelector('.section-title')?.textContent || section.id) : pageTitle;
+                const section = img.closest('.gallery-section') || img.closest('.page-header');
+                const category = section ? (section.querySelector('.section-title, h1')?.textContent || section.id) : 'General';
                 const anchor = section?.id ? `#${section.id}` : '';
 
                 // Determine precise aspect ratio
@@ -44,17 +41,17 @@ function crawlLocalMedia() {
                     ratio: ratio,
                     aspect: aspect,
                     category: category.trim(),
-                    sourceUrl: pageUrl + anchor,
+                    sourceUrl: url + anchor,
                     html: `<img src="${src}" alt="${img.alt || 'Media'}" loading="lazy">`
                 });
             }
         });
 
-        // Catch video items
-        const videoItems = page.querySelectorAll('.video-item');
+        // Catch video items (local and youtube)
+        const videoItems = doc.querySelectorAll('.video-item');
         videoItems.forEach(item => {
             const section = item.closest('.gallery-section');
-            const category = section ? (section.querySelector('.section-title')?.textContent || section.id) : pageTitle;
+            const category = section ? (section.querySelector('.section-title')?.textContent || section.id) : 'General';
             const anchor = section?.id ? `#${section.id}` : '';
 
             let ratio = 1.77; // default cinematic (16:9)
@@ -66,12 +63,14 @@ function crawlLocalMedia() {
             } else if (item.classList.contains('landscape')) {
                 ratio = 1.77;
                 aspect = 'landscape';
+            } else if (item.classList.contains('square')) {
+                ratio = 1.0;
+                aspect = 'landscape';
             }
 
-            // Prepare videos for home page preview (ensure muted/autoplay)
-            const clones = item.cloneNode(true);
-            const videos = clones.querySelectorAll('video');
-            videos.forEach(v => {
+            // Process local videos
+            const localVideos = item.querySelectorAll('video');
+            localVideos.forEach(v => {
                 v.setAttribute('autoplay', '');
                 v.setAttribute('muted', '');
                 v.setAttribute('loop', '');
@@ -79,18 +78,66 @@ function crawlLocalMedia() {
                 v.muted = true;
             });
 
+            // Process YouTube Iframes
+            const iframes = item.querySelectorAll('iframe');
+            iframes.forEach(f => {
+                let src = f.getAttribute('src');
+                if (src && (src.includes('youtube.com') || src.includes('youtu.be'))) {
+                    const urlObj = new URL(src);
+                    urlObj.searchParams.set('autoplay', '1');
+                    urlObj.searchParams.set('mute', '1');
+                    urlObj.searchParams.set('playsinline', '1');
+                    urlObj.searchParams.set('rel', '0');
+                    urlObj.searchParams.set('controls', '0');
+                    f.setAttribute('src', urlObj.toString());
+                }
+            });
+
             mediaItems.push({
                 type: 'video',
                 ratio: ratio,
                 aspect: aspect,
                 category: category.trim(),
-                sourceUrl: pageUrl + anchor,
-                html: clones.innerHTML
+                sourceUrl: url + anchor,
+                html: item.innerHTML
             });
         });
-    });
 
-    return mediaItems;
+        // Catch standalone videos
+        const standaloneVideos = doc.querySelectorAll('video:not(.video-item video)');
+        standaloneVideos.forEach(v => {
+            const section = v.closest('.gallery-section') || v.closest('.page-header');
+            const category = section ? (section.querySelector('.section-title, h1')?.textContent || section.id) : 'General';
+            const anchor = section?.id ? `#${section.id}` : '';
+
+            v.setAttribute('autoplay', '');
+            v.setAttribute('muted', '');
+            v.setAttribute('loop', '');
+            v.setAttribute('playsinline', '');
+            v.muted = true;
+
+            let ratio = 1.77;
+            let aspect = 'landscape';
+            if (v.closest('.portrait')) {
+                ratio = 0.56;
+                aspect = 'portrait';
+            }
+
+            mediaItems.push({
+                type: 'video',
+                ratio: ratio,
+                aspect: aspect,
+                category: category.trim(),
+                sourceUrl: url + anchor,
+                html: v.outerHTML
+            });
+        });
+
+        return mediaItems;
+    } catch (e) {
+        console.error(`Error fetching media from ${url}:`, e);
+        return [];
+    }
 }
 
 function shuffleArray(array) {
@@ -105,8 +152,16 @@ export async function initHomeRandomization() {
     const grid = document.querySelector('.gallery-grid');
     if (!grid) return;
 
-    // Use our new local crawler instead of fetching deleted files
-    let allMedia = crawlLocalMedia();
+    const sourcePages = [
+        'photography.html',
+        'videography.html',
+        'visuals.html',
+        'about.html',
+        'contact.html'
+    ];
+
+    const results = await Promise.all(sourcePages.map(url => fetchPageMedia(url)));
+    let allMedia = results.flat();
 
     const seen = new Set();
     allMedia = allMedia.filter(item => {
@@ -117,10 +172,7 @@ export async function initHomeRandomization() {
         return true;
     });
 
-    if (allMedia.length === 0) {
-        console.warn("No media found for randomization.");
-        return;
-    }
+    if (allMedia.length === 0) return;
 
     // --- STEP 1: GROUP BY CATEGORY ---
     const byCategory = {};

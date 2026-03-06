@@ -6,6 +6,10 @@
 export function initGalleryCollapse(container = document) {
     const galleries = container.querySelectorAll('.masonry, .video-grid');
     galleries.forEach(gallery => {
+        // NEU: Wenn die Galerie die Klasse 'no-collapse' hat, ignorieren wir sie komplett
+        if (gallery.classList.contains('no-collapse')) {
+            return; 
+        }
         // Only setup if it's actually visible OR inside the specifically requested container
         // This prevents measuring 0px heights in hidden SPA sections
         if (gallery.offsetParent !== null || container !== document) {

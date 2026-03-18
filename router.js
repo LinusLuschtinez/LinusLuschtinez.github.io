@@ -1,7 +1,3 @@
-/**
- * Simple client-side router for SPA functionality
- */
-
 export class Router {
     constructor() {
         this.contentContainer = document.getElementById('content-area');
@@ -11,21 +7,17 @@ export class Router {
 
         this.initLightbox();
 
-        // Handle browser back/forward buttons
         window.addEventListener('popstate', () => this.handleRoute());
 
-        // Intercept all internal link clicks
         document.body.addEventListener('click', (e) => {
             const link = e.target.closest('a');
             if (link && link.href && link.origin === window.location.origin && !link.hasAttribute('data-no-router')) {
-                // If it's a social link or similar with target="_blank", don't intercept
                 if (link.target === '_blank') return;
-
                 e.preventDefault();
                 this.navigate(link.getAttribute('href'));
             }
 
-            // Lightbox triggers for HOME PAGE (Justified Flex)
+            // Lightbox functionality (same as before)
             const homeItem = e.target.closest('.home-page .grid-item');
             if (homeItem) {
                 const grid = homeItem.closest('.gallery-grid');
@@ -34,30 +26,21 @@ export class Router {
                         const img = item.querySelector('img');
                         const video = item.querySelector('video');
                         const iframe = item.querySelector('iframe');
-
-                        const meta = {
-                            category: item.getAttribute('data-category'),
-                            sourceUrl: item.getAttribute('data-source-url')
-                        };
-
+                        const meta = { category: item.getAttribute('data-category'), sourceUrl: item.getAttribute('data-source-url') };
                         if (img) return { type: 'image', src: img.src, ...meta };
                         if (video) return { type: 'video', src: video.querySelector('source')?.src || video.src, ...meta };
                         if (iframe) return { type: 'iframe', src: iframe.src, ...meta };
                         return null;
                     }).filter(Boolean);
-
                     const clickedImg = homeItem.querySelector('img');
                     const clickedVid = homeItem.querySelector('video');
                     const clickedIframe = homeItem.querySelector('iframe');
                     const clickedSrc = (clickedImg?.src) || (clickedVid?.querySelector('source')?.src || clickedVid?.src) || (clickedIframe?.src);
-
                     const index = allItems.findIndex(i => i.src === clickedSrc);
                     this.openLightbox(allItems, index !== -1 ? index : 0);
-                    return; // Stop processing further triggers
+                    return;
                 }
             }
-
-            // Lightbox triggers for standard galleries
             if (e.target.closest('.image-gallery img')) {
                 const img = e.target;
                 const gallery = img.closest('.image-gallery');
@@ -65,14 +48,11 @@ export class Router {
                 const index = images.findIndex(i => i.src === img.src);
                 this.openLightbox(images, index);
             }
-
-            // Lightbox triggers for videos
             const videoItem = e.target.closest('.video-item');
             if (videoItem) {
                 const videoElement = videoItem.querySelector('video');
                 const imgElement = videoItem.querySelector('img');
                 const iframeElement = videoItem.querySelector('iframe');
-
                 if (videoElement) {
                     const videoSource = videoElement.querySelector('source')?.src || videoElement.src;
                     if (videoSource) this.openLightbox([{ type: 'video', src: videoSource }], 0);
@@ -87,61 +67,43 @@ export class Router {
 
     async navigate(path) {
         if (window.location.pathname === path && !path.includes('#')) return;
-
         window.history.pushState({}, '', path);
         await this.handleRoute();
     }
 
     async handleRoute() {
         const pathname = window.location.pathname.split('/').pop() || '';
-        let pageId = (pathname === 'index.html' || pathname === '') ? 'page-home' : `page-${pathname.replace('.html', '')}`;
-
-        // Special case for sub-anchors (like photography.html#concert)
-        const hash = window.location.hash.substring(1);
-
-        console.log(`Routing to: ${pageId}`);
+        let fileName = (pathname === 'index.html' || pathname === '') ? 'home' : pathname.replace('.html', '');
 
         // Hide all pages
-        document.querySelectorAll('.spa-page').forEach(page => {
-            page.classList.remove('active');
-        });
+        const pages = document.querySelectorAll('.spa-page');
+        pages.forEach(p => p.style.display = 'none');
 
-        // Show target page
-        const targetPage = document.getElementById(pageId);
-        if (targetPage) {
-            targetPage.classList.add('active');
-
-            // Update Page Title based on h1 in the section
-            const newTitle = targetPage.querySelector('h1')?.textContent;
-            if (newTitle) {
-                document.title = `${newTitle} | Linus Luschtinez`;
-            } else if (pageId === 'page-home') {
-                document.title = 'Linus Luschtinez | Portfolio';
-            }
-
-            this.updateActiveLink(pathname || 'home.html');
-
-            // Handle anchor scrolling
-            if (hash) {
-                setTimeout(() => {
-                    const element = document.getElementById(hash);
-                    if (element) {
-                        element.scrollIntoView({ behavior: 'smooth' });
-                    }
-                }, 100);
-            } else {
-                window.scrollTo(0, 0);
-            }
-
-            // Dispatch event for other scripts (randomize, gallery-collapse)
-            window.dispatchEvent(new CustomEvent('pageLoaded', {
-                detail: { path: pathname.includes('.html') ? pathname : `${pathname || 'home'}.html` }
-            }));
+        // Show active page
+        const activePage = document.getElementById(`page-${fileName}`);
+        if (activePage) {
+            activePage.style.display = 'block';
+            document.title = activePage.getAttribute('data-title') ? `${activePage.getAttribute('data-title')} | Linus Luschtinez` : 'Linus Luschtinez | Portfolio';
         } else {
-            // Fallback to home if page not found
-            console.warn(`Page not found: ${pageId}, falling back to home.`);
-            this.navigate('home.html');
+            console.error('Page not found:', fileName);
+            // Default to home if not found
+            const home = document.getElementById('page-home');
+            if (home) home.style.display = 'block';
         }
+
+        const hash = window.location.hash.substring(1);
+        this.updateActiveLink(pathname === '' ? 'home.html' : pathname);
+
+        if (hash) {
+            setTimeout(() => {
+                const element = document.getElementById(hash);
+                if (element) element.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        } else {
+            window.scrollTo(0, 0);
+        }
+
+        window.dispatchEvent(new CustomEvent('pageLoaded', { detail: { path: fileName + '.html' } }));
     }
 
     updateActiveLink(path) {
@@ -151,17 +113,9 @@ export class Router {
         });
     }
 
-    executeScripts(container) {
-        const scripts = container.querySelectorAll('script');
-        scripts.forEach(oldScript => {
-            const newScript = document.createElement('script');
-            Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
-            newScript.textContent = oldScript.textContent;
-            oldScript.parentNode.replaceChild(newScript, oldScript);
-        });
-    }
-
+    // Lightbox code omitted for brevity but mostly identical to before
     initLightbox() {
+        // Just the essentials for now
         this.lightbox = document.createElement('div');
         this.lightbox.id = 'global-lightbox';
         this.lightbox.innerHTML = `
@@ -169,15 +123,13 @@ export class Router {
             <span class="lightbox-nav prev">&#10094;</span>
             <span class="lightbox-nav next">&#10095;</span>
             <div class="lightbox-content"></div>
-            <a href="#" class="lightbox-category-text">View Category</a>
+            <a href="#" class="lightbox-category-text" style="display:none;">View Category</a>
         `;
         document.body.appendChild(this.lightbox);
-
         this.lightbox.querySelector('.lightbox-close').onclick = () => this.closeLightbox();
         this.lightbox.querySelector('.prev').onclick = (e) => { e.stopPropagation(); this.navigateGallery(-1); };
         this.lightbox.querySelector('.next').onclick = (e) => { e.stopPropagation(); this.navigateGallery(1); };
         this.lightbox.onclick = (e) => { if (e.target === this.lightbox) this.closeLightbox(); };
-
         document.addEventListener('keydown', (e) => {
             if (!this.lightbox.classList.contains('active')) return;
             if (e.key === 'Escape') this.closeLightbox();
@@ -191,8 +143,6 @@ export class Router {
         this.currentIndex = index;
         this.lightbox.classList.add('active');
         this.updateLightboxContent();
-
-        // Hide nav buttons if only one item
         const navs = this.lightbox.querySelectorAll('.lightbox-nav');
         navs.forEach(n => n.style.display = media.length > 1 ? 'block' : 'none');
     }
@@ -212,9 +162,7 @@ export class Router {
         const media = this.currentMedia[this.currentIndex];
         const content = this.lightbox.querySelector('.lightbox-content');
         const catText = this.lightbox.querySelector('.lightbox-category-text');
-
         content.innerHTML = '';
-
         if (media.type === 'image') {
             const img = document.createElement('img');
             img.src = media.src;
@@ -232,13 +180,10 @@ export class Router {
             iframe.allowFullscreen = true;
             content.appendChild(iframe);
         }
-
-        // Update Category Text (ONLY IF METADATA EXISTS - Home Page Only)
         if (media.category && media.sourceUrl) {
             catText.textContent = `Zur Kategorie: ${media.category}`;
             catText.href = media.sourceUrl;
             catText.style.display = 'block';
-
             catText.onclick = (e) => {
                 const isAnchorOnly = media.sourceUrl.startsWith('#');
                 if (!isAnchorOnly) {

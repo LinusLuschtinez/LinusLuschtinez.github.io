@@ -1,178 +1,97 @@
 /**
- * randomize.js - Aggregates media from across the site and randomizes home content.
- * Updated for Single Page Application (One-Pager) structure.
+ * randomize.js - Predefined Home Layouts (HomeV1, HomeV2, HomeV3).
+ * Allows easy customization of the home page content.
  */
 
-function crawlLocalMedia() {
-    console.log("Crawling local media for randomization...");
-    const mediaItems = [];
-
-    // We crawl all .spa-page containers EXCEPT page-home itself
-    const pages = document.querySelectorAll('.spa-page:not(#page-home)');
-
-    pages.forEach(page => {
-        const pageId = page.id;
-        const pageUrl = pageId.replace('page-', '') + '.html';
-        const pageTitle = page.querySelector('h1')?.textContent || pageId;
-
-        // Catch images
-        const images = page.querySelectorAll('img:not(.icon-social):not(.logo img)');
-        images.forEach(img => {
-            const src = img.getAttribute('src');
-            if (src) {
-                const section = img.closest('.gallery-section');
-                const category = section ? (section.querySelector('.section-title')?.textContent || section.id) : pageTitle;
-                const anchor = section?.id ? `#${section.id}` : '';
-
-                // Determine precise aspect ratio
-                let ratio = 1.5; // default landscape (3:2)
-                let aspect = 'landscape';
-
-                if (img.classList.contains('portrait') || img.closest('.portrait') || img.closest('.r3') || img.closest('.tall')) {
-                    ratio = 0.66; // 2:3 portrait
-                    aspect = 'portrait';
-                } else if (img.classList.contains('landscape') || img.closest('.landscape') || img.closest('.wide')) {
-                    ratio = 1.5; // 3:2 landscape
-                    aspect = 'landscape';
-                } else if (src.includes('portrait') || src.includes('Linus_New') || src.includes('sandio_highkey') || src.includes('sandio_lowkey')) {
-                    ratio = 0.66;
-                    aspect = 'portrait';
-                }
-
-                mediaItems.push({
-                    type: 'image',
-                    ratio: ratio,
-                    aspect: aspect,
-                    category: category.trim(),
-                    sourceUrl: pageUrl + anchor,
-                    html: `<img src="${src}" alt="${img.alt || 'Media'}" loading="lazy">`
-                });
-            }
-        });
-
-        // Catch video items
-        const videoItems = page.querySelectorAll('.video-item');
-        videoItems.forEach(item => {
-            const section = item.closest('.gallery-section');
-            const category = section ? (section.querySelector('.section-title')?.textContent || section.id) : pageTitle;
-            const anchor = section?.id ? `#${section.id}` : '';
-
-            let ratio = 1.77; // default cinematic (16:9)
-            let aspect = 'landscape';
-
-            if (item.classList.contains('portrait')) {
-                ratio = 0.56; // 9:16 portrait
-                aspect = 'portrait';
-            } else if (item.classList.contains('landscape')) {
-                ratio = 1.77;
-                aspect = 'landscape';
-            }
-
-            // Prepare videos for home page preview (ensure muted/autoplay)
-            const clones = item.cloneNode(true);
-            const videos = clones.querySelectorAll('video');
-            videos.forEach(v => {
-                v.setAttribute('autoplay', '');
-                v.setAttribute('muted', '');
-                v.setAttribute('loop', '');
-                v.setAttribute('playsinline', '');
-                v.muted = true;
-            });
-
-            mediaItems.push({
-                type: 'video',
-                ratio: ratio,
-                aspect: aspect,
-                category: category.trim(),
-                sourceUrl: pageUrl + anchor,
-                html: clones.innerHTML
-            });
-        });
-    });
-
-    return mediaItems;
-}
-
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-}
+const HOME_LAYOUTS = {
+    HomeV1: [
+        { src: 'images/concert_photography/concert_45.webp', type: 'image', aspect: 'landscape', category: 'Concert', link: 'photography.html#concert' },
+        { src: 'videos/luma1.mp4', type: 'video', aspect: 'portrait', category: 'Luma Media', link: 'videography.html#luma', poster: 'videos/video_preview/luma1.webp' },
+        { src: 'images/concert_photography/concert_41.webp', type: 'image', aspect: 'landscape', category: 'Concert', link: 'photography.html#concert' },
+        { src: 'videos/luma2.mp4', type: 'video', aspect: 'portrait', category: 'Luma Media', link: 'videography.html#luma', poster: 'videos/video_preview/luma2.webp' },
+        { src: 'images/concert_photography/concert_66.webp', type: 'image', aspect: 'landscape', category: 'Concert', link: 'photography.html#concert' },
+        { src: 'videos/luma3.mp4', type: 'video', aspect: 'portrait', category: 'Luma Media', link: 'videography.html#luma', poster: 'videos/video_preview/luma3.webp' },
+        { src: 'images/concert_photography/concert_28.webp', type: 'image', aspect: 'landscape', category: 'Concert', link: 'photography.html#concert' },
+        { src: 'videos/luma4.mp4', type: 'video', aspect: 'portrait', category: 'Luma Media', link: 'videography.html#luma', poster: 'videos/video_preview/luma4.webp' },
+        { src: 'images/concert_photography/concert_5.webp', type: 'image', aspect: 'landscape', category: 'Concert', link: 'photography.html#concert' },
+        { src: 'videos/luma5.mp4', type: 'video', aspect: 'portrait', category: 'Luma Media', link: 'videography.html#luma', poster: 'videos/video_preview/luma5.webp' },
+        { src: 'images/concert_photography/concert_6.webp', type: 'image', aspect: 'landscape', category: 'Concert', link: 'photography.html#concert' },
+        { src: 'videos/luma6.mp4', type: 'video', aspect: 'portrait', category: 'Luma Media', link: 'videography.html#luma', poster: 'videos/video_preview/luma6.webp' },
+        { src: 'images/concert_photography/concert_7.webp', type: 'image', aspect: 'landscape', category: 'Concert', link: 'photography.html#concert' },
+        { src: 'images/concert_photography/concert_8.webp', type: 'image', aspect: 'landscape', category: 'Concert', link: 'photography.html#concert' },
+        { src: 'images/concert_photography/concert_9.webp', type: 'image', aspect: 'landscape', category: 'Concert', link: 'photography.html#concert' }
+    ],
+    HomeV2: [
+        { src: 'images/atmo/atmo_12.webp', type: 'image', aspect: 'landscape', category: 'Atmosphere', link: 'photography.html#atmosphere' },
+        { src: 'images/sandio_highkey/highkey_1.webp', type: 'image', aspect: 'portrait', category: 'Portraits', link: 'photography.html#portraits' },
+        { src: 'images/atmo/atmo_14new.webp', type: 'image', aspect: 'landscape', category: 'Atmosphere', link: 'photography.html#atmosphere' },
+        { src: 'images/sandio_highkey/highkey_6.webp', type: 'image', aspect: 'portrait', category: 'Portraits', link: 'photography.html#portraits' },
+        { src: 'images/atmo/atmo_16.webp', type: 'image', aspect: 'landscape', category: 'Atmosphere', link: 'photography.html#atmosphere' },
+        { src: 'images/sandio_highkey/highkey_3.webp', type: 'image', aspect: 'portrait', category: 'Portraits', link: 'photography.html#portraits' },
+        { src: 'images/atmo/atmo_25.webp', type: 'image', aspect: 'landscape', category: 'Atmosphere', link: 'photography.html#atmosphere' },
+        { src: 'images/sandio_lowkey/lowkey_1.webp', type: 'image', aspect: 'portrait', category: 'Portraits', link: 'photography.html#lowkey-portraits' },
+        { src: 'images/atmo/atmo_5.webp', type: 'image', aspect: 'landscape', category: 'Atmosphere', link: 'photography.html#atmosphere' },
+        { src: 'images/sandio_lowkey/lowkey_5.webp', type: 'image', aspect: 'portrait', category: 'Portraits', link: 'photography.html#lowkey-portraits' },
+        { src: 'images/atmo/atmo_6.webp', type: 'image', aspect: 'landscape', category: 'Atmosphere', link: 'photography.html#atmosphere' },
+        { src: 'images/sandio_lowkey/lowkey_6.webp', type: 'image', aspect: 'portrait', category: 'Portraits', link: 'photography.html#lowkey-portraits' },
+        { src: 'images/atmo/atmo_7.webp', type: 'image', aspect: 'landscape', category: 'Atmosphere', link: 'photography.html#atmosphere' },
+        { src: 'images/atmo/atmo_9.webp', type: 'image', aspect: 'landscape', category: 'Atmosphere', link: 'photography.html#atmosphere' },
+        { src: 'images/atmo/atmo_10.webp', type: 'image', aspect: 'landscape', category: 'Atmosphere', link: 'photography.html#atmosphere' }
+    ],
+    HomeV3: [
+        { src: 'images/cross_web/Image50.webp', type: 'image', aspect: 'landscape', category: 'Client Work', link: 'clientwork.html#WiesenCross' },
+        { src: 'videos/animation3.mp4', type: 'video', aspect: 'portrait', category: 'Visual Art', link: 'visuals.html#animations', poster: 'videos/video_preview/animation3.webp' },
+        { src: 'images/cross_web/Image41.webp', type: 'image', aspect: 'landscape', category: 'Client Work', link: 'clientwork.html#WiesenCross' },
+        { src: 'videos/animation2.mp4', type: 'video', aspect: 'portrait', category: 'Visual Art', link: 'visuals.html#animations', poster: 'videos/video_preview/animation2.webp' },
+        { src: 'images/cross_web/Image65.webp', type: 'image', aspect: 'landscape', category: 'Client Work', link: 'clientwork.html#WiesenCross' },
+        { src: 'videos/animation1.mp4', type: 'video', aspect: 'portrait', category: 'Visual Art', link: 'visuals.html#animations', poster: 'videos/video_preview/animation1.webp' },
+        { src: 'images/cross_web/Image44.webp', type: 'image', aspect: 'landscape', category: 'Client Work', link: 'clientwork.html#WiesenCross' },
+        { src: 'videos/LubeV2.mov', type: 'video', aspect: 'portrait', category: 'Visual Art', link: 'visuals.html#renders', poster: 'videos/video_preview/Image.webp' },
+        { src: 'images/cross_web/Image01.webp', type: 'image', aspect: 'landscape', category: 'Client Work', link: 'clientwork.html#WiesenCross' },
+        { src: 'videos/luca4.mp4', type: 'video', aspect: 'portrait', category: 'Visual Art', link: 'visuals.html#renders', poster: 'videos/video_preview/luca4.webp' },
+        { src: 'images/cross_web/Image02.webp', type: 'image', aspect: 'landscape', category: 'Client Work', link: 'clientwork.html#WiesenCross' },
+        { src: 'videos/spinning_sphere.mov', type: 'video', aspect: 'portrait', category: 'Visual Art', link: 'visuals.html#renders', poster: 'videos/video_preview/Image (1).webp' },
+        { src: 'images/cross_web/Image03.webp', type: 'image', aspect: 'landscape', category: 'Client Work', link: 'clientwork.html#WiesenCross' },
+        { src: 'images/cross_web/Image04.webp', type: 'image', aspect: 'landscape', category: 'Client Work', link: 'clientwork.html#WiesenCross' },
+        { src: 'images/cross_web/Image05.webp', type: 'image', aspect: 'landscape', category: 'Client Work', link: 'clientwork.html#WiesenCross' }
+    ]
+};
 
 export async function initHomeRandomization() {
     const grid = document.querySelector('.gallery-grid');
     if (!grid) return;
 
-    // Use our new local crawler instead of fetching deleted files
-    let allMedia = crawlLocalMedia();
+    // Pick a random layout
+    const layoutKeys = Object.keys(HOME_LAYOUTS);
+    const randomKey = layoutKeys[Math.floor(Math.random() * layoutKeys.length)];
+    const selectedLayout = HOME_LAYOUTS[randomKey];
 
-    const seen = new Set();
-    allMedia = allMedia.filter(item => {
-        const match = item.html.match(/src="([^"]+)"/);
-        const src = match ? match[1] : item.html;
-        if (seen.has(src)) return false;
-        seen.add(src);
-        return true;
-    });
-
-    if (allMedia.length === 0) {
-        console.warn("No media found for randomization.");
-        return;
-    }
-
-    // --- STEP 1: GROUP BY CATEGORY ---
-    const byCategory = {};
-    allMedia.forEach(item => {
-        if (!byCategory[item.category]) byCategory[item.category] = [];
-        byCategory[item.category].push(item);
-    });
-
-    // Shuffle each category's internal list
-    Object.values(byCategory).forEach(list => shuffleArray(list));
-
-    // --- STEP 2: SELECT ONE ITEM PER CATEGORY ---
-    const selectedItems = [];
-    const categoryKeys = Object.keys(byCategory);
-    shuffleArray(categoryKeys);
-
-    // Initial pass: take exactly one from each category until we hit 15
-    for (const cat of categoryKeys) {
-        if (selectedItems.length < 15 && byCategory[cat].length > 0) {
-            selectedItems.push(byCategory[cat].shift());
-        }
-    }
-
-    // --- STEP 3: FALLBACK IF NEEDED ---
-    while (selectedItems.length < 15) {
-        let addedInPass = false;
-        for (const cat of categoryKeys) {
-            if (selectedItems.length < 15 && byCategory[cat].length > 0) {
-                selectedItems.push(byCategory[cat].shift());
-                addedInPass = true;
-            }
-        }
-        if (!addedInPass) break;
-    }
-
-    // --- STEP 4: INTERLEAVE ORIENTATIONS ---
-    const portraits = selectedItems.filter(i => i.aspect === 'portrait');
-    const landscapes = selectedItems.filter(i => i.aspect === 'landscape');
-    const finalSelection = [];
-
-    for (let i = 0; i < selectedItems.length; i++) {
-        if (i % 2 === 0 && portraits.length > 0) finalSelection.push(portraits.shift());
-        else if (landscapes.length > 0) finalSelection.push(landscapes.shift());
-        else if (portraits.length > 0) finalSelection.push(portraits.shift());
-        else if (landscapes.length > 0) finalSelection.push(landscapes.shift());
-    }
+    console.log(`Loading home layout: ${randomKey}`);
 
     // Group into 3 rows (5 items each)
     const rows = [[], [], []];
-    finalSelection.forEach((item, index) => {
+    selectedLayout.forEach((item, index) => {
         const rowIndex = Math.floor(index / 5);
-        if (rowIndex < 3) rows[rowIndex].push(item);
+        if (rowIndex < 3) {
+            // Prepare HTML based on type
+            let htmlContent = '';
+            if (item.type === 'video') {
+                htmlContent = `
+                    <div class="video-item ${item.aspect}" data-type="local">
+                        <video muted autoplay loop playsinline preload="auto" poster="${item.poster || ''}">
+                            <source src="${item.src}" type="video/mp4">
+                        </video>
+                    </div>`;
+            } else {
+                htmlContent = `<img src="${item.src}" alt="${item.category}" loading="lazy">`;
+            }
+
+            rows[rowIndex].push({
+                ...item,
+                html: htmlContent,
+                ratio: item.aspect === 'portrait' ? 0.66 : 1.5
+            });
+        }
     });
 
     grid.innerHTML = '';
@@ -186,14 +105,14 @@ export async function initHomeRandomization() {
             const gridItem = document.createElement('div');
             gridItem.className = 'grid-item ' + (item.aspect || '');
             gridItem.setAttribute('data-category', item.category);
-            gridItem.setAttribute('data-source-url', item.sourceUrl);
+            gridItem.setAttribute('data-source-url', item.link);
 
             gridItem.style.flex = `${item.ratio || 1} 1 0px`;
             gridItem.innerHTML = item.html;
             rowDiv.appendChild(gridItem);
 
             const video = gridItem.querySelector('video');
-            if (video && video.autoplay) {
+            if (video) {
                 video.play().catch(() => { });
             }
         });
@@ -203,3 +122,4 @@ export async function initHomeRandomization() {
 
     window.dispatchEvent(new CustomEvent('galleryRandomized'));
 }
+

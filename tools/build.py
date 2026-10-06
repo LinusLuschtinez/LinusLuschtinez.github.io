@@ -65,6 +65,8 @@ for original in source.xpath('//div[contains(@class,"spa-page")]'):
    p.text=text
   page.xpath('.//h1')[0].text='Die Person hinter den Bildern.'
  if name=='clientwork':
+  for grid in page.xpath('.//*[@data-gallery="winstage"]'):
+   grid.set('class','video-grid portrait-grid no-collapse')
   first=page.xpath('./div')[0]
   teaser=html.fromstring('<section class="client-banner section-wrap"><span class="eyebrow">Content / 2026</span><h2>Foto Schneider</h2><p>Reels, Produktstories und Behind the Scenes.</p><a class="pill" href="foto-schneider.html">Projekt entdecken ↗</a></section>');page.insert(page.index(first)+1,teaser)
  sections=page.xpath('.//section[@id]')

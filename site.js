@@ -21,3 +21,60 @@ document.querySelectorAll('.image-gallery img').forEach(img=>{img.addEventListen
 qs('.lightbox-close')?.addEventListener('click',()=>dialog.close());dialog?.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});dialog?.addEventListener('close',()=>{qs('#lightbox-media').replaceChildren();document.body.classList.remove('modal-open');lastFocus?.focus()});
 dialog?.querySelectorAll('[data-direction]').forEach(b=>b.addEventListener('click',()=>showMedia(current+Number(b.dataset.direction))));
 document.addEventListener('keydown',e=>{if(dialog?.open&&media.length){if(e.key==='ArrowRight')showMedia(current+1);if(e.key==='ArrowLeft')showMedia(current-1)}});
+
+// Global search is available from every portfolio page.
+const searchButton=document.createElement('button');
+searchButton.id='global-search-toggle';searchButton.textContent='Suche';
+searchButton.setAttribute('aria-label','Website durchsuchen');
+searchButton.setAttribute('aria-haspopup','dialog');
+qs('.header-buttons')?.prepend(searchButton);
+const searchDialog=document.createElement('dialog');
+searchDialog.id='global-search';searchDialog.setAttribute('aria-labelledby','global-search-title');
+searchDialog.innerHTML='<div class="search-heading"><h2 id="global-search-title">Website durchsuchen</h2><button class="search-close" aria-label="Suche schließen">Schließen ×</button></div><label for="global-query">Projekte, Galerien und Beiträge</label><input id="global-query" type="search" placeholder="Zum Beispiel: Winstage, Konzert, Lumix" autocomplete="off" autofocus><p id="global-search-status" role="status"></p><div id="global-search-results"></div>';
+document.body.append(searchDialog);
+const globalQuery=searchDialog.querySelector('input'),resultList=qs('#global-search-results'),resultStatus=qs('#global-search-status');
+let searchEntries,searchLoading,searchFocus;
+const normalizeSearch=s=>s.toLocaleLowerCase('de').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ß/g,'ss');
+function renderGlobalSearch(){
+ if(!searchEntries)return;
+ const query=normalizeSearch(globalQuery.value.trim()),terms=query.split(/\s+/).filter(Boolean);
+ const matches=searchEntries.map((entry,i)=>{
+  const title=normalizeSearch(entry.title),body=normalizeSearch(entry.title+' '+entry.category+' '+entry.text);
+  if(!terms.every(term=>body.includes(term)))return null;
+  const score=(title===query?100:0)+(query&&title.includes(query)?30:0)+terms.filter(t=>title.includes(t)).length*10+(entry.category==='Seite'?1:0);
+  return {entry,score,i};
+ }).filter(Boolean).sort((a,b)=>b.score-a.score||a.i-b.i);
+ const visible=query?matches.slice(0,40):matches.filter(m=>m.entry.category==='Seite');
+ resultStatus.textContent=query?(matches.length?`${matches.length} Treffer${matches.length>40?' · Erste 40 angezeigt':''}`:'Keine Treffer. Probiere einen anderen Begriff.'):'Wähle einen Bereich oder suche nach einer Arbeit.';
+ resultList.replaceChildren();
+ visible.forEach(({entry})=>{
+  const link=document.createElement('a');link.className='search-result';link.href=entry.url;
+  if(entry.url.startsWith('https://')){link.target='_blank';link.rel='noopener noreferrer'}
+  if(entry.image){const img=document.createElement('img');img.src=entry.image;img.alt='';img.loading='lazy';link.append(img)}
+  const details=document.createElement('div'),category=document.createElement('span'),title=document.createElement('strong'),description=document.createElement('p');
+  category.textContent=entry.category;title.textContent=entry.title;description.textContent=entry.description;
+  details.append(category,title,description);link.append(details);resultList.append(link);
+  link.addEventListener('click',()=>searchDialog.close());
+ });
+}
+async function openGlobalSearch(){
+ if(searchDialog.open)return;
+ searchFocus=document.activeElement;searchDialog.showModal();document.body.classList.add('modal-open');globalQuery.focus();
+ resultStatus.textContent='Suche wird geladen …';
+ try{
+  searchLoading||=fetch('search-index.json').then(response=>{if(!response.ok)throw Error('Search unavailable');return response.json()});
+  searchEntries=await searchLoading;renderGlobalSearch();
+ }catch{searchLoading=null;resultStatus.textContent='Die Suche konnte nicht geladen werden. Bitte erneut öffnen.'}
+}
+searchButton.addEventListener('click',openGlobalSearch);
+globalQuery.addEventListener('input',renderGlobalSearch);
+searchDialog.querySelector('.search-close').addEventListener('click',()=>searchDialog.close());
+searchDialog.addEventListener('click',e=>{if(e.target===searchDialog)searchDialog.close()});
+searchDialog.addEventListener('close',()=>{if(!dialog?.open)document.body.classList.remove('modal-open');searchFocus?.focus()});
+document.addEventListener('keydown',e=>{
+ const typing=e.target.matches('input,textarea,[contenteditable="true"]');
+ if((e.key.toLowerCase()==='k'&&(e.ctrlKey||e.metaKey))||(e.key==='/'&&!typing&&!dialog?.open)){
+  e.preventDefault();openGlobalSearch();
+ }
+});
+searchDialog.addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();searchDialog.close()}});

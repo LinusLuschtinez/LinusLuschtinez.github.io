@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://linusluschtinez.github.io/sitemap.xml

@@ -89,3 +89,7 @@ archive='<section class="section-wrap"><div class="section-heading"><div><span c
 (ROOT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<url><loc>https://linusluschtinez.github.io/'+('' if n=='index.html' else n)+'</loc></url>' for n in ['index.html','foto-schneider.html']+[n+'.html' for n in descs])+'</urlset>')
 (ROOT/'robots.txt').write_text('User-agent: *\nAllow: /\nSitemap: https://linusluschtinez.github.io/sitemap.xml\n')
 print('10 eigenständige Portfolio-Seiten erstellt; Bestandsgalerien erhalten.')
+
+# Refresh the global index whenever content changes.
+import runpy
+runpy.run_path(str(ROOT/'tools/search_index.py'))

@@ -13,3 +13,5 @@ html.dark{--paper:#161815;--ink:#f1f0e9;--muted:#b6b8ae;--line:#393c35;--surface
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
 
 iframe{display:block;width:100%;max-width:100%;aspect-ratio:16/9;height:auto;border:0}.video-item{min-width:0}.page-header h1{overflow-wrap:break-word}
+
+#Winstage .portrait video{aspect-ratio:9/16;max-height:none;object-fit:contain}
